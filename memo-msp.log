@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.5.22)  8 JUN 2020 15:35
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.5.22)  8 JUN 2020 16:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**memo-template.tex
-(./memo-template.tex
+**memo-msp.tex
+(./memo-msp.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-05-15> (./krantz.cls
 Document Class: krantz 2005/09/16 v1.4f Standard LaTeX document class
@@ -604,9 +604,9 @@ Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 \@indexfile=\write4
-\openout4 = `memo-template.idx'.
+\openout4 = `memo-msp.idx'.
 
-Writing index file memo-template.idx
+Writing index file memo-msp.idx
 (/home/djuhnix/.TinyTeX/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/21 v2.20.5
 \thm@style=\toks23
@@ -624,40 +624,40 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip90
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count299
-) (./memo-template.aux)
-\openout1 = `memo-template.aux'.
+) (./memo-msp.aux)
+\openout1 = `memo-msp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 5.72122pt on input line 188.
+(Font)              scaled to size 5.72122pt on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 188.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 188.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 188.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 188.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 188.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 189.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 189.
 
 Package fontspec Info: latinmodern-math scale = 0.9999935630674556.
 
@@ -686,7 +686,7 @@ pt=math;language=dflt;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 188.
+(Font)              scaled to size 11.0pt on input line 189.
 
 Package fontspec Info: latinmodern-math scale = 0.9999935630674556.
 
@@ -726,18 +726,18 @@ pt=math;language=dflt;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 188.
+(Font)              scaled to size 11.0pt on input line 189.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 188.
+(Font)              `operators' in the math version `normal' on input line 189.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 188.
+ line 189.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 188.
+(Font)              `operators' in the math version `bold' on input line 189.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 188.
+t line 189.
 
 Package fontspec Info: latinmodern-math scale = 0.9999935630674556.
 
@@ -825,15 +825,15 @@ t=math;language=dflt;mapping=tex-text;"
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 188.
+(Font)              `symbols' in the math version `normal' on input line 189.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 188.
+t line 189.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 188.
+(Font)              `symbols' in the math version `bold' on input line 189.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 188.
+t line 189.
 
 Package fontspec Info: latinmodern-math scale = 0.9999935630674556.
 
@@ -904,18 +904,18 @@ pt=math;language=dflt;mapping=tex-text;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-88.
+89.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 188.
+t line 189.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 188
+(Font)              `largesymbols' in the math version `bold' on input line 189
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 188.
+t line 189.
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring ON on input line 188.
+Package hyperref Info: Link coloring ON on input line 189.
 (/home/djuhnix/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/home/djuhnix/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -927,79 +927,79 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count300
 )
-LaTeX Info: Redefining \ref on input line 188.
-LaTeX Info: Redefining \pageref on input line 188.
-LaTeX Info: Redefining \nameref on input line 188.
-(./memo-template.out) (./memo-template.out)
+LaTeX Info: Redefining \ref on input line 189.
+LaTeX Info: Redefining \pageref on input line 189.
+LaTeX Info: Redefining \nameref on input line 189.
+(./memo-msp.out) (./memo-msp.out)
 \@outlinefile=\write5
-\openout5 = `memo-template.out'.
+\openout5 = `memo-msp.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/it' will be
-(Font)              scaled to size 9.53537pt on input line 190.
+(Font)              scaled to size 9.53537pt on input line 191.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 7.6283pt on input line 190.
+(Font)              scaled to size 7.6283pt on input line 191.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/b/n' will be
-(Font)              scaled to size 22.3894pt on input line 190.
-LaTeX Font Info:    Calculating math sizes for size <24> on input line 190.
+(Font)              scaled to size 22.3894pt on input line 191.
+LaTeX Font Info:    Calculating math sizes for size <24> on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 24.0pt on input line 190.
+(Font)              scaled to size 24.0pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 16.79993pt on input line 190.
+(Font)              scaled to size 16.79993pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 190.
+(Font)              scaled to size 12.0pt on input line 191.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-90.
+91.
 (/home/djuhnix/.TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 24.0022pt on input line 190.
+(Font)              scaled to size 24.0022pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 16.80145pt on input line 190.
+(Font)              scaled to size 16.80145pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 190.
+(Font)              scaled to size 12.0011pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 23.99744pt on input line 190.
+(Font)              scaled to size 23.99744pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 16.79813pt on input line 190.
+(Font)              scaled to size 16.79813pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 190.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 190
+(Font)              scaled to size 11.99872pt on input line 191.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 191
 .
 (/home/djuhnix/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 190
+LaTeX Font Info:    Trying to load font information for U+msb on input line 191
 .
 (/home/djuhnix/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 16.01935pt on input line 190.
+(Font)              scaled to size 16.01935pt on input line 191.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 9.53537pt on input line 190.
+(Font)              scaled to size 9.53537pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 190.
+(Font)              scaled to size 10.0pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 190.
+(Font)              scaled to size 7.0pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 190.
+(Font)              scaled to size 5.0pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 190.
+(Font)              scaled to size 10.00092pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 190.
+(Font)              scaled to size 7.00064pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 190.
+(Font)              scaled to size 5.00046pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 190.
+(Font)              scaled to size 9.99893pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 190.
+(Font)              scaled to size 6.99925pt on input line 191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 190.
+(Font)              scaled to size 4.99947pt on input line 191.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 6.67476pt on input line 190.
+(Font)              scaled to size 6.67476pt on input line 191.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1043,9 +1043,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 ]
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 13.73093pt on input line 193.
+(Font)              scaled to size 13.73093pt on input line 194.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 11.44244pt on input line 195.
+(Font)              scaled to size 11.44244pt on input line 196.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1084,63 +1084,63 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [1]
-Underfull \vbox (badness 10000) detected at line 205
+Underfull \vbox (badness 10000) detected at line 206
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 205
+Overfull \hbox (395.75pt too wide) detected at line 206
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 205
+Underfull \vbox (badness 10000) detected at line 206
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 205
+Overfull \hbox (395.75pt too wide) detected at line 206
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 205
+Underfull \vbox (badness 10000) detected at line 206
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 205
+Overfull \hbox (395.75pt too wide) detected at line 206
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 205
+Underfull \vbox (badness 10000) detected at line 206
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 205
+Overfull \hbox (395.75pt too wide) detected at line 206
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 205
+Underfull \hbox (badness 10000) detected at line 206
 []
  []
 
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/sl' in size <18> not available
 
 (Font)              Font shape `TU/Alegreya(0)/m/it' tried instead on input lin
-e 205.
+e 206.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/it' will be
-(Font)              scaled to size 17.16367pt on input line 205.
+(Font)              scaled to size 17.16367pt on input line 206.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/b/sl' in size <18> not available
 
 (Font)              Font shape `TU/Alegreya(0)/b/it' tried instead on input lin
-e 205.
+e 206.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/b/it' will be
-(Font)              scaled to size 16.79205pt on input line 205.
-(./memo-template.toc
+(Font)              scaled to size 16.79205pt on input line 206.
+(./memo-msp.toc
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/b/n' will be
 (Font)              scaled to size 10.26181pt on input line 2.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/it' will be
-(Font)              scaled to size 10.4889pt on input line 5.
+(Font)              scaled to size 10.4889pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 7.7pt on input line 10.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
@@ -1159,7 +1159,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 5.4994pt on input line 10.
 )
 \tf@toc=\write6
-\openout6 = `memo-template.toc'.
+\openout6 = `memo-msp.toc'.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1167,62 +1167,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [2
-
-]
-Underfull \vbox (badness 10000) detected at line 207
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 207
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 207
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 207
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 207
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 207
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 207
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 207
-[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 207
-[]
- []
-
-
-Package hyperref Warning: bookmark level for unknown fm defaults to 0.
-
-(./memo-template.lot)
-\tf@lot=\write7
-\openout7 = `memo-template.lot'.
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[3
-
 
 ]
 Underfull \vbox (badness 10000) detected at line 208
@@ -1265,9 +1209,65 @@ Underfull \hbox (badness 10000) detected at line 208
 []
  []
 
-(./memo-template.lof)
+
+Package hyperref Warning: bookmark level for unknown fm defaults to 0.
+
+(./memo-msp.lot)
+\tf@lot=\write7
+\openout7 = `memo-msp.lot'.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[3
+
+
+]
+Underfull \vbox (badness 10000) detected at line 209
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 209
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 209
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 209
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 209
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 209
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 209
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 209
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 209
+[]
+ []
+
+(./memo-msp.lof)
 \tf@lof=\write8
-\openout8 = `memo-template.lof'.
+\openout8 = `memo-msp.lof'.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1278,43 +1278,43 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \vbox (badness 10000) detected at line 210
+Underfull \vbox (badness 10000) detected at line 211
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 210
+Overfull \hbox (395.75pt too wide) detected at line 211
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 210
+Underfull \vbox (badness 10000) detected at line 211
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 210
+Overfull \hbox (395.75pt too wide) detected at line 211
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 210
+Underfull \vbox (badness 10000) detected at line 211
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 210
+Overfull \hbox (395.75pt too wide) detected at line 211
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 210
+Underfull \vbox (badness 10000) detected at line 211
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 210
+Overfull \hbox (395.75pt too wide) detected at line 211
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 210
+Underfull \hbox (badness 10000) detected at line 211
 []
  []
 
@@ -1327,44 +1327,46 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \vbox (badness 10000) detected at line 224
+Underfull \vbox (badness 10000) detected at line 225
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 224
+Overfull \hbox (395.75pt too wide) detected at line 225
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 224
+Underfull \vbox (badness 10000) detected at line 225
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 224
+Overfull \hbox (395.75pt too wide) detected at line 225
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 224
+Underfull \vbox (badness 10000) detected at line 225
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 224
+Overfull \hbox (395.75pt too wide) detected at line 225
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 224
+Underfull \vbox (badness 10000) detected at line 225
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 224
+Overfull \hbox (395.75pt too wide) detected at line 225
 []
  []
 
-Chapitre 1.
-LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 22.88489pt on input line 224.
+
+Underfull \hbox (badness 10000) detected at line 225
+[]
+ []
+
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1410,65 +1412,19 @@ Overfull \hbox (395.75pt too wide) detected at line 243
 []
  []
 
-Chapitre 2.
+Chapitre 1.
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
+(Font)              scaled to size 22.88489pt on input line 243.
 
-LaTeX Warning: Reference `methods' on page 1 undefined on input line 245.
+Package hyperref Warning: Suppressing empty link on input line 245.
+
+
+LaTeX Warning: Reference `methods' on page 3 undefined on input line 245.
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <11> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 251.
-File: memo-template_files/figure-latex/nice-fig-1.pdf Graphic file (type pdf)
-<use memo-template_files/figure-latex/nice-fig-1.pdf>
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[1
-
-
-
-]
-
-Package natbib Warning: Citation `R-bookdown' on page 2 undefined on input line
- 311.
-
-[2]
-Underfull \vbox (badness 10000) detected at line 314
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 314
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 314
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 314
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 314
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 314
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 314
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 314
-[]
- []
-
-Chapitre 3.
+File: memo-msp_files/figure-latex/nice-fig-1.pdf Graphic file (type pdf)
+<use memo-msp_files/figure-latex/nice-fig-1.pdf>
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1477,90 +1433,43 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [3
 
 
-]
-Underfull \vbox (badness 10000) detected at line 319
+] [4]
+Underfull \vbox (badness 10000) detected at line 314
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 319
+Overfull \hbox (395.75pt too wide) detected at line 314
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 319
+Underfull \vbox (badness 10000) detected at line 314
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 319
+Overfull \hbox (395.75pt too wide) detected at line 314
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 319
+Underfull \vbox (badness 10000) detected at line 314
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 319
+Overfull \hbox (395.75pt too wide) detected at line 314
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 319
+Underfull \vbox (badness 10000) detected at line 314
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 319
+Overfull \hbox (395.75pt too wide) detected at line 314
 []
  []
 
-Chapitre 4.
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[4
-
-
-]
-Underfull \vbox (badness 10000) detected at line 324
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 324
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 324
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 324
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 324
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 324
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 324
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 324
-[]
- []
-
-Chapitre 5.
-LaTeX Font Info:    Font shape `TU/Alegreya(0)/b/n' will be
-(Font)              scaled to size 11.1947pt on input line 329.
+Chapitre 2.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1570,48 +1479,140 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \vbox (badness 10000) detected at line 335
+Underfull \vbox (badness 10000) detected at line 319
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 335
+Overfull \hbox (395.75pt too wide) detected at line 319
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 335
+Underfull \vbox (badness 10000) detected at line 319
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 335
+Overfull \hbox (395.75pt too wide) detected at line 319
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 335
+Underfull \vbox (badness 10000) detected at line 319
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 335
+Overfull \hbox (395.75pt too wide) detected at line 319
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 335
+Underfull \vbox (badness 10000) detected at line 319
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 335
+Overfull \hbox (395.75pt too wide) detected at line 319
 []
  []
 
-Chapitre 6.
-(./memo-template.bbl
+Chapitre 3.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
 [6
+
+
+]
+Underfull \vbox (badness 10000) detected at line 324
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 324
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 324
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 324
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 324
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 324
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 324
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 324
+[]
+ []
+
+Chapitre 4.
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/b/n' will be
+(Font)              scaled to size 11.1947pt on input line 329.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[7
+
+
+]
+Underfull \vbox (badness 10000) detected at line 335
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 335
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 335
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 335
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 335
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 335
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 335
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 335
+[]
+ []
+
+Chapitre 5.
+(./memo-msp.bbl
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[8
 
 
 ]
@@ -1655,38 +1656,35 @@ Underfull \hbox (badness 10000) detected at line 1
 []
  []
 
-) (./memo-template.ind)
-
-Package natbib Warning: There were undefined citations.
-
+) (./memo-msp.ind)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 343.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[7
+[9
 
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 343.
-(./memo-template.aux)
+(./memo-msp.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 343.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 343.
-Package rerunfilecheck Info: File `memo-template.out' has not changed.
-(rerunfilecheck)             Checksum: F3961DE4A5672A2C3332504D5C2ECFC5;1516.
+Package rerunfilecheck Info: File `memo-msp.out' has not changed.
+(rerunfilecheck)             Checksum: 9BA80DE2A7A46FBCA70F0E87536BFCB8;1488.
 
 LaTeX Warning: There were undefined references.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 343.
  ) 
 Here is how much of TeX's memory you used:
- 18915 strings out of 481274
- 334831 string characters out of 5924738
- 759661 words of memory out of 5000000
- 36138 multiletter control sequences out of 15000+600000
+ 18918 strings out of 481274
+ 334700 string characters out of 5924738
+ 759920 words of memory out of 5000000
+ 36141 multiletter control sequences out of 15000+600000
  541818 words of font info for 112 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 53i,8n,121p,1312b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,8n,121p,1307b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on memo-template.pdf (15 pages).
+Output written on memo-msp.pdf (15 pages).

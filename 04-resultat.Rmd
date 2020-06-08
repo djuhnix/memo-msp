@@ -1,4 +1,4 @@
-# Applications
+# Résultat {#res}
 
 Some _significant_ applications are demonstrated in this chapter.
 
