@@ -1,3 +1,70 @@
 # Développement de la bibliothèque {#dev}
 
-Arrive inséssament sous peu
+Impossible de parler du développement de la bibliothèque sans aborder le programme que je me suis fixé pour le faire.
+
+## Programme de la mise en situation professionnelle.
+
+La mise en situation professionnelle, se déroule dans un cadre du confinement donc il m'était dans l'obligation de faire du télétravail.
+
+### Organisation
+
+Dès le début je me suis fait un programme pour répartir convenablement les 4 semaines qui m'étaient donné pour la réalisation de la bibliothèque. 
+
+- **Semaine 1** : documentation et découverte
+- **Semaine 2** : Conception de l'architecture de la bibliothèque et template de développement
+- **Semaine 3** : Développement de la bibliothèque
+- **Semaine 4** : 
+  - Poursuite de développement et distribution de la bibliothèque
+  - Finalisation du mémoire
+
+En plus de cette organisation hebdomadaire je me suis fixé un planning journalier.
+
+| Horaire           | Activité |
+|-------------------|----------|
+| **09h00 - 13h00** | Projet   |
+|      *Pause*      |          |
+| **15h00 - 17h00** | Projet   |
+|      *Pause*      |          |
+| **18h00 - 20h00** | Mémoire  |
+
+Je me suis également servi de trello qui fut d'une aide précieuse pour mettre en place toute cette organisation.
+
+### Impression sur le télétravail
+
+Objectivement j'ai pu respecté ce planning à 70%. Il est évident que travailler de chez soi n'est pas une compétence innée mais bien une compétence qui se pratique et s'améliore avec l'expérience. Il faut bien sûr apprendre à faire l'impasse sur certains divertissement sans pour autant se priver.
+
+Avant de réellement commencer le développement de la bibliothèque il m'as fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j'en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j'ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.
+
+### PHP FFI
+
+L’extension FFI de PHP disponible à partir de la version 7.4 est obligatoirement pour développer et faire fonctionner la bibliothèque. Elle est intégré mais "inactive" par défaut [@the_php_group_ffi_2019] sauf si l'on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s'assurer d'avoir la librairie FFI `libffi` installé sur sa machine. [Sourceware libffi](https://sourceware.org/libffi/).
+
+#### Installation de `libffi`
+
+- Sur linux (Debian pour moi) la librairie est accessible via le paquet `libffi-dev`. Donc l'exécution de la commande suivante devrait installé le nécessaire pour activer l’extension FFI de PHP.
+
+```bash
+sudo apt install libffi-dev
+```
+
+- Sur Windows je n'ai pas explorer le processus d'installation mais il est disponible à l'adresse suivante :
+[Goldencode.com : Building and Installing libffi on Windows](https://proj.goldencode.com/projects/p2j/wiki/Building_and_Installing_libffi_on_Windows)
+
+#### Configuration/Activation de FFI
+
+Après avoir installé `libffi`, il faut désormais l'activer. On peut le faire de plusieurs manières mais je détaillerai uniquement celle que j'utilise pour faire fonctionner la bibliothèque. Voir \@ref(utils-pre-requis).
+
+### CSFML et SFML
+
+CSFML est juste un pont vers la bibliothèque graphique SFML il faut donc installer SFML si l'on veut utiliser CSFML.
+
+- Sur Debian, ces bibliothèques sont accessibles respectivement via les paquets `libsfml-dev` et `libcsfml-dev`
+
+```bash
+sudo apt install libsfml-dev libcsfml-dev
+```
+
+- Sur Windows on peut les télécharger sur le site officiel de la bibliothèque [sfml.org](https://www.sfml-dev.org/download.php)
+
+ Après avoir eu ces dépendances sur ma machine, j'ai pu découvrir comment fonctionnait CSFML et SFML d'abord puis j'ai été capable de réaliser un programme en C qui affiche une fenêtre. Par la suite j'ai également réussi à écrire un script qui ouvre une fenêtre en PHP (accessible sur le dépôt git) utilisant CSFML et FFI fraîchement installé.
+Maintenant que j'étais au point sur les dépendances de ma future bibliothèques j'ai pu commencé la phase de conception.

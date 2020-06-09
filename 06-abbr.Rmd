@@ -7,3 +7,20 @@ POO
     La programmation orientée objet (POO), ou programmation par objet, est un paradigme de programmation informatique. Il consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre.
     
     --- [@wikipedia_programmation_2020]
+  
+
+FFI
+
+: Foreign Function Interface
+
+    C'est un mécanisme par lequel un programme écrit dans un langage de programmation peut appeler des routines ou utiliser des services écrits dans un autre.
+
+
+URCA
+
+: Université de Reims Champagne Ardenne
+
+
+IUT-RCC
+
+: Institut Universitaire de Technologie de Reims-Châlons-Charleville

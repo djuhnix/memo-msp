@@ -9,7 +9,7 @@ Avant d'entrer dans le vif du sujet il est évident de définir le contexte dans
 En DUT Informatique on doit **obligatoirement** effectuer un stage de fin d'études en deuxième année. Le but premier de ce stage est d'appliquer les connaissances scolaire "théorique" apprise dans un contexte professionnel, c'est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l'on a appris mais aussi mais est aussi pour certains un accomplissement de vie d'étudiants. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires de ce diplôme ont la possibilité et la facilité d'entrer dans le monde professionnel car par 
 
 > "l'acquisition de compétences professionnelles multiples et une solide culture générale, le DUT vise la polyvalence."
-> --- [@onisep_dut)]
+> --- [@onisep_dut]
 
 Bien que la plupart préfèrent poursuivre leurs études.
 
@@ -55,4 +55,4 @@ Avec tout ce qui a été dit jusqu'à présent, il est vrai que la question sur 
 
 - L'ouverture de possibilité pour les projets de fin d'année, car cette bibliothèque pourra être réutiliser et favoriser la créativité des étudiants.
 
-Maintenant que nous savons pourquoi et quelle bibliothèque faut-il créer, il est temps d'entrer dans le vif du sujet et de parler du déroulement du développement de celle-ci.
+Maintenant que nous savons pourquoi et quelle bibliothèque faut-il créer, il est temps d'entrer dans le vif du sujet et de parler du déroulement du développement de celle-ci en commençant par l'organisation de mon temps pendant la mise en situation professionnelle.

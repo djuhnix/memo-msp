@@ -41,6 +41,46 @@
             urlcolor=Blue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.33,0.33,0.33}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.61,0.61,0.61}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.14,0.14,0.14}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.43,0.43,0.43}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
@@ -277,17 +317,128 @@ Avec tout ce qui a été dit jusqu'à présent, il est vrai que la question sur 
   L'ouverture de possibilité pour les projets de fin d'année, car cette bibliothèque pourra être réutiliser et favoriser la créativité des étudiants.
 \end{itemize}
 
-Maintenant que nous savons pourquoi et quelle bibliothèque faut-il créer, il est temps d'entrer dans le vif du sujet et de parler du déroulement du développement de celle-ci.
+Maintenant que nous savons pourquoi et quelle bibliothèque faut-il créer, il est temps d'entrer dans le vif du sujet et de parler du déroulement du développement de celle-ci en commençant par l'organisation de mon temps pendant la mise en situation professionnelle.
 
 \hypertarget{dev}{%
 \chapter{Développement de la bibliothèque}\label{dev}}
 
-Arrive inséssament sous peu
+Impossible de parler du développement de la bibliothèque sans aborder le programme que je me suis fixé pour le faire.
+
+\hypertarget{programme-de-la-mise-en-situation-professionnelle.}{%
+\section{Programme de la mise en situation professionnelle.}\label{programme-de-la-mise-en-situation-professionnelle.}}
+
+La mise en situation professionnelle, se déroule dans un cadre du confinement donc il m'était dans l'obligation de faire du télétravail.
+
+\hypertarget{organisation}{%
+\subsection{Organisation}\label{organisation}}
+
+Dès le début je me suis fait un programme pour répartir convenablement les 4 semaines qui m'étaient donné pour la réalisation de la bibliothèque.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Semaine 1} : documentation et découverte
+\item
+  \textbf{Semaine 2} : Conception de l'architecture de la bibliothèque et template de développement
+\item
+  \textbf{Semaine 3} : Développement de la bibliothèque
+\item
+  \textbf{Semaine 4} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Poursuite de développement et distribution de la bibliothèque
+  \item
+    Finalisation du mémoire
+  \end{itemize}
+\end{itemize}
+
+En plus de cette organisation hebdomadaire je me suis fixé un planning journalier.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Horaire & Activité\tabularnewline
+\midrule
+\endhead
+\textbf{09h00 - 13h00} & Projet\tabularnewline
+\emph{Pause} &\tabularnewline
+\textbf{15h00 - 17h00} & Projet\tabularnewline
+\emph{Pause} &\tabularnewline
+\textbf{18h00 - 20h00} & Mémoire\tabularnewline
+\bottomrule
+\end{longtable}
+
+Je me suis également servi de trello qui fut d'une aide précieuse pour mettre en place toute cette organisation.
+
+\hypertarget{impression-sur-le-tuxe9luxe9travail}{%
+\subsection{Impression sur le télétravail}\label{impression-sur-le-tuxe9luxe9travail}}
+
+Objectivement j'ai pu respecté ce planning à 70\%. Il est évident que travailler de chez soi n'est pas une compétence innée mais bien une compétence qui se pratique et s'améliore avec l'expérience. Il faut bien sûr apprendre à faire l'impasse sur certains divertissement sans pour autant se priver.
+
+Avant de réellement commencer le développement de la bibliothèque il m'as fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j'en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j'ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.
+
+\hypertarget{php-ffi}{%
+\subsection{PHP FFI}\label{php-ffi}}
+
+L'extension FFI de PHP disponible à partir de la version 7.4 est obligatoirement pour développer et faire fonctionner la bibliothèque. Elle est intégré mais ``inactive'' par défaut \citep{the_php_group_ffi_2019} sauf si l'on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s'assurer d'avoir la librairie FFI \texttt{libffi} installé sur sa machine. \href{https://sourceware.org/libffi/}{Sourceware libffi}.
+
+\hypertarget{installation-de-libffi}{%
+\subsubsection{\texorpdfstring{Installation de \texttt{libffi}}{Installation de libffi}}\label{installation-de-libffi}}
+
+\begin{itemize}
+\tightlist
+\item
+  Sur linux (Debian pour moi) la librairie est accessible via le paquet \texttt{libffi-dev}. Donc l'exécution de la commande suivante devrait installé le nécessaire pour activer l'extension FFI de PHP.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt install libffi-dev}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Sur Windows je n'ai pas explorer le processus d'installation mais il est disponible à l'adresse suivante : \href{https://proj.goldencode.com/projects/p2j/wiki/Building_and_Installing_libffi_on_Windows}{Goldencode.com : Building and Installing libffi on Windows}
+\end{itemize}
+
+\hypertarget{configurationactivation-de-ffi}{%
+\subsubsection{Configuration/Activation de FFI}\label{configurationactivation-de-ffi}}
+
+Après avoir installé \texttt{libffi}, il faut désormais l'activer. On peut le faire de plusieurs manières mais je détaillerai uniquement celle que j'utilise pour faire fonctionner la bibliothèque. Voir \ref{utils-pre-requis}.
+
+\hypertarget{csfml-et-sfml}{%
+\subsection{CSFML et SFML}\label{csfml-et-sfml}}
+
+CSFML est juste un pont vers la bibliothèque graphique SFML il faut donc installer SFML si l'on veut utiliser CSFML.
+
+\begin{itemize}
+\tightlist
+\item
+  Sur Debian, ces bibliothèques sont accessibles respectivement via les paquets \texttt{libsfml-dev} et \texttt{libcsfml-dev}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt install libsfml-dev libcsfml-dev}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Sur Windows on peut les télécharger sur le site officiel de la bibliothèque \href{https://www.sfml-dev.org/download.php}{sfml.org}
+\end{itemize}
+
+Après avoir eu ces dépendances sur ma machine, j'ai pu découvrir comment fonctionnait CSFML et SFML d'abord puis j'ai été capable de réaliser un programme en C qui affiche une fenêtre. Par la suite j'ai également réussi à écrire un script qui ouvre une fenêtre en PHP (accessible sur le dépôt git) utilisant CSFML et FFI fraîchement installé. Maintenant que j'étais au point sur les dépendances de ma future bibliothèques j'ai pu commencé la phase de conception.
 
 \hypertarget{utils}{%
 \chapter{Utilisation de la bibliothèque}\label{utils}}
 
-Coming soon
+\hypertarget{utils-pre-requis}{%
+\section{Pré-requis}\label{utils-pre-requis}}
 
 \hypertarget{res}{%
 \chapter{Résultat}\label{res}}
@@ -317,6 +468,14 @@ Programmation Orientée Objets
 La programmation orientée objet (POO), ou programmation par objet, est un paradigme de programmation informatique. Il consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre.
 
 --- \citep{wikipedia_programmation_2020}
+\item[FFI]
+Foreign Function Interface
+
+C'est un mécanisme par lequel un programme écrit dans un langage de programmation peut appeler des routines ou utiliser des services écrits dans un autre.
+\item[URCA]
+Université de Reims Champagne Ardenne
+\item[IUT-RCC]
+Institut Universitaire de Technologie de Reims-Châlons-Charleville
 \end{description}
 
 \backmatter
