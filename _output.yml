@@ -1,13 +1,13 @@
 bookdown::gitbook:
   includes:
-    after_body: docs/hypothesis.html
+    after_body: assets/inc/hypothesis.html
   css:
     - assets/css/style.css
     - assets/css/toc.css
   config:
     toc:
       before: |
-        <li><a href="./">Memo Template - title to be changed</a></li>
+        <li><a href="./">Mémoire de mise en situation professionnelle</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: [pdf]

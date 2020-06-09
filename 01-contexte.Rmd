@@ -1,21 +1,25 @@
 # Contexte {#context}
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+## Mise en situation professionnelle
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+Avant d'entrer dans le vif du sujet il est évident de définir le contexte dans lequel je me suis vu développer cette bibliothèque.
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
+### Le stage en DUT Informatique
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+En DUT Informatique on doit **obligatoirement** effectuer un stage de fin d'études en deuxième année. Le but premier de ce stage est d'appliquer les connaissances scolaire "théorique" apprise dans un contexte professionnel, c'est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l'on a appris mais aussi mais est aussi pour certains un accomplissement de vie d'étudiants. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires ce diplôme ont la possibilité et la facilité d'entrer dans le monde professionnel car par 
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
+> "l'acquisition de compétences professionnelles multiples et une solide culture générale, le DUT vise la polyvalence." 
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+[@onisep_dut)]
+
+Bien que la plupart préfèrent poursuivre leurs études.
+
+### Annulation de stage
+
+En ce qui me concerne, mon stage était censé se dérouler à la direction du numérique de l'Université de Reims Champagne Ardenne (URCA). "Censé" car le contexte de ces derniers mois lié à la pandémie du Covid-19 n'a pas permis la tenue de celui-ci. Malheureusement plusieurs stage ont ainsi été annulé parce qu'il n'ont pas pu non plus se poursuivre en télétravail. Il a donc fallu que le personnel de l'université et les responsables de formations trouvent une solution pour palier à cette situation. D'où la **mise en situation professionnelle** dont le but ne s'éloigne pas de celui du stage, cependant la mise en situation professionnelle en DUT Informatique s'apparente plus à un projet à réaliser seul(e), en télétravail, sous le tutorat d'un enseignant. Elle :
+
+- fait confronter l'étudiant à une problématique en rapport avec son choix d'orientation
+- permet d'approfondir les connaissances déjà acquises et de découvrir de nouvelles
+- ouvre vers de nouvelles méthodes de travail.
+
+Et c'est *mes* méthodes de travail que je détaillerai dans la suite. Mais avant il est bon de se pencher sur le pourquoi et le comment j'ai eu comme sujet de mise en situation professionnelle réalisation d'une bibliothèque.

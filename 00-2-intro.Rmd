@@ -1,5 +1,3 @@
-\mainmatter
-
 # Introduction {- #intro}
 
 Apprendre la programmation ne devrait pas être une épreuve, mais plutôt un plaisir. Il est vrai qu'il existe beaucoup de style de programmation, de la programmation procédurale à la programmation logique en passant par la programmation orientée objet. Chacun peut avoir un avis sur le sujet mais peut importe le style choisie apprendre à programmer devrait être le plus simple possible pour ouvrir ce merveilleux monde au plus grand nombre.

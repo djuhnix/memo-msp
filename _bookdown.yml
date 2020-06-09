@@ -1,4 +1,4 @@
-book_filename: "memo-msp"
+book_filename: "GERMAIN-memo-msp"
 repo: https://github.com/djuhnix/memo-msp/
 output_dir: docs
 delete_merged_file: true
