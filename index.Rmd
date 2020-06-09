@@ -1,12 +1,14 @@
 --- 
 title: "Memoire de mise en situation professionnel - Créer une bibliothèque PHP"
+favicon: assets/img/package-icon.png
 author: "Germain Jr. OLEA-OYOUGOU"
+description: "Mémoire du projet de mise en situation professionnelle sur la création d'une bibliothèque PHP"
 thanks: |
   IUT RCC  
   Barbara ROMANIUK
 date: '`r format(Sys.Date(), format="%d %B %Y")`'
 site: bookdown::bookdown_site
-cover-image: assets/img/cover.png
+cover-image: assets/img/undraw_developer_activity.png
 documentclass: krantz
 classoption:
   - a4paper
@@ -19,7 +21,6 @@ bibliography:
   - packages.bib
 biblio-style: apalike
 link-citations: yes
-description: "Mémoire du projet de mise en situation professionnelle sur la création d'une bibliothèque PHP"
 mainfont: Alegreya
 fontsize: 11pt
 github-repo: djuhnix/memo-msp
