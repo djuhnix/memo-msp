@@ -1,0 +1,9 @@
+# Liste des Abbreviations {-}
+
+POO
+
+: Programmation Orientée Objets
+
+    La programmation orientée objet (POO), ou programmation par objet, est un paradigme de programmation informatique. Il consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre.
+    
+    --- [@wikipedia_programmation_2020]

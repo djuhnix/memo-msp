@@ -23,7 +23,9 @@ bookdown::pdf_book:
   citation_package: natbib
   template: null
   keep_tex: yes
-  pandoc_args: [--top-level-division=chapter, --wrap=none]
+  pandoc_args:
+    - --top-level-division=chapter
+    - --wrap=none
   df_print: kable
   toc_depth: 3
   toc_unnumbered: no
