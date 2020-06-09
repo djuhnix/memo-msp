@@ -77,6 +77,12 @@
 <li class="chapter" data-level="1.1.1" data-path="context.html"><a href="context.html#le-stage-en-dut-informatique"><i class="fa fa-check"></i><b>1.1.1</b> Le stage en DUT Informatique</a></li>
 <li class="chapter" data-level="1.1.2" data-path="context.html"><a href="context.html#annulation-de-stage"><i class="fa fa-check"></i><b>1.1.2</b> Annulation de stage</a></li>
 </ul></li>
+<li class="chapter" data-level="1.2" data-path="context.html"><a href="context.html#pourquoi-faire-une-bibliothèque-en-php"><i class="fa fa-check"></i><b>1.2</b> Pourquoi faire une bibliothèque en PHP</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="context.html"><a href="context.html#larrière-plan"><i class="fa fa-check"></i><b>1.2.1</b> L’arrière-plan</a></li>
+<li class="chapter" data-level="1.2.2" data-path="context.html"><a href="context.html#le-problème-avec-php"><i class="fa fa-check"></i><b>1.2.2</b> Le problème avec PHP</a></li>
+<li class="chapter" data-level="1.2.3" data-path="context.html"><a href="context.html#lintervention-de-germain"><i class="fa fa-check"></i><b>1.2.3</b> L’intervention de Germain</a></li>
+<li class="chapter" data-level="1.2.4" data-path="context.html"><a href="context.html#la-pertinence-du-projets"><i class="fa fa-check"></i><b>1.2.4</b> La pertinence du projets</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="dev.html"><a href="dev.html"><i class="fa fa-check"></i><b>2</b> Développement de la bibliothèque</a></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a></li>
@@ -113,11 +119,11 @@
 <p>Avant d’entrer dans le vif du sujet il est évident de définir le contexte dans lequel je me suis vu développer cette bibliothèque.</p>
 <div id="le-stage-en-dut-informatique" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Le stage en DUT Informatique</h3>
-<p>En DUT Informatique on doit <strong>obligatoirement</strong> effectuer un stage de fin d’études en deuxième année. Le but premier de ce stage est d’appliquer les connaissances scolaire “théorique” apprise dans un contexte professionnel, c’est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l’on a appris mais aussi mais est aussi pour certains un accomplissement de vie d’étudiants. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires ce diplôme ont la possibilité et la facilité d’entrer dans le monde professionnel car par</p>
+<p>En DUT Informatique on doit <strong>obligatoirement</strong> effectuer un stage de fin d’études en deuxième année. Le but premier de ce stage est d’appliquer les connaissances scolaire “théorique” apprise dans un contexte professionnel, c’est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l’on a appris mais aussi mais est aussi pour certains un accomplissement de vie d’étudiants. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires de ce diplôme ont la possibilité et la facilité d’entrer dans le monde professionnel car par</p>
 <blockquote>
-<p>“l’acquisition de compétences professionnelles multiples et une solide culture générale, le DUT vise la polyvalence.”</p>
+<p>“l’acquisition de compétences professionnelles multiples et une solide culture générale, le DUT vise la polyvalence.”
+— <span class="citation">(Onisep <a href="#ref-onisep_dut">2019</a>))</span></p>
 </blockquote>
-<p><span class="citation">(Onisep <a href="#ref-onisep_dut">2019</a>))</span></p>
 <p>Bien que la plupart préfèrent poursuivre leurs études.</p>
 </div>
 <div id="annulation-de-stage" class="section level3">
@@ -129,6 +135,35 @@
 <li>ouvre vers de nouvelles méthodes de travail.</li>
 </ul>
 <p>Et c’est <em>mes</em> méthodes de travail que je détaillerai dans la suite. Mais avant il est bon de se pencher sur le pourquoi et le comment j’ai eu comme sujet de mise en situation professionnelle réalisation d’une bibliothèque.</p>
+</div>
+</div>
+<div id="pourquoi-faire-une-bibliothèque-en-php" class="section level2">
+<h2><span class="header-section-number">1.2</span> Pourquoi faire une bibliothèque en PHP</h2>
+<p>Le DUT Informatique est une formation généraliste, on y vois donc, de façon très théorique pour certains, un peu de chaque domaine du numérique. Mais la programmation fait quand même partie des matières principales. Et la Programmation Orientée Objet est le principal paradigme de programmation que l’on apprend.</p>
+<div id="larrière-plan" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> L’arrière-plan</h3>
+<p>L’IUT utilisais auparavant le Java comme langage principale pour apprendre la POO, et pour ce faire les enseignants ont choisis une pédagogie orienté graphique permettant aux étudiants une facilité de compréhension et d’adaptation au langage puis à l’orienté objet.</p>
+<p>L’objectif premier étant de réussir à manipuler de manière simple et intuitifs les objets d’une classe graphiquement, de telle sorte que ce soit facilement compréhensible par les nouveaux étudiants.</p>
+<p>Java était plus adapté et plus simple à mettre en place, une bibliothèque interne à été développé pour la cause. Cependant le Java a montrer certaines contraintes, la principale étant la lourdeur syntaxique, le java a donc été abandonné pour un premier contact avec la POO pour laisser place à du PHP typé. Cependant le côté graphique a été délaissé avec le Java étant donné qu’il était impossible de créer des éléments graphique car inexistence de bibliothèque et de fonctionnalité. Il est certes possible de le faire sous certaines contraintes dans un environnement web, mais cela éloignerait l’étudiant de la console, étant qu’il apprend et doit s’en servir en TP.</p>
+</div>
+<div id="le-problème-avec-php" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Le problème avec PHP</h3>
+<p>Le passage à PHP pour l’apprentissage de la POO à changer la manière de réaliser les travaux pratiques à l’IUT de Reims. L’utilisation de scritps créer par l’étudiant pour créer des figures et en faire objets graphiques affichable sur une fenêtre système pour comprendre les notions de classes, d’objets et d’instances était très efficace. Malheureusement PHP est un langage orienté web qui ne permet pas la création de fenêtre graphique sur le système d’exploitation et par conséquent pas de manipulation d’objets graphique sur cette dernière.</p>
+<p>L’arriver de l’extension FFI en PHP 7.4 a ouvert les possibilités du langage, il est désormais envisageable d’utiliser une bibliothèque C pour étendre les limites de ce dernier et apporter les fonctionnalités de la dite bibliothèques en PHP.</p>
+</div>
+<div id="lintervention-de-germain" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> L’intervention de Germain</h3>
+<p>Madame Romaniuk, maître de conférences en Informatique et ma tutrice pour cette mise en situation professionnel, m’a donc proposé de refaire la bibliothèque Java utilisé pour les TPs de POO en PHP avec l’aide de CSFML et FFI.</p>
+<p>CSFML est un pont écrit en C pour la bibliothèque SFML (Simple and Fast Media Libray). Cette dernière a le mérite d’être complète sur les fonctionnalités recherchées et n’a pas une grande courbe d’apprentissage pour être maîtrise quand on a un minimum de connaissance de C++. D’où le choix de madame Romaniuk pour l’implémentation de la nouvelle bibliothèque.</p>
+</div>
+<div id="la-pertinence-du-projets" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> La pertinence du projets</h3>
+<p>Avec tout ce qui a été dit jusqu’à présent, il est vrai que la question sur la pertinence de ce sujet ne se pose plus, mais il n’est pas trivial de rappeler que la création de cette bibliothèque ne résoudra pas tous les problèmes <strong>susmentionnés</strong>. Toutefois :</p>
+<ul>
+<li><p>Bien que les TPs de POO ne serait pas fortement affecté si cette bibliothèque ne naissait pas mais il est certains que son existence allégera fortement la tâche pédagogique des professeurs.</p></li>
+<li><p>L’ouverture de possibilité pour les projets de fin d’année, car cette bibliothèque pourra être réutiliser et favoriser la créativité des étudiants.</p></li>
+</ul>
+<p>Maintenant que nous savons pourquoi et quelle bibliothèque faut-il créer, il est temps d’entrer dans le vif du sujet et de parler du déroulement du développement de celle-ci.</p>
 
 </div>
 </div>
