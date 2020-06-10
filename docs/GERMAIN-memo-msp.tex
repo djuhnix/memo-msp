@@ -217,13 +217,13 @@ Barbara ROMANIUK}}
 \chapter*{Résumé}\label{ruxe9sumuxe9}}
 
 
-L'objectif de ce mémoire est de montrer comment on peut créer une bibliothèque qui pourra faciliter la découverte de la programmation orienté objet à des débutants via des travaux pratiques guidés. Il relate les faits de réalisations de mon projet de mise e situation professionnel. Pour faire très simple, la programmation orienté objet est un moyen de programmer avec une représentation du monde courant avec des ``objets algorithmiques''. Comme dit plus haut cela est une définition très minime car la programmation orienté objets ne se résume pas à ça. Il n'est donc pas si facile de cerner ce qu'est la programmation orientée objet via une simple définition, c'est pour cela qu'il existe différentes méthodes d'apprentissage et l'IUT de Reims s'oriente vers une pédagogie graphique soutenue par ses enseignant-chercheurs. Cependant le passage à PHP pour l'apprentissage de la programmation orienté objet à changer la manière de réaliser les travaux pratiques à l'IUT de Reims. En effet il n'existe pas à ce jour de bibliothèque graphique en PHP pour assurer la méthode d'enseignement de l'IUT de Reims. D'où nous vient la problématique de la création d'une bibliothèque PHP ayant la capacité de faire découvrir simplement la programmation orienté objet par la création d'objet graphique.
+L'objectif de ce mémoire est de montrer comment on peut créer une bibliothèque qui pourra faciliter la découverte de la Programmation Orientée Objets (POO) à des débutants via des travaux pratiques guidés. Il relate les faits de réalisations de mon projet de mise en situation professionnelle. Pour faire très simple, la POO est un moyen de programmer avec une représentation du monde courant avec des ``objets algorithmiques''. Comme dit plus haut cela est une définition très minime car la programmation orienté objets ne se résume pas à ça. Il n'est donc pas si facile de cerner ce qu'est la programmation orientée objet via une simple définition, c'est pour cela qu'il existe différentes méthodes d'apprentissage et l'IUT de Reims s'oriente vers une pédagogie graphique soutenue par ses enseignant-chercheurs. Cependant le passage à PHP pour l'apprentissage de la POO a changé la manière de réaliser les travaux pratiques pendant la formation. En effet il n'existe pas à ce jour de bibliothèque graphique en PHP pour assurer la méthode d'enseignement de l'IUT de Reims. D'où nous vient la problématique de la création d'une bibliothèque PHP ayant la capacité de faire découvrir simplement la programmation orienté objet par la création d'objet graphique.
 
-Avant le passage en PHP un bibliothèque Java écrite à l'IUT était utilisé pour permettre au étudiant de créer une fenêtre et des formes sur cette fenêtre, mais cette pratique a été abandonné lors de l'adoption du PHP comme langage orienté objet principal, jusqu'à l'arrivé de PHP 7.4. L'arrivée de l'extension FFI (Foreign Function Interface) en PHP 7.4 permet d'importer les fonctionnalités d'une bibliothèque externes au sein de PHP. C'est à dire qu'il est possible d'utiliser des librairies partagées écrite en C, en Go ou encore en Rust, etc. Cela ouvre un large panel de possibilités. L'espoir de pouvoir reprendre les anciennes habitudes d'enseignement renaît.
+Avant le passage en PHP une bibliothèque Java du département Informatique était utilisée pour permettre aux étudiants de créer une fenêtre et des formes sur cette fenêtre, mais cette pratique a été abandonnée lors de l'adoption du PHP comme langage orienté objet principal, jusqu'à l'arrivée de PHP 7.4. L'arrivée de l'extension FFI (Foreign Function Interface) en PHP 7.4 permet d'importer les fonctionnalités d'une bibliothèque externe au sein de PHP. C'est à dire qu'il est possible d'utiliser des librairies partagées écrite en C, en Go ou encore en Rust, etc. Cela ouvre un large panel de possibilités. L'espoir de pouvoir reprendre les anciennes habitudes d'enseignement renaît.
 
-Avec FFI il est donc possible de créer un bibliothèque graphique en PHP capable avant tout de créer une fenêtre, des formes géométrique et des graphiques à l'intérieur de la fenêtre. SFML (Simple and Fast Media Library) qui est une bibliothèque fournissant une interface vers différents éléments de nos ordinateurs comme le système, le fenêtrage, les graphismes, l'audio et réseau, semble être le meilleur choix pour accomplir cette prouesse jusque là inimaginable. La futur bibliothèque utilisera alors les fonctionnalité qu'offre cette dernière pour aboutir à un simple recueil de classes utilisable par n'importe quel débutant de PHP orienté objet.
+Avec FFI il est donc possible de créer un bibliothèque graphique en PHP capable avant tout de créer une fenêtre, des formes géométriques et des graphiques à l'intérieur de la fenêtre. SFML (Simple and Fast Media Library) qui est une bibliothèque fournissant une interface vers différents éléments de nos ordinateurs comme le système, le fenêtrage, les graphismes, l'audio et réseau, semble être le meilleur choix pour accomplir cette prouesse jusque là inimaginable. La futur bibliothèque utilisera alors les fonctionnalités qu'offre cette dernière pour aboutir à un simple recueil de classes utilisables par n'importe quel débutant de PHP orienté objet.
 
-Bien que le plus gros a été fait cette bibliothèque ne sera pas une complète copie de SFML, d'abord parce que le temps ne le permet pas et ensuite parce que son but est d'implémenter que le module graphique de SFML et encore qu'une infime partie de celui-ci pourra être implémenter. Par ailleurs FFI est une extension expérimental et possède par conséquent certaines limite. Malgré cela, son apport dans l'univers de PHP ne peut être remis en question car c'est par elle que l'on peut à présent espérer réaliser un jeu d'échec en PHP qui ne soit ni en web ni en ligne de commande.
+Bien que cette bibliothèque utilise CSFML elle n'en sera pas une complète copie, d'abord parce que le temps ne le permet pas et ensuite ce n'est que le module graphique qui nous intéresse ici mais malgré cela nous allons imlémenter qu'une parties de ses fonctions. Par ailleurs FFI est une extension expérimentale et possède par conséquent certaines limites. Malgré cela, son apport dans l'univers de PHP ne peut être remis en question car c'est par elle que l'on peut à présent espérer réaliser un jeu d'échec en PHP qui ne soit ni en web ni en ligne de commande.
 
 \hypertarget{intro}{%
 \chapter*{Introduction}\label{intro}}
@@ -530,7 +530,7 @@ Une fois l'implémentation finis il faut à présent s'attarder à la distributi
 \hypertarget{distribution-de-la-bibliothuxe8que}{%
 \section{Distribution de la bibliothèque}\label{distribution-de-la-bibliothuxe8que}}
 
-Cette section est purement subjectif car il s'agit de choisir comment partager la version finale de la bibliothèque. Evidemment chacun peut avoir son avis, je vais donc plus m'intéresser au \emph{``comment''} plutôt qu'au \emph{``pourquoi''} j'ai choisi cette méthode.
+Cette section est purement subjective car il s'agit de choisir comment partager la version finale de la bibliothèque. Evidemment chacun peut avoir son avis, je vais donc plus m'intéresser au \emph{``comment''} plutôt qu'au \emph{``pourquoi''} j'ai choisi cette méthode.
 
 \hypertarget{un-gestionnaire-de-paquets-composer}{%
 \subsection{Un gestionnaire de paquets : composer}\label{un-gestionnaire-de-paquets-composer}}
@@ -540,6 +540,39 @@ Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il pe
 
 \VA{--- \citep{wikipedia_composer_2020}}{}
 \end{quote}
+
+\hypertarget{installation-de-composer}{%
+\subsection{Installation de composer}\label{installation-de-composer}}
+
+Pour installer composer on a juste besoin d'avoir php installé sur sa machine, ensuite les étapes d'installation sont détaillées sur la page d'\href{https://getcomposer.org/doc/00-intro.md\#installation-linux-unix-macos}{introduction à composer}. Mais pour résumé l'une des méthodes d'installation pour avoir composer globalement sur linux :
+
+\begin{itemize}
+\tightlist
+\item
+  Exécuter ces commandes pour télécharger la dernière archive de composer.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{php}\NormalTok{ -r }\StringTok{"copy('https://getcomposer.org/installer', 'composer-setup.php');"}
+\ExtensionTok{php}\NormalTok{ -r }\StringTok{"if (hash_file('sha384', 'composer-setup.php') === 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') \{ echo 'Installer verified'; \} else \{ echo 'Installer corrupt'; unlink('composer-setup.php'); \} echo PHP_EOL;"}
+\ExtensionTok{php}\NormalTok{ composer-setup.php}
+\ExtensionTok{php}\NormalTok{ -r }\StringTok{"unlink('composer-setup.php');"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Déplacer l'archive télécharger vers son dossier bin :
+\end{itemize}
+
+\texttt{mv\ composer.phar\ /usr/local/bin/composer}
+
+Avec composer installé on peut créer intéractivement un fichier\texttt{composer.json} dans n'importe quel dossier ou projet avec la commande \texttt{composer\ init}.
+
+\hypertarget{publication-de-bibliothuxe8que-avec-composer-et-packagist}{%
+\subsection{Publication de bibliothèque avec composer et packagist}\label{publication-de-bibliothuxe8que-avec-composer-et-packagist}}
 
 Avec composer il est facile de gérer les dépendances de son projet et de publier ses propres packets/bibliothèques. Les différentes étapes pour faire l'un ou l'autre sont brièvement décrites sur \href{https://packagist.org/}{packagist.org}. Pour faire court il est nécessaire d'avoir :
 

@@ -167,7 +167,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="dev.html"><a href="dev.html#distribution-de-la-bibliothèque"><i class="fa fa-check"></i><b>2.5</b> Distribution de la bibliothèque</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="dev.html"><a href="dev.html#un-gestionnaire-de-paquets-composer"><i class="fa fa-check"></i><b>2.5.1</b> Un gestionnaire de paquets : composer</a></li>
-<li class="chapter" data-level="2.5.2" data-path="dev.html"><a href="dev.html#maintenabilité"><i class="fa fa-check"></i><b>2.5.2</b> Maintenabilité</a></li>
+<li class="chapter" data-level="2.5.2" data-path="dev.html"><a href="dev.html#installation-de-composer"><i class="fa fa-check"></i><b>2.5.2</b> Installation de composer</a></li>
+<li class="chapter" data-level="2.5.3" data-path="dev.html"><a href="dev.html#publication-de-bibliothèque-avec-composer-et-packagist"><i class="fa fa-check"></i><b>2.5.3</b> Publication de bibliothèque avec composer et packagist</a></li>
+<li class="chapter" data-level="2.5.4" data-path="dev.html"><a href="dev.html#maintenabilité"><i class="fa fa-check"></i><b>2.5.4</b> Maintenabilité</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a><ul>
@@ -364,13 +366,32 @@ Finalement il s’est avéré que retirer l’utilisation de la méthode <code>v
 </div>
 <div id="distribution-de-la-bibliothèque" class="section level2">
 <h2><span class="header-section-number">2.5</span> Distribution de la bibliothèque</h2>
-<p>Cette section est purement subjectif car il s’agit de choisir comment partager la version finale de la bibliothèque. Evidemment chacun peut avoir son avis, je vais donc plus m’intéresser au <em>“comment”</em> plutôt qu’au <em>“pourquoi”</em> j’ai choisi cette méthode.</p>
+<p>Cette section est purement subjective car il s’agit de choisir comment partager la version finale de la bibliothèque. Evidemment chacun peut avoir son avis, je vais donc plus m’intéresser au <em>“comment”</em> plutôt qu’au <em>“pourquoi”</em> j’ai choisi cette méthode.</p>
 <div id="un-gestionnaire-de-paquets-composer" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> Un gestionnaire de paquets : composer</h3>
 <blockquote>
 <p>Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d’installer les bibliothèques dont le projet principal a besoin.</p>
 <p>— <span class="citation">(Wikipédia <a href="#ref-wikipedia_composer_2020">2020</a><a href="#ref-wikipedia_composer_2020">a</a>)</span></p>
 </blockquote>
+</div>
+<div id="installation-de-composer" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Installation de composer</h3>
+<p>Pour installer composer on a juste besoin d’avoir php installé sur sa machine, ensuite les étapes d’installation sont détaillées sur la page d’<a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos">introduction à composer</a>. Mais pour résumé l’une des méthodes d’installation pour avoir composer globalement sur linux :</p>
+<ul>
+<li>Exécuter ces commandes pour télécharger la dernière archive de composer.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">php</span> -r <span class="st">&quot;copy(&#39;https://getcomposer.org/installer&#39;, &#39;composer-setup.php&#39;);&quot;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">php</span> -r <span class="st">&quot;if (hash_file(&#39;sha384&#39;, &#39;composer-setup.php&#39;) === &#39;e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a&#39;) { echo &#39;Installer verified&#39;; } else { echo &#39;Installer corrupt&#39;; unlink(&#39;composer-setup.php&#39;); } echo PHP_EOL;&quot;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="ex">php</span> composer-setup.php</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="ex">php</span> -r <span class="st">&quot;unlink(&#39;composer-setup.php&#39;);&quot;</span></a></code></pre></div>
+<ul>
+<li>Déplacer l’archive télécharger vers son dossier bin :</li>
+</ul>
+<p><code>mv composer.phar /usr/local/bin/composer</code></p>
+<p>Avec composer installé on peut créer intéractivement un fichier<code>composer.json</code> dans n’importe quel dossier ou projet avec la commande <code>composer init</code>.</p>
+</div>
+<div id="publication-de-bibliothèque-avec-composer-et-packagist" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Publication de bibliothèque avec composer et packagist</h3>
 <p>Avec composer il est facile de gérer les dépendances de son projet et de publier ses propres packets/bibliothèques. Les différentes étapes pour faire l’un ou l’autre sont brièvement décrites sur <a href="https://packagist.org/">packagist.org</a>.
 Pour faire court il est nécessaire d’avoir :</p>
 <ul>
@@ -378,17 +399,17 @@ Pour faire court il est nécessaire d’avoir :</p>
 <li>un dépôt GIT</li>
 <li>un fichier <code>composer.json</code> minimal à la racine de son dépôt :</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">{</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;vendor-name/package-name&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;A short description of what your package does&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="dt">&quot;require&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">        <span class="dt">&quot;php&quot;</span><span class="fu">:</span> <span class="st">&quot;^7.2&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">        <span class="dt">&quot;another-vendor/package&quot;</span><span class="fu">:</span> <span class="st">&quot;1.*&quot;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="fu">}</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="fu">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;vendor-name/package-name&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;A short description of what your package does&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">&quot;require&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">        <span class="dt">&quot;php&quot;</span><span class="fu">:</span> <span class="st">&quot;^7.2&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">        <span class="dt">&quot;another-vendor/package&quot;</span><span class="fu">:</span> <span class="st">&quot;1.*&quot;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="fu">}</span></a></code></pre></div>
 </div>
 <div id="maintenabilité" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> Maintenabilité</h3>
+<h3><span class="header-section-number">2.5.4</span> Maintenabilité</h3>
 <p>Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n’importe qui de “demandé” votre bibliothèque via composer avec la commande <code>composer require vendor-name/package-name</code> à condition d’avoir également un fichier <code>composer.json</code> à la racine de son projet.</p>
 <p>Ce qu’il nous reste à faire est de maintenir la bibliothèques, c’est à dire :</p>
 <ul>
