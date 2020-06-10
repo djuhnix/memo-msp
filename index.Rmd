@@ -28,7 +28,7 @@ graphics: yes
 lof: yes
 lot: yes
 colorlinks: yes
-url: https\://djuhnix.github.io/memo-msp/
+url: https\://djuhnix.github.io/memo-msp/ 
 ---
 
 # Avant-propos {-}

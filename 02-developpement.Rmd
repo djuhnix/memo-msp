@@ -148,13 +148,34 @@ Une fois l'implémentation finis il faut à présent s'attarder à la distributi
 
 ## Distribution de la bibliothèque
 
-Cette section est purement subjectif car il s'agit de choisir comment partager la version finale de la bibliothèque. Evidemment chacun peut avoir son avis, je vais donc plus m'intéresser au *"comment"* plutôt qu'au *"pourquoi"* j'ai choisi cette méthode.
+Cette section est purement subjective car il s'agit de choisir comment partager la version finale de la bibliothèque. Evidemment chacun peut avoir son avis, je vais donc plus m'intéresser au *"comment"* plutôt qu'au *"pourquoi"* j'ai choisi cette méthode.
 
 ### Un gestionnaire de paquets : composer
 
 > Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d'installer les bibliothèques dont le projet principal a besoin.
 > 
 > --- [@wikipedia_composer_2020]
+
+### Installation de composer
+
+Pour installer composer on a juste besoin d'avoir php installé sur sa machine, ensuite les étapes d'installation sont détaillées sur la page d'[introduction à composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos). Mais pour résumé l'une des méthodes d'installation pour avoir composer globalement sur linux :
+
+- Exécuter ces commandes pour télécharger la dernière archive de composer.
+
+```bash
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+```
+
+- Déplacer l'archive télécharger vers son dossier bin : 
+
+`mv composer.phar /usr/local/bin/composer`
+
+Avec composer installé on peut créer intéractivement un fichier` composer.json` dans n'importe quel dossier ou projet avec la commande `composer init`.
+
+### Publication de bibliothèque avec composer et packagist
 
 Avec composer il est facile de gérer les dépendances de son projet et de publier ses propres packets/bibliothèques. Les différentes étapes pour faire l'un ou l'autre sont brièvement décrites sur [packagist.org](https://packagist.org/).
 Pour faire court il est nécessaire d'avoir :
