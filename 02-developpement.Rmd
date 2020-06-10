@@ -19,6 +19,8 @@ Dès le début je me suis fait un programme pour répartir convenablement les 4 
 
 En plus de cette organisation hebdomadaire je me suis fixé un planning journalier.
 
+Table: Planning journalier
+
 | Horaire           | Activité |
 |-------------------|----------|
 | **09h00 - 13h00** | Projet   |
@@ -84,7 +86,7 @@ La première chose dont je me suis donnée l'objectif de réaliser lors de ma ph
 L'objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser.
 Je suis passé par différentes idée de conception, et j'ai fini par aboutir à cellui-ci.
 
-```{r class-diagram-abstract-ffi, echo=FALSE, fig.cap="Diagramme de classe : AbstractFFI" ,fig.align='center', fig.width=8}
+```{r class-diagram-abstract-ffi, echo=FALSE, fig.cap="Diagramme de classe : AbstractFFI" ,fig.align='center', out.width='70%'}
 
 knitr::include_graphics("assets/img/class-ffi-abstraction.png")
 
@@ -109,10 +111,35 @@ La classe Window est le deuxième pilier de l'architecture de la bibliothèque, 
 
 Le résultat de la phase de conception est le diagramme de classe suivant qui a constamment évolué même lors de l'implémentation des fonctionnalités de la bibliothèque.
 
-```{r class-diagramm, fig.cap="Diagramme de classe accessible à l'adresse https://cutt.ly/phpml-class-diagram", echo=FALSE, out.width="70%", dev='png', cache=TRUE, fig.align='center', screenshot.opts = list(delay = 5)}
+```{r class-diagramm, fig.cap="Diagramme de classe accessible à l'adresse https://cutt.ly/phpml-class-diagram", echo=FALSE, dev='png', cache=TRUE, fig.align='center', screenshot.opts = list(delay = 5)}
 
-knitr::include_app("https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=phpsfml-pre-class.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1LxYoQHLD5Z8fzSt4P4RyekhaTM5EHoAT%26export%3Ddownload", height = "600px")
+knitr::include_app("https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=phpsfml-pre-class.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1LxYoQHLD5Z8fzSt4P4RyekhaTM5EHoAT%26export%3Ddownload")
 
 ```
 
 Le temps passé sur la réflexion de l'architecture de la bibliothèque n'a pas été en vain car il va nous permettre d'en gagner sur la partie principale qui est l'implémentation des fonctionnalités trouvées lors de la phase de conception.
+
+
+## Implémentation
+
+L'implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans grands accrocs lorsque la phase de conception s'est bien déroulé car il n'y a pas besoin de réfléchir sur la structure de l'application ou de la bibliothèque car elle a déjà été définie. N'empêche que c'est au moment de l'implémentation qu'il faut penser à l'ordre de programmation des composants (bien que cela peut être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d'en citer quelques unes.
+
+### L'ordre d'implémentation
+
+Si la bibliothèque que l'on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau ce dépendance le plus bas possible. C'est là que se pose la question de l'ordre l'implémentation.
+En ce qui me concerne j'ai préféré commencé par la classe principale et redescendre l'arbre de dépendance, ce qui n'est pas forcément la meilleure des solutions mais elle a eu le mérite d'être efficace et de me révéler certaines erreurs de conceptions que j'avais commise.
+
+### Erreurs de conception
+
+La plus grande erreur que j'ai pu faire a été au niveau de l'abstraction, car j'utilisais un `trait` qui n'était pas vraiment adapté à ce que je concevais à la base, erreur qui m'a été notifié par ma tutrice de projet après consultation. En corrigeant cela j'ai pu aboutir à la version que vous pouvez voir au \@ref(fig:class-diagram-abstract-ffi).
+
+En plus de diverses erreurs de conception corrigées sur le vif, j'ai été régulièrement confrontés à des erreurs de programmation plus technique lié soit à FFI soit à CSFML. Celle qui m'a pris le plus de ressources cérébrales et de temps à corriger était une erreur de segmentation.
+
+> Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault) est un plantage d'une application qui a tenté d'accéder à un emplacement mémoire qui ne lui était pas alloué. 
+> 
+> --- [@wikipedia_segfault_2020]
+
+Il faut également noté que je n'ai jamais été confronté à cette erreur *en PHP* et il est très contraignant de retrouver la trace d'une erreur de segmentation quand on est développeur junior.
+Finalement il s'est avéré que retirer l'utilisation de la méthode `var_dump()` de mon script résolvait mon erreur.
+
+Une fois l'implémentation finis il faut à présent s'attarder à la distribution de notre bibliothèque.

@@ -359,6 +359,11 @@ Dès le début je me suis fait un programme pour répartir convenablement les 4 
 En plus de cette organisation hebdomadaire je me suis fixé un planning journalier.
 
 \begin{longtable}[]{@{}ll@{}}
+\caption{Planning journalier}\tabularnewline
+\toprule
+Horaire & Activité\tabularnewline
+\midrule
+\endfirsthead
 \toprule
 Horaire & Activité\tabularnewline
 \midrule
@@ -454,7 +459,7 @@ L'objectif est de ne pas utiliser directement FFI mais plutôt de passer par une
 
 \begin{figure}
 
-{\centering \includegraphics[width=13.76in]{assets/img/class-ffi-abstraction} 
+{\centering \includegraphics[width=0.7\linewidth]{assets/img/class-ffi-abstraction} 
 
 }
 
@@ -491,6 +496,33 @@ Le résultat de la phase de conception est le diagramme de classe suivant qui a 
 \label{fig:class-diagramm}Diagramme de classe accessible à l'adresse \url{https://cutt.ly/phpml-class-diagram}
 
 Le temps passé sur la réflexion de l'architecture de la bibliothèque n'a pas été en vain car il va nous permettre d'en gagner sur la partie principale qui est l'implémentation des fonctionnalités trouvées lors de la phase de conception.
+
+\hypertarget{impluxe9mentation}{%
+\section{Implémentation}\label{impluxe9mentation}}
+
+L'implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans grands accrocs lorsque la phase de conception s'est bien déroulé car il n'y a pas besoin de réfléchir sur la structure de l'application ou de la bibliothèque car elle a déjà été définie. N'empêche que c'est au moment de l'implémentation qu'il faut penser à l'ordre de programmation des composants (bien que cela peut être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d'en citer quelques unes.
+
+\hypertarget{lordre-dimpluxe9mentation}{%
+\subsection{L'ordre d'implémentation}\label{lordre-dimpluxe9mentation}}
+
+Si la bibliothèque que l'on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau ce dépendance le plus bas possible. C'est là que se pose la question de l'ordre l'implémentation. En ce qui me concerne j'ai préféré commencé par la classe principale et redescendre l'arbre de dépendance, ce qui n'est pas forcément la meilleure des solutions mais elle a eu le mérite d'être efficace et de me révéler certaines erreurs de conceptions que j'avais commise.
+
+\hypertarget{erreurs-de-conception}{%
+\subsection{Erreurs de conception}\label{erreurs-de-conception}}
+
+La plus grande erreur que j'ai pu faire a été au niveau de l'abstraction, car j'utilisais un \texttt{trait} qui n'était pas vraiment adapté à ce que je concevais à la base, erreur qui m'a été notifié par ma tutrice de projet après consultation. En corrigeant cela j'ai pu aboutir à la version que vous pouvez voir au \ref{fig:class-diagram-abstract-ffi}.
+
+En plus de diverses erreurs de conception corrigées sur le vif, j'ai été régulièrement confrontés à des erreurs de programmation plus technique lié soit à FFI soit à CSFML. Celle qui m'a pris le plus de ressources cérébrales et de temps à corriger était une erreur de segmentation.
+
+\begin{quote}
+Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault) est un plantage d'une application qui a tenté d'accéder à un emplacement mémoire qui ne lui était pas alloué.
+
+\VA{--- \citep{wikipedia_segfault_2020}}{}
+\end{quote}
+
+Il faut également noté que je n'ai jamais été confronté à cette erreur \emph{en PHP} et il est très contraignant de retrouver la trace d'une erreur de segmentation quand on est développeur junior. Finalement il s'est avéré que retirer l'utilisation de la méthode \texttt{var\_dump()} de mon script résolvait mon erreur.
+
+Une fois l'implémentation finis il faut à présent s'attarder à la distribution de notre bibliothèque.
 
 \hypertarget{utils}{%
 \chapter{Utilisation de la bibliothèque}\label{utils}}

@@ -159,6 +159,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.3" data-path="dev.html"><a href="dev.html#exemple-de-la-classe-window"><i class="fa fa-check"></i><b>2.2.3</b> Exemple de la classe Window</a></li>
 <li class="chapter" data-level="2.2.4" data-path="dev.html"><a href="dev.html#diagramme-de-classe"><i class="fa fa-check"></i><b>2.2.4</b> Diagramme de classe</a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="dev.html"><a href="dev.html#implémentation"><i class="fa fa-check"></i><b>2.3</b> Implémentation</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="dev.html"><a href="dev.html#lordre-dimplémentation"><i class="fa fa-check"></i><b>2.3.1</b> L’ordre d’implémentation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="dev.html"><a href="dev.html#erreurs-de-conception"><i class="fa fa-check"></i><b>2.3.2</b> Erreurs de conception</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a><ul>
 <li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis</a></li>
@@ -169,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
 <li class="chapter" data-level="" data-path="liste-des-abbreviations.html"><a href="liste-des-abbreviations.html"><i class="fa fa-check"></i>Liste des Abbreviations</a></li>
-<li class="chapter" data-level="" data-path="références-et-bibliography.html"><a href="références-et-bibliography.html"><i class="fa fa-check"></i>Références et bibliography</a></li>
+<li class="chapter" data-level="" data-path="références-et-bibliographie.html"><a href="références-et-bibliographie.html"><i class="fa fa-check"></i>Références et bibliographie</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 <li><a href="https://www.flaticon.com/" title="Flaticon">Icons from Flaticon</a></li>
@@ -212,6 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>En plus de cette organisation hebdomadaire je me suis fixé un planning journalier.</p>
 <table>
+<caption>Planning journalier</caption>
 <thead>
 <tr class="header">
 <th>Horaire</th>
@@ -294,7 +299,7 @@ La première chose dont je me suis donnée l’objectif de réaliser lors de ma 
 <p>L’objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser.
 Je suis passé par différentes idée de conception, et j’ai fini par aboutir à cellui-ci.</p>
 <div class="figure" style="text-align: center"><span id="fig:class-diagram-abstract-ffi"></span>
-<img src="assets/img/class-ffi-abstraction.png" alt="Diagramme de classe : AbstractFFI" width="496" />
+<img src="assets/img/class-ffi-abstraction.png" alt="Diagramme de classe : AbstractFFI" width="70%" />
 <p class="caption">
 FIGURE 2.1: Diagramme de classe : AbstractFFI
 </p>
@@ -318,24 +323,48 @@ FIGURE 2.1: Diagramme de classe : AbstractFFI
 <h3><span class="header-section-number">2.2.4</span> Diagramme de classe</h3>
 <p>Le résultat de la phase de conception est le diagramme de classe suivant qui a constamment évolué même lors de l’implémentation des fonctionnalités de la bibliothèque.</p>
 <div class="figure" style="text-align: center"><span id="fig:class-diagramm"></span>
-<iframe src="https://app.diagrams.net/?lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=phpsfml-pre-class.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1LxYoQHLD5Z8fzSt4P4RyekhaTM5EHoAT%26export%3Ddownload" width="70%" height="600px">
+<iframe src="https://app.diagrams.net/?lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=phpsfml-pre-class.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1LxYoQHLD5Z8fzSt4P4RyekhaTM5EHoAT%26export%3Ddownload" width="672" height="400px">
 </iframe>
 <p class="caption">
 FIGURE 2.2: Diagramme de classe accessible à l’adresse <a href="https://cutt.ly/phpml-class-diagram" class="uri">https://cutt.ly/phpml-class-diagram</a>
 </p>
 </div>
 <p>Le temps passé sur la réflexion de l’architecture de la bibliothèque n’a pas été en vain car il va nous permettre d’en gagner sur la partie principale qui est l’implémentation des fonctionnalités trouvées lors de la phase de conception.</p>
+</div>
+</div>
+<div id="implémentation" class="section level2">
+<h2><span class="header-section-number">2.3</span> Implémentation</h2>
+<p>L’implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans grands accrocs lorsque la phase de conception s’est bien déroulé car il n’y a pas besoin de réfléchir sur la structure de l’application ou de la bibliothèque car elle a déjà été définie. N’empêche que c’est au moment de l’implémentation qu’il faut penser à l’ordre de programmation des composants (bien que cela peut être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d’en citer quelques unes.</p>
+<div id="lordre-dimplémentation" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> L’ordre d’implémentation</h3>
+<p>Si la bibliothèque que l’on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau ce dépendance le plus bas possible. C’est là que se pose la question de l’ordre l’implémentation.
+En ce qui me concerne j’ai préféré commencé par la classe principale et redescendre l’arbre de dépendance, ce qui n’est pas forcément la meilleure des solutions mais elle a eu le mérite d’être efficace et de me révéler certaines erreurs de conceptions que j’avais commise.</p>
+</div>
+<div id="erreurs-de-conception" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Erreurs de conception</h3>
+<p>La plus grande erreur que j’ai pu faire a été au niveau de l’abstraction, car j’utilisais un <code>trait</code> qui n’était pas vraiment adapté à ce que je concevais à la base, erreur qui m’a été notifié par ma tutrice de projet après consultation. En corrigeant cela j’ai pu aboutir à la version que vous pouvez voir au <a href="dev.html#fig:class-diagram-abstract-ffi">2.1</a>.</p>
+<p>En plus de diverses erreurs de conception corrigées sur le vif, j’ai été régulièrement confrontés à des erreurs de programmation plus technique lié soit à FFI soit à CSFML. Celle qui m’a pris le plus de ressources cérébrales et de temps à corriger était une erreur de segmentation.</p>
+<blockquote>
+<p>Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault) est un plantage d’une application qui a tenté d’accéder à un emplacement mémoire qui ne lui était pas alloué.</p>
+<p>— <span class="citation">(Wikipédia <a href="#ref-wikipedia_segfault_2020">2020</a>)</span></p>
+</blockquote>
+<p>Il faut également noté que je n’ai jamais été confronté à cette erreur <em>en PHP</em> et il est très contraignant de retrouver la trace d’une erreur de segmentation quand on est développeur junior.
+Finalement il s’est avéré que retirer l’utilisation de la méthode <code>var_dump()</code> de mon script résolvait mon erreur.</p>
+<p>Une fois l’implémentation finis il faut à présent s’attarder à la distribution de notre bibliothèque.</p>
 
 </div>
 </div>
 </div>
-<h3>Références et bibliography</h3>
+<h3>Références et bibliographie</h3>
 <div id="refs" class="references">
 <div id="ref-the_php_group_ffi_2019">
 <p>The PHP Group. 2019. “PHP: Installation/Configuration - Manual. PHP: Installation/Configuration - Manual.” 2019. <a href="https://www.php.net/manual/fr/ffi.setup.php">https://www.php.net/manual/fr/ffi.setup.php</a>.</p>
 </div>
 <div id="ref-wikipedia_abstraction_2019">
 <p>Wikipédia. 2019. “Abstraction (informatique).” <em>Wikipédia</em>. <a href="https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836">https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836</a>.</p>
+</div>
+<div id="ref-wikipedia_segfault_2020">
+<p>Wikipédia. 2020. “Erreur de segmentation.” <em>Wikipédia</em>. <a href="https://fr.wikipedia.org/w/index.php?title=Erreur_de_segmentation&amp;oldid=171768684">https://fr.wikipedia.org/w/index.php?title=Erreur_de_segmentation&amp;oldid=171768684</a>.</p>
 </div>
 </div>
 <script type="application/json" class="js-hypothesis-config">
