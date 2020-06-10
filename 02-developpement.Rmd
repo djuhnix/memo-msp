@@ -19,7 +19,7 @@ Dès le début je me suis fait un programme pour répartir convenablement les 4 
 
 En plus de cette organisation hebdomadaire je me suis fixé un planning journalier.
 
-Table: Planning journalier
+Table: (\#tab:planning) Planning journalier
 
 | Horaire           | Activité |
 |-------------------|----------|
@@ -34,6 +34,8 @@ Je me suis également servi de trello qui fut d'une aide précieuse pour mettre 
 ### Impression sur le télétravail
 
 Objectivement j'ai pu respecté ce planning à 70%. Il est évident que travailler de chez soi n'est pas une compétence innée mais bien une compétence qui se pratique et s'améliore avec l'expérience. Il faut bien sûr apprendre à faire l'impasse sur certains divertissement sans pour autant se priver.
+
+## Pré-requis avant le développement de la bibliothèque {#pre-requis}
 
 Avant de réellement commencer le développement de la bibliothèque il m'as fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j'en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j'ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.
 
@@ -120,7 +122,7 @@ knitr::include_app("https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_
 Le temps passé sur la réflexion de l'architecture de la bibliothèque n'a pas été en vain car il va nous permettre d'en gagner sur la partie principale qui est l'implémentation des fonctionnalités trouvées lors de la phase de conception.
 
 
-## Implémentation
+## Implémentation de la bibliothèque
 
 L'implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans grands accrocs lorsque la phase de conception s'est bien déroulé car il n'y a pas besoin de réfléchir sur la structure de l'application ou de la bibliothèque car elle a déjà été définie. N'empêche que c'est au moment de l'implémentation qu'il faut penser à l'ordre de programmation des composants (bien que cela peut être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d'en citer quelques unes.
 
@@ -143,3 +145,43 @@ Il faut également noté que je n'ai jamais été confronté à cette erreur *en
 Finalement il s'est avéré que retirer l'utilisation de la méthode `var_dump()` de mon script résolvait mon erreur.
 
 Une fois l'implémentation finis il faut à présent s'attarder à la distribution de notre bibliothèque.
+
+## Distribution de la bibliothèque
+
+Cette section est purement subjectif car il s'agit de choisir comment partager la version finale de la bibliothèque. Evidemment chacun peut avoir son avis, je vais donc plus m'intéresser au *"comment"* plutôt qu'au *"pourquoi"* j'ai choisi cette méthode.
+
+### Un gestionnaire de paquets : composer
+
+> Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d'installer les bibliothèques dont le projet principal a besoin.
+> 
+> --- [@wikipedia_composer_2020]
+
+Avec composer il est facile de gérer les dépendances de son projet et de publier ses propres packets/bibliothèques. Les différentes étapes pour faire l'un ou l'autre sont brièvement décrites sur [packagist.org](https://packagist.org/).
+Pour faire court il est nécessaire d'avoir :
+
+- un compte un [packagist.org](https://packagist.org/)
+- un dépôt GIT
+- un fichier `composer.json` minimal à la racine de son dépôt :
+
+```json
+{
+    "name": "vendor-name/package-name",
+    "description": "A short description of what your package does",
+    "require": {
+        "php": "^7.2",
+        "another-vendor/package": "1.*"
+    }
+}
+```
+
+### Maintenabilité
+
+Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n'importe qui de "demandé" votre bibliothèque via composer avec la commande `composer require vendor-name/package-name` à condition d'avoir également un fichier `composer.json` à la racine de son projet.
+
+Ce qu'il nous reste à faire est de maintenir la bibliothèques, c'est à dire : 
+
+- aux nouvelles pratiques de notre langage et mises à jour de nos dépendances 
+- ajouter de nouvelles fonctionnalités si on le souhaite.
+- re-publier sur packagist quand cela est fait (ou activer la mise à jour automatique sur son compte).
+
+Nous avons donc terminé le développement y compris la distribution de notre bibliothèque, on peut à présent apprendre à l'utiliser, ce qui n'est pas aussi trivial qu'on pourrait le croire.

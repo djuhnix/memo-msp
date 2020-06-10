@@ -359,7 +359,7 @@ Dès le début je me suis fait un programme pour répartir convenablement les 4 
 En plus de cette organisation hebdomadaire je me suis fixé un planning journalier.
 
 \begin{longtable}[]{@{}ll@{}}
-\caption{Planning journalier}\tabularnewline
+\caption{\label{tab:planning} Planning journalier}\tabularnewline
 \toprule
 Horaire & Activité\tabularnewline
 \midrule
@@ -382,6 +382,9 @@ Je me suis également servi de trello qui fut d'une aide précieuse pour mettre 
 \subsection{Impression sur le télétravail}\label{impression-sur-le-tuxe9luxe9travail}}
 
 Objectivement j'ai pu respecté ce planning à 70\%. Il est évident que travailler de chez soi n'est pas une compétence innée mais bien une compétence qui se pratique et s'améliore avec l'expérience. Il faut bien sûr apprendre à faire l'impasse sur certains divertissement sans pour autant se priver.
+
+\hypertarget{pre-requis}{%
+\section{Pré-requis avant le développement de la bibliothèque}\label{pre-requis}}
 
 Avant de réellement commencer le développement de la bibliothèque il m'as fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j'en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j'ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.
 
@@ -497,8 +500,8 @@ Le résultat de la phase de conception est le diagramme de classe suivant qui a 
 
 Le temps passé sur la réflexion de l'architecture de la bibliothèque n'a pas été en vain car il va nous permettre d'en gagner sur la partie principale qui est l'implémentation des fonctionnalités trouvées lors de la phase de conception.
 
-\hypertarget{impluxe9mentation}{%
-\section{Implémentation}\label{impluxe9mentation}}
+\hypertarget{impluxe9mentation-de-la-bibliothuxe8que}{%
+\section{Implémentation de la bibliothèque}\label{impluxe9mentation-de-la-bibliothuxe8que}}
 
 L'implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans grands accrocs lorsque la phase de conception s'est bien déroulé car il n'y a pas besoin de réfléchir sur la structure de l'application ou de la bibliothèque car elle a déjà été définie. N'empêche que c'est au moment de l'implémentation qu'il faut penser à l'ordre de programmation des composants (bien que cela peut être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d'en citer quelques unes.
 
@@ -523,6 +526,64 @@ Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault)
 Il faut également noté que je n'ai jamais été confronté à cette erreur \emph{en PHP} et il est très contraignant de retrouver la trace d'une erreur de segmentation quand on est développeur junior. Finalement il s'est avéré que retirer l'utilisation de la méthode \texttt{var\_dump()} de mon script résolvait mon erreur.
 
 Une fois l'implémentation finis il faut à présent s'attarder à la distribution de notre bibliothèque.
+
+\hypertarget{distribution-de-la-bibliothuxe8que}{%
+\section{Distribution de la bibliothèque}\label{distribution-de-la-bibliothuxe8que}}
+
+Cette section est purement subjectif car il s'agit de choisir comment partager la version finale de la bibliothèque. Evidemment chacun peut avoir son avis, je vais donc plus m'intéresser au \emph{``comment''} plutôt qu'au \emph{``pourquoi''} j'ai choisi cette méthode.
+
+\hypertarget{un-gestionnaire-de-paquets-composer}{%
+\subsection{Un gestionnaire de paquets : composer}\label{un-gestionnaire-de-paquets-composer}}
+
+\begin{quote}
+Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d'installer les bibliothèques dont le projet principal a besoin.
+
+\VA{--- \citep{wikipedia_composer_2020}}{}
+\end{quote}
+
+Avec composer il est facile de gérer les dépendances de son projet et de publier ses propres packets/bibliothèques. Les différentes étapes pour faire l'un ou l'autre sont brièvement décrites sur \href{https://packagist.org/}{packagist.org}. Pour faire court il est nécessaire d'avoir :
+
+\begin{itemize}
+\tightlist
+\item
+  un compte un \href{https://packagist.org/}{packagist.org}
+\item
+  un dépôt GIT
+\item
+  un fichier \texttt{composer.json} minimal à la racine de son dépôt :
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"vendor-name/package-name"}\FunctionTok{,}
+    \DataTypeTok{"description"}\FunctionTok{:} \StringTok{"A short description of what your package does"}\FunctionTok{,}
+    \DataTypeTok{"require"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"php"}\FunctionTok{:} \StringTok{"^7.2"}\FunctionTok{,}
+        \DataTypeTok{"another-vendor/package"}\FunctionTok{:} \StringTok{"1.*"}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{maintenabilituxe9}{%
+\subsection{Maintenabilité}\label{maintenabilituxe9}}
+
+Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n'importe qui de ``demandé'' votre bibliothèque via composer avec la commande \texttt{composer\ require\ vendor-name/package-name} à condition d'avoir également un fichier \texttt{composer.json} à la racine de son projet.
+
+Ce qu'il nous reste à faire est de maintenir la bibliothèques, c'est à dire :
+
+\begin{itemize}
+\tightlist
+\item
+  aux nouvelles pratiques de notre langage et mises à jour de nos dépendances
+\item
+  ajouter de nouvelles fonctionnalités si on le souhaite.
+\item
+  re-publier sur packagist quand cela est fait (ou activer la mise à jour automatique sur son compte).
+\end{itemize}
+
+Nous avons donc terminé le développement y compris la distribution de notre bibliothèque, on peut à présent apprendre à l'utiliser, ce qui n'est pas aussi trivial qu'on pourrait le croire.
 
 \hypertarget{utils}{%
 \chapter{Utilisation de la bibliothèque}\label{utils}}
