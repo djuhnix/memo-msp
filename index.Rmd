@@ -23,6 +23,8 @@ biblio-style: apalike
 link-citations: yes
 mainfont: Alegreya
 fontsize: 11pt
+monofont: "Source Code Pro"
+monofontoptions: "Scale=0.8"
 github-repo: djuhnix/memo-msp
 graphics: yes
 lof: yes

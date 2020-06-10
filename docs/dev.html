@@ -167,13 +167,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="dev.html"><a href="dev.html#distribution-de-la-bibliothèque"><i class="fa fa-check"></i><b>2.5</b> Distribution de la bibliothèque</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="dev.html"><a href="dev.html#un-gestionnaire-de-paquets-composer"><i class="fa fa-check"></i><b>2.5.1</b> Un gestionnaire de paquets : composer</a></li>
-<li class="chapter" data-level="2.5.2" data-path="dev.html"><a href="dev.html#installation-de-composer"><i class="fa fa-check"></i><b>2.5.2</b> Installation de composer</a></li>
+<li class="chapter" data-level="2.5.2" data-path="dev.html"><a href="dev.html#install-composer"><i class="fa fa-check"></i><b>2.5.2</b> Installation de composer</a></li>
 <li class="chapter" data-level="2.5.3" data-path="dev.html"><a href="dev.html#publication-de-bibliothèque-avec-composer-et-packagist"><i class="fa fa-check"></i><b>2.5.3</b> Publication de bibliothèque avec composer et packagist</a></li>
 <li class="chapter" data-level="2.5.4" data-path="dev.html"><a href="dev.html#maintenabilité"><i class="fa fa-check"></i><b>2.5.4</b> Maintenabilité</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a><ul>
-<li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis</a></li>
+<li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis à l’utilisation</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="utils.html"><a href="utils.html#préchargement-ffi-et-header-csfml"><i class="fa fa-check"></i><b>3.1.1</b> Préchargement FFI et header CSFML</a></li>
+<li class="chapter" data-level="3.1.2" data-path="utils.html"><a href="utils.html#installation-dans-un-nouveau-projet"><i class="fa fa-check"></i><b>3.1.2</b> Installation dans un nouveau projet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="utils.html"><a href="utils.html#exemple-dutilisation-et-documentations"><i class="fa fa-check"></i><b>3.2</b> Exemple d’utilisation et documentations</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="utils.html"><a href="utils.html#utilisation"><i class="fa fa-check"></i><b>3.2.1</b> Utilisation</a></li>
+<li class="chapter" data-level="3.2.2" data-path="utils.html"><a href="utils.html#documentation"><i class="fa fa-check"></i><b>3.2.2</b> Documentation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="res.html"><a href="res.html"><i class="fa fa-check"></i><b>4</b> Résultat</a><ul>
 <li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#exemple-1"><i class="fa fa-check"></i><b>4.1</b> Exemple 1</a></li>
@@ -310,7 +317,7 @@ La première chose dont je me suis donnée l’objectif de réaliser lors de ma 
 <p>L’objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser.
 Je suis passé par différentes idée de conception, et j’ai fini par aboutir à cellui-ci.</p>
 <div class="figure" style="text-align: center"><span id="fig:class-diagram-abstract-ffi"></span>
-<img src="assets/img/class-ffi-abstraction.png" alt="Diagramme de classe : AbstractFFI" width="70%" />
+<img src="assets/img/class-ffi-abstraction.png" alt="Diagramme de classe : AbstractFFI" width="90%" />
 <p class="caption">
 FIGURE 2.1: Diagramme de classe : AbstractFFI
 </p>
@@ -374,7 +381,7 @@ Finalement il s’est avéré que retirer l’utilisation de la méthode <code>v
 <p>— <span class="citation">(Wikipédia <a href="#ref-wikipedia_composer_2020">2020</a><a href="#ref-wikipedia_composer_2020">a</a>)</span></p>
 </blockquote>
 </div>
-<div id="installation-de-composer" class="section level3">
+<div id="install-composer" class="section level3">
 <h3><span class="header-section-number">2.5.2</span> Installation de composer</h3>
 <p>Pour installer composer on a juste besoin d’avoir php installé sur sa machine, ensuite les étapes d’installation sont détaillées sur la page d’<a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos">introduction à composer</a>. Mais pour résumé l’une des méthodes d’installation pour avoir composer globalement sur linux :</p>
 <ul>
@@ -387,7 +394,7 @@ Finalement il s’est avéré que retirer l’utilisation de la méthode <code>v
 <ul>
 <li>Déplacer l’archive télécharger vers son dossier bin :</li>
 </ul>
-<p><code>mv composer.phar /usr/local/bin/composer</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">mv</span> composer.phar /usr/local/bin/composer</a></code></pre></div>
 <p>Avec composer installé on peut créer intéractivement un fichier<code>composer.json</code> dans n’importe quel dossier ou projet avec la commande <code>composer init</code>.</p>
 </div>
 <div id="publication-de-bibliothèque-avec-composer-et-packagist" class="section level3">
@@ -399,14 +406,14 @@ Pour faire court il est nécessaire d’avoir :</p>
 <li>un dépôt GIT</li>
 <li>un fichier <code>composer.json</code> minimal à la racine de son dépôt :</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">{</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;vendor-name/package-name&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;A short description of what your package does&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">&quot;require&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">        <span class="dt">&quot;php&quot;</span><span class="fu">:</span> <span class="st">&quot;^7.2&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">        <span class="dt">&quot;another-vendor/package&quot;</span><span class="fu">:</span> <span class="st">&quot;1.*&quot;</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="fu">}</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="fu">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;vendor-name/package-name&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;A short description of what your package does&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="dt">&quot;require&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">        <span class="dt">&quot;php&quot;</span><span class="fu">:</span> <span class="st">&quot;^7.2&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">        <span class="dt">&quot;another-vendor/package&quot;</span><span class="fu">:</span> <span class="st">&quot;1.*&quot;</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="fu">}</span></a></code></pre></div>
 </div>
 <div id="maintenabilité" class="section level3">
 <h3><span class="header-section-number">2.5.4</span> Maintenabilité</h3>

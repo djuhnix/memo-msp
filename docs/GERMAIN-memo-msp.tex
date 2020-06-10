@@ -15,6 +15,7 @@
   \usepackage{unicode-math}
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
     \setmainfont[]{Alegreya}
+    \setmonofont[Mapping=tex-ansi,Scale=0.8]{Source Code Pro}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -217,7 +218,7 @@ Barbara ROMANIUK}}
 \chapter*{Résumé}\label{ruxe9sumuxe9}}
 
 
-L'objectif de ce mémoire est de montrer comment on peut créer une bibliothèque qui pourra faciliter la découverte de la Programmation Orientée Objets (POO) à des débutants via des travaux pratiques guidés. Il relate les faits de réalisations de mon projet de mise en situation professionnelle. Pour faire très simple, la POO est un moyen de programmer avec une représentation du monde courant avec des ``objets algorithmiques''. Comme dit plus haut cela est une définition très minime car la programmation orienté objets ne se résume pas à ça. Il n'est donc pas si facile de cerner ce qu'est la programmation orientée objet via une simple définition, c'est pour cela qu'il existe différentes méthodes d'apprentissage et l'IUT de Reims s'oriente vers une pédagogie graphique soutenue par ses enseignant-chercheurs. Cependant le passage à PHP pour l'apprentissage de la POO a changé la manière de réaliser les travaux pratiques pendant la formation. En effet il n'existe pas à ce jour de bibliothèque graphique en PHP pour assurer la méthode d'enseignement de l'IUT de Reims. D'où nous vient la problématique de la création d'une bibliothèque PHP ayant la capacité de faire découvrir simplement la programmation orienté objet par la création d'objet graphique.
+L'objectif de ce mémoire est de montrer comment on peut créer une bibliothèque qui pourra faciliter la découverte de la Programmation Orientée Objets (POO) à des débutants via des travaux pratiques guidés. Il relate les faits de réalisations de mon projet de mise en situation professionnelle. Pour faire très simple, la POO est un moyen de programmer avec une représentation du monde courant avec des ``objets algorithmiques''. Comme dit plus haut cela est une définition très minime car la programmation orienté objets ne se résume pas à ça. Il n'est donc pas si facile de cerner ce qu'est la programmation orientée objet via une simple définition, c'est pour cela qu'il existe différentes méthodes d'apprentissage et l'IUT de Reims s'oriente vers une pédagogie graphique soutenue par ses enseignant-chercheurs. Cependant le passage à PHP pour l'apprentissage de la POO a changé la manière de réaliser les travaux pratiques pendant la formation. En effet il n'existe pas à ce jour de bibliothèque graphique en PHP pour assurer cette méthode d'enseignement. D'où nous vient la problématique de la création d'une bibliothèque PHP ayant la capacité de faire découvrir simplement la programmation orienté objet par la création d'objet graphique.
 
 Avant le passage en PHP une bibliothèque Java du département Informatique était utilisée pour permettre aux étudiants de créer une fenêtre et des formes sur cette fenêtre, mais cette pratique a été abandonnée lors de l'adoption du PHP comme langage orienté objet principal, jusqu'à l'arrivée de PHP 7.4. L'arrivée de l'extension FFI (Foreign Function Interface) en PHP 7.4 permet d'importer les fonctionnalités d'une bibliothèque externe au sein de PHP. C'est à dire qu'il est possible d'utiliser des librairies partagées écrite en C, en Go ou encore en Rust, etc. Cela ouvre un large panel de possibilités. L'espoir de pouvoir reprendre les anciennes habitudes d'enseignement renaît.
 
@@ -462,7 +463,7 @@ L'objectif est de ne pas utiliser directement FFI mais plutôt de passer par une
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{assets/img/class-ffi-abstraction} 
+{\centering \includegraphics[width=0.9\linewidth]{assets/img/class-ffi-abstraction} 
 
 }
 
@@ -541,8 +542,8 @@ Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il pe
 \VA{--- \citep{wikipedia_composer_2020}}{}
 \end{quote}
 
-\hypertarget{installation-de-composer}{%
-\subsection{Installation de composer}\label{installation-de-composer}}
+\hypertarget{install-composer}{%
+\subsection{Installation de composer}\label{install-composer}}
 
 Pour installer composer on a juste besoin d'avoir php installé sur sa machine, ensuite les étapes d'installation sont détaillées sur la page d'\href{https://getcomposer.org/doc/00-intro.md\#installation-linux-unix-macos}{introduction à composer}. Mais pour résumé l'une des méthodes d'installation pour avoir composer globalement sur linux :
 
@@ -567,7 +568,11 @@ Pour installer composer on a juste besoin d'avoir php installé sur sa machine, 
   Déplacer l'archive télécharger vers son dossier bin :
 \end{itemize}
 
-\texttt{mv\ composer.phar\ /usr/local/bin/composer}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mv}\NormalTok{ composer.phar /usr/local/bin/composer}
+\end{Highlighting}
+\end{Shaded}
 
 Avec composer installé on peut créer intéractivement un fichier\texttt{composer.json} dans n'importe quel dossier ou projet avec la commande \texttt{composer\ init}.
 
@@ -622,7 +627,115 @@ Nous avons donc terminé le développement y compris la distribution de notre bi
 \chapter{Utilisation de la bibliothèque}\label{utils}}
 
 \hypertarget{utils-pre-requis}{%
-\section{Pré-requis}\label{utils-pre-requis}}
+\section{Pré-requis à l'utilisation}\label{utils-pre-requis}}
+
+Nous avons vu dans le \ref{pre-requis} que la bibliothèque développée comportait certaines dépendances, PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.
+
+\hypertarget{pruxe9chargement-ffi-et-header-csfml}{%
+\subsection{Préchargement FFI et header CSFML}\label{pruxe9chargement-ffi-et-header-csfml}}
+
+La bibliothèque utilise la fonctionnalité de préchargement de PHP pour précharger les header CSFML nécessaire pour charger et utiliser cette dernière en PHP. Il s'agit donc de modifier certaines variables de configuration de \texttt{php.ini} pour convenir à nos besoins. \emph{Les instructions donné seront pour linux, il est possible que la procédure change sur windows}
+
+\hypertarget{activation-de-ffi}{%
+\subsubsection{Activation de FFI :}\label{activation-de-ffi}}
+
+Il faut s'assurer que FFI est en mode \texttt{preload} et est bien activé
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  dans le \texttt{php.ini} il faut que cette ligne soit présente \texttt{ffi.enable="preload"}
+\item
+  on peut vérifier la bonne activation de FFI avec la commande \texttt{php\ -m\ \textbar{}\ grep\ FFI} qui doit afficher \texttt{FFI}
+\item
+  activer \textbf{opcache} en ligne de commande en modifiant la valeur du paramètre \texttt{opcache.enable\_cli} à \texttt{true}.
+\end{enumerate}
+
+\hypertarget{mettre-en-place-le-pruxe9chargement}{%
+\subsubsection{Mettre en place le préchargement :}\label{mettre-en-place-le-pruxe9chargement}}
+
+Les fichiers header (extension en \texttt{.h}) à précharger sont dans le dossier \texttt{preloading} du dépot de la bibliothèque. Les deux premières ligne de chaque fichiers définissent :
+
+\begin{itemize}
+\tightlist
+\item
+  l'espace de définition utilisé pour chargé la bibliothèque C en PHP, \textbf{à ne pas modifier}
+\item
+  le chemin \emph{absolu} vers le fichier binaire de la bibliothèque à chargé, CSFML pour notre cas.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Il faut bien s'assurer que ce chemin est le bon pour réussir le chargement de la bibliothèque avec FFI. On peut vérifier cela avec la commande \texttt{locate}. Par exemple pour le module Graphics de CSFML il faut exécuter la commande \texttt{locate\ libcsfml-graphics.so}.
+  \item
+    \textbf{Attention !} si \emph{SFML} n'est pas installé avec \emph{CSFML} la bibliothèque ne pourra pas se charger.
+  \end{itemize}
+\end{itemize}
+
+Le chemin absolu vers le dossier contenant ces fichiers doit être renseigné dans la variable \texttt{ffi.preload} du fichier de configuration de PHP en \textbf{ligne de commande}, sur ma machine son chemins est \texttt{/etc/php/7.4/cli/php.ini}. Ce chemin doit ensuite être suffixé de \texttt{*.h} pour préciser que nous voulons tous les fichiers d'extension \texttt{.h} situé dans ce dossier.
+
+\begin{itemize}
+\tightlist
+\item
+  Par exemple si le chemin vers le dossier \texttt{preloading} du dépôt est \texttt{/home/user/phpml/preloading/} la nouvelle valeur de la variable sera : \texttt{ffi.preload="/home/user/phpml/preloading/*.h"}
+\end{itemize}
+
+Si tout s'est bien passé, avec cette nouvelle configuration on devrait être capable d'exécuter un script de test du dépôt sans erreurs dès qu'on l'aura installé dans un nouveau projet avec composer.
+
+\hypertarget{installation-dans-un-nouveau-projet}{%
+\subsection{Installation dans un nouveau projet}\label{installation-dans-un-nouveau-projet}}
+
+Partant du contexte que vous commencez un nouveau projet appelé \emph{nice-stuff} et que vous vouliez y intégrer cette bibliothèque, les étapes que vous aurez à réaliser doivent comprendre :
+
+\begin{itemize}
+\tightlist
+\item
+  la création du dossier \texttt{nice\_stuff}
+\item
+  l'initialisation de votre fichier \texttt{composer.json} avec \texttt{composer\ init}, après l'avoir préalablement installé \ref{install-composer}
+\item
+  l'ajout de la bibliothèque \textbf{PHPML} en tant que dépendance à votre projet : \texttt{composer\ require\ djuhnix/phpml}
+\item
+  il est important de noter que vous aurez besoin de la fonction d'autochargement fournie par composer :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    il vous suffit de mettre au début de votre script la ligne ajoutant le fichier \texttt{vendor/autoload.php}. Cette ligne pourrait ressembler à \texttt{require\_once("vendor/autoload.php")} mais veillez à ce que le chemin passé à la fonction soit relatif à l'emplacement de votre script.
+  \end{itemize}
+\end{itemize}
+
+A présent vous êtes prêt à utiliser la bibliothèque PHPML dans votre projet, composer s'occupera de charger les différentes classes que vous appellerez.
+
+\hypertarget{exemple-dutilisation-et-documentations}{%
+\section{Exemple d'utilisation et documentations}\label{exemple-dutilisation-et-documentations}}
+
+\hypertarget{utilisation}{%
+\subsection{Utilisation}\label{utilisation}}
+
+Vous pouvez trouver des exemples d'utilisation de la bibliothèque dans dans le dossier \texttt{tests/functionnal} du dépôt git. Voici par exemple les sources du test sur l'ouverture d'une fenêtre qui est le minimum à exécuter si vous voulez vérifier la bonne installation de la bibliothèque.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require_once} \KeywordTok{__DIR__}\NormalTok{ . }\StringTok{'/../../vendor/autoload.php'}\OtherTok{;}
+
+\KeywordTok{use} \KeywordTok{PHPML}\NormalTok{\textbackslash{}Graphics\textbackslash{}Event}\OtherTok{;}
+\KeywordTok{use} \KeywordTok{PHPML}\NormalTok{\textbackslash{}Graphics\textbackslash{}VideoMode}\OtherTok{;}
+\KeywordTok{use} \KeywordTok{PHPML}\NormalTok{\textbackslash{}Graphics\textbackslash{}Window}\OtherTok{;}
+
+
+\KeywordTok{$window}\NormalTok{ = }\KeywordTok{new}\NormalTok{ Window}\OtherTok{(}
+    \KeywordTok{new}\NormalTok{ VideoMode}\OtherTok{(}\DecValTok{800}\OtherTok{,} \DecValTok{600}\OtherTok{)}
+\OtherTok{);}
+
+\KeywordTok{$window}\NormalTok{->run}\OtherTok{(}\KeywordTok{new}\NormalTok{ Event}\OtherTok{());}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{documentation}{%
+\subsection{Documentation}\label{documentation}}
+
+Actuellement la documentation de la bibliothèque n'est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèques sur le dépôt github.
 
 \hypertarget{res}{%
 \chapter{Résultat}\label{res}}

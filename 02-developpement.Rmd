@@ -88,7 +88,7 @@ La première chose dont je me suis donnée l'objectif de réaliser lors de ma ph
 L'objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser.
 Je suis passé par différentes idée de conception, et j'ai fini par aboutir à cellui-ci.
 
-```{r class-diagram-abstract-ffi, echo=FALSE, fig.cap="Diagramme de classe : AbstractFFI" ,fig.align='center', out.width='70%'}
+```{r class-diagram-abstract-ffi, echo=FALSE, fig.cap="Diagramme de classe : AbstractFFI" ,fig.align='center', out.width='90%'}
 
 knitr::include_graphics("assets/img/class-ffi-abstraction.png")
 
@@ -156,7 +156,7 @@ Cette section est purement subjective car il s'agit de choisir comment partager 
 > 
 > --- [@wikipedia_composer_2020]
 
-### Installation de composer
+### Installation de composer {#install-composer}
 
 Pour installer composer on a juste besoin d'avoir php installé sur sa machine, ensuite les étapes d'installation sont détaillées sur la page d'[introduction à composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos). Mais pour résumé l'une des méthodes d'installation pour avoir composer globalement sur linux :
 
@@ -171,7 +171,9 @@ php -r "unlink('composer-setup.php');"
 
 - Déplacer l'archive télécharger vers son dossier bin : 
 
-`mv composer.phar /usr/local/bin/composer`
+```bash
+mv composer.phar /usr/local/bin/composer
+```
 
 Avec composer installé on peut créer intéractivement un fichier` composer.json` dans n'importe quel dossier ou projet avec la commande `composer init`.
 

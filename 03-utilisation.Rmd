@@ -1,5 +1,77 @@
 # Utilisation de la bibliothèque {#utils}
 
-## Pré-requis {#utils-pre-requis}
+## Pré-requis à l'utilisation {#utils-pre-requis}
+
+Nous avons vu dans le \@ref(pre-requis) que la bibliothèque développée comportait certaines dépendances, PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.
+
+### Préchargement FFI et header CSFML
+
+La bibliothèque utilise la fonctionnalité de préchargement de PHP pour précharger les header CSFML nécessaire pour charger et utiliser cette dernière en PHP. Il s'agit donc de modifier certaines variables de configuration de `php.ini` pour convenir à nos besoins.
+*Les instructions donné seront pour linux, il est possible que la procédure change sur windows*
 
 
+#### Activation de FFI : 
+
+Il faut s'assurer que FFI est en mode `preload` et est bien activé
+    
+1. dans le `php.ini` il faut que cette ligne soit présente `ffi.enable="preload"`
+
+2. on peut vérifier la bonne activation de FFI avec la commande `php -m | grep FFI` qui doit afficher `FFI`
+
+3. activer **opcache** en ligne de commande en modifiant la valeur du paramètre `opcache.enable_cli` à `true`.
+
+#### Mettre en place le préchargement :
+
+Les fichiers header (extension en `.h`) à précharger sont dans le dossier `preloading` du dépot  de la bibliothèque. Les deux premières ligne de chaque fichiers définissent :
+
+- l'espace de définition utilisé pour chargé la bibliothèque C en PHP, **à ne pas modifier**
+- le chemin *absolu* vers le fichier binaire de la bibliothèque à chargé, CSFML pour notre cas.
+    - Il faut bien s'assurer que ce chemin est le bon pour réussir le chargement de la bibliothèque avec FFI.
+On peut vérifier cela avec la commande `locate`. Par exemple pour le module Graphics de CSFML il faut exécuter la commande `locate libcsfml-graphics.so`.
+    - **Attention !** si *SFML* n'est pas installé avec *CSFML* la bibliothèque ne pourra pas se charger.
+  
+Le chemin absolu vers le dossier contenant ces fichiers doit être renseigné dans la variable `ffi.preload` du fichier de configuration de PHP en **ligne de commande**, sur ma machine son chemins est `/etc/php/7.4/cli/php.ini`.
+Ce chemin doit ensuite être suffixé de `*.h` pour préciser que nous voulons tous les fichiers d'extension `.h` situé dans ce dossier.
+
+- Par exemple si le chemin vers le dossier `preloading` du dépôt est `/home/user/phpml/preloading/` la nouvelle valeur de la variable sera : 
+`ffi.preload="/home/user/phpml/preloading/*.h"`
+
+Si tout s'est bien passé, avec cette nouvelle configuration on devrait être capable d'exécuter un script de test du dépôt sans erreurs dès qu'on l'aura installé dans un nouveau projet avec composer.
+
+### Installation dans un nouveau projet
+
+Partant du contexte que vous commencez un nouveau projet appelé *nice-stuff* et que vous vouliez y intégrer cette bibliothèque, les étapes que vous aurez à réaliser doivent comprendre :
+
+- la création du dossier `nice_stuff`
+- l'initialisation de votre fichier `composer.json` avec `composer init`, après l'avoir préalablement installé \@ref(install-composer)
+- l'ajout de la bibliothèque **PHPML** en tant que dépendance à votre projet : `composer require djuhnix/phpml`
+- il est important de noter que vous aurez besoin de la fonction d'autochargement fournie par composer :
+    - il vous suffit de mettre au début de votre script la ligne ajoutant le fichier `vendor/autoload.php`. Cette ligne pourrait ressembler à `require_once("vendor/autoload.php")` mais veillez à ce que le chemin passé à la fonction soit relatif à l'emplacement de votre script.
+
+A présent vous êtes prêt à utiliser la bibliothèque PHPML dans votre projet, composer s'occupera de charger les différentes classes que vous appellerez.
+
+## Exemple d'utilisation et documentations
+
+### Utilisation
+
+Vous pouvez trouver des exemples d'utilisation de la bibliothèque dans dans le dossier `tests/functionnal` du dépôt git.
+Voici par exemple les sources du test sur l'ouverture d'une fenêtre qui est le minimum à exécuter si vous voulez vérifier la bonne installation de la bibliothèque.
+
+```php
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+use PHPML\Graphics\Event;
+use PHPML\Graphics\VideoMode;
+use PHPML\Graphics\Window;
+
+
+$window = new Window(
+    new VideoMode(800, 600)
+);
+
+$window->run(new Event());
+```
+
+### Documentation
+
+Actuellement la documentation de la bibliothèque n'est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèques sur le dépôt github.

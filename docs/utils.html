@@ -167,13 +167,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="dev.html"><a href="dev.html#distribution-de-la-bibliothèque"><i class="fa fa-check"></i><b>2.5</b> Distribution de la bibliothèque</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="dev.html"><a href="dev.html#un-gestionnaire-de-paquets-composer"><i class="fa fa-check"></i><b>2.5.1</b> Un gestionnaire de paquets : composer</a></li>
-<li class="chapter" data-level="2.5.2" data-path="dev.html"><a href="dev.html#installation-de-composer"><i class="fa fa-check"></i><b>2.5.2</b> Installation de composer</a></li>
+<li class="chapter" data-level="2.5.2" data-path="dev.html"><a href="dev.html#install-composer"><i class="fa fa-check"></i><b>2.5.2</b> Installation de composer</a></li>
 <li class="chapter" data-level="2.5.3" data-path="dev.html"><a href="dev.html#publication-de-bibliothèque-avec-composer-et-packagist"><i class="fa fa-check"></i><b>2.5.3</b> Publication de bibliothèque avec composer et packagist</a></li>
 <li class="chapter" data-level="2.5.4" data-path="dev.html"><a href="dev.html#maintenabilité"><i class="fa fa-check"></i><b>2.5.4</b> Maintenabilité</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a><ul>
-<li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis</a></li>
+<li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis à l’utilisation</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="utils.html"><a href="utils.html#préchargement-ffi-et-header-csfml"><i class="fa fa-check"></i><b>3.1.1</b> Préchargement FFI et header CSFML</a></li>
+<li class="chapter" data-level="3.1.2" data-path="utils.html"><a href="utils.html#installation-dans-un-nouveau-projet"><i class="fa fa-check"></i><b>3.1.2</b> Installation dans un nouveau projet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="utils.html"><a href="utils.html#exemple-dutilisation-et-documentations"><i class="fa fa-check"></i><b>3.2</b> Exemple d’utilisation et documentations</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="utils.html"><a href="utils.html#utilisation"><i class="fa fa-check"></i><b>3.2.1</b> Utilisation</a></li>
+<li class="chapter" data-level="3.2.2" data-path="utils.html"><a href="utils.html#documentation"><i class="fa fa-check"></i><b>3.2.2</b> Documentation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="res.html"><a href="res.html"><i class="fa fa-check"></i><b>4</b> Résultat</a><ul>
 <li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#exemple-1"><i class="fa fa-check"></i><b>4.1</b> Exemple 1</a></li>
@@ -206,8 +213,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="utils" class="section level1">
 <h1><span class="header-section-number">Chapitre 3</span> Utilisation de la bibliothèque</h1>
 <div id="utils-pre-requis" class="section level2">
-<h2><span class="header-section-number">3.1</span> Pré-requis</h2>
+<h2><span class="header-section-number">3.1</span> Pré-requis à l’utilisation</h2>
+<p>Nous avons vu dans le <a href="dev.html#pre-requis">2.2</a> que la bibliothèque développée comportait certaines dépendances, PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.</p>
+<div id="préchargement-ffi-et-header-csfml" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Préchargement FFI et header CSFML</h3>
+<p>La bibliothèque utilise la fonctionnalité de préchargement de PHP pour précharger les header CSFML nécessaire pour charger et utiliser cette dernière en PHP. Il s’agit donc de modifier certaines variables de configuration de <code>php.ini</code> pour convenir à nos besoins.
+<em>Les instructions donné seront pour linux, il est possible que la procédure change sur windows</em></p>
+<div id="activation-de-ffi" class="section level4">
+<h4><span class="header-section-number">3.1.1.1</span> Activation de FFI :</h4>
+<p>Il faut s’assurer que FFI est en mode <code>preload</code> et est bien activé</p>
+<ol style="list-style-type: decimal">
+<li><p>dans le <code>php.ini</code> il faut que cette ligne soit présente <code>ffi.enable=&quot;preload&quot;</code></p></li>
+<li><p>on peut vérifier la bonne activation de FFI avec la commande <code>php -m | grep FFI</code> qui doit afficher <code>FFI</code></p></li>
+<li><p>activer <strong>opcache</strong> en ligne de commande en modifiant la valeur du paramètre <code>opcache.enable_cli</code> à <code>true</code>.</p></li>
+</ol>
+</div>
+<div id="mettre-en-place-le-préchargement" class="section level4">
+<h4><span class="header-section-number">3.1.1.2</span> Mettre en place le préchargement :</h4>
+<p>Les fichiers header (extension en <code>.h</code>) à précharger sont dans le dossier <code>preloading</code> du dépot de la bibliothèque. Les deux premières ligne de chaque fichiers définissent :</p>
+<ul>
+<li>l’espace de définition utilisé pour chargé la bibliothèque C en PHP, <strong>à ne pas modifier</strong></li>
+<li>le chemin <em>absolu</em> vers le fichier binaire de la bibliothèque à chargé, CSFML pour notre cas.
+<ul>
+<li>Il faut bien s’assurer que ce chemin est le bon pour réussir le chargement de la bibliothèque avec FFI.
+On peut vérifier cela avec la commande <code>locate</code>. Par exemple pour le module Graphics de CSFML il faut exécuter la commande <code>locate libcsfml-graphics.so</code>.</li>
+<li><strong>Attention !</strong> si <em>SFML</em> n’est pas installé avec <em>CSFML</em> la bibliothèque ne pourra pas se charger.</li>
+</ul></li>
+</ul>
+<p>Le chemin absolu vers le dossier contenant ces fichiers doit être renseigné dans la variable <code>ffi.preload</code> du fichier de configuration de PHP en <strong>ligne de commande</strong>, sur ma machine son chemins est <code>/etc/php/7.4/cli/php.ini</code>.
+Ce chemin doit ensuite être suffixé de <code>*.h</code> pour préciser que nous voulons tous les fichiers d’extension <code>.h</code> situé dans ce dossier.</p>
+<ul>
+<li>Par exemple si le chemin vers le dossier <code>preloading</code> du dépôt est <code>/home/user/phpml/preloading/</code> la nouvelle valeur de la variable sera :
+<code>ffi.preload=&quot;/home/user/phpml/preloading/*.h&quot;</code></li>
+</ul>
+<p>Si tout s’est bien passé, avec cette nouvelle configuration on devrait être capable d’exécuter un script de test du dépôt sans erreurs dès qu’on l’aura installé dans un nouveau projet avec composer.</p>
+</div>
+</div>
+<div id="installation-dans-un-nouveau-projet" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Installation dans un nouveau projet</h3>
+<p>Partant du contexte que vous commencez un nouveau projet appelé <em>nice-stuff</em> et que vous vouliez y intégrer cette bibliothèque, les étapes que vous aurez à réaliser doivent comprendre :</p>
+<ul>
+<li>la création du dossier <code>nice_stuff</code></li>
+<li>l’initialisation de votre fichier <code>composer.json</code> avec <code>composer init</code>, après l’avoir préalablement installé <a href="dev.html#install-composer">2.5.2</a></li>
+<li>l’ajout de la bibliothèque <strong>PHPML</strong> en tant que dépendance à votre projet : <code>composer require djuhnix/phpml</code></li>
+<li>il est important de noter que vous aurez besoin de la fonction d’autochargement fournie par composer :
+<ul>
+<li>il vous suffit de mettre au début de votre script la ligne ajoutant le fichier <code>vendor/autoload.php</code>. Cette ligne pourrait ressembler à <code>require_once(&quot;vendor/autoload.php&quot;)</code> mais veillez à ce que le chemin passé à la fonction soit relatif à l’emplacement de votre script.</li>
+</ul></li>
+</ul>
+<p>A présent vous êtes prêt à utiliser la bibliothèque PHPML dans votre projet, composer s’occupera de charger les différentes classes que vous appellerez.</p>
+</div>
+</div>
+<div id="exemple-dutilisation-et-documentations" class="section level2">
+<h2><span class="header-section-number">3.2</span> Exemple d’utilisation et documentations</h2>
+<div id="utilisation" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Utilisation</h3>
+<p>Vous pouvez trouver des exemples d’utilisation de la bibliothèque dans dans le dossier <code>tests/functionnal</code> du dépôt git.
+Voici par exemple les sources du test sur l’ouverture d’une fenêtre qui est le minimum à exécuter si vous voulez vérifier la bonne installation de la bibliothèque.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">require_once</span> <span class="kw">__DIR__</span> . <span class="st">&#39;/../../vendor/autoload.php&#39;</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">use</span> <span class="kw">PHPML</span>\Graphics\Event<span class="ot">;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">use</span> <span class="kw">PHPML</span>\Graphics\VideoMode<span class="ot">;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw">use</span> <span class="kw">PHPML</span>\Graphics\Window<span class="ot">;</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="kw">$window</span> = <span class="kw">new</span> Window<span class="ot">(</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="kw">new</span> VideoMode<span class="ot">(</span><span class="dv">800</span><span class="ot">,</span> <span class="dv">600</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="ot">);</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="kw">$window</span>-&gt;run<span class="ot">(</span><span class="kw">new</span> Event<span class="ot">());</span></a></code></pre></div>
+</div>
+<div id="documentation" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Documentation</h3>
+<p>Actuellement la documentation de la bibliothèque n’est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèques sur le dépôt github.</p>
 
+</div>
 </div>
 </div>
 <script type="application/json" class="js-hypothesis-config">
