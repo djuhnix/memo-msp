@@ -4,22 +4,22 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel - Créer une bibliothèque PHP</title>
+  <title>Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP</title>
   <meta name="description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel - Créer une bibliothèque PHP" />
+  <meta property="og:title" content="Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://djuhnix.github.io/memo-msp/" />
-  <meta property="og:image" content="https://djuhnix.github.io/memo-msp/assets/img/cover.png" />
+  <meta property="og:image" content="https://djuhnix.github.io/memo-msp/assets/img/undraw_developer_activity.png" />
   <meta property="og:description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
   <meta name="github-repo" content="djuhnix/memo-msp" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel - Créer une bibliothèque PHP" />
+  <meta name="twitter:title" content="Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP" />
   
   <meta name="twitter:description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
-  <meta name="twitter:image" content="https://djuhnix.github.io/memo-msp/assets/img/cover.png" />
+  <meta name="twitter:image" content="https://djuhnix.github.io/memo-msp/assets/img/undraw_developer_activity.png" />
 
 <meta name="author" content="Germain Jr. OLEA-OYOUGOU" />
 
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="assets/img/mortarboard.png" type="image/x-icon" />
 <link rel="prev" href="context.html"/>
 <link rel="next" href="utils.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -153,6 +153,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.3" data-path="dev.html"><a href="dev.html#php-ffi"><i class="fa fa-check"></i><b>2.1.3</b> PHP FFI</a></li>
 <li class="chapter" data-level="2.1.4" data-path="dev.html"><a href="dev.html#csfml-et-sfml"><i class="fa fa-check"></i><b>2.1.4</b> CSFML et SFML</a></li>
 </ul></li>
+<li class="chapter" data-level="2.2" data-path="dev.html"><a href="dev.html#conception"><i class="fa fa-check"></i><b>2.2</b> Conception</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="dev.html"><a href="dev.html#ma-première-classe-abstractffi"><i class="fa fa-check"></i><b>2.2.1</b> Ma première classe AbstractFFI</a></li>
+<li class="chapter" data-level="2.2.2" data-path="dev.html"><a href="dev.html#architecture-globale"><i class="fa fa-check"></i><b>2.2.2</b> Architecture globale</a></li>
+<li class="chapter" data-level="2.2.3" data-path="dev.html"><a href="dev.html#exemple-de-la-classe-window"><i class="fa fa-check"></i><b>2.2.3</b> Exemple de la classe Window</a></li>
+<li class="chapter" data-level="2.2.4" data-path="dev.html"><a href="dev.html#diagramme-de-classe"><i class="fa fa-check"></i><b>2.2.4</b> Diagramme de classe</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a><ul>
 <li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis</a></li>
@@ -166,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="références-et-bibliography.html"><a href="références-et-bibliography.html"><i class="fa fa-check"></i>Références et bibliography</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://www.flaticon.com/" title="Flaticon">Icons from Flaticon</a></li>
 
 </ul>
 
@@ -176,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Memoire de mise en situation professionnel - Créer une bibliothèque PHP</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Memoire de mise en situation professionnel — Créer une bibliothèque PHP</a>
           </h1>
         </div>
 
@@ -272,6 +279,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Après avoir eu ces dépendances sur ma machine, j’ai pu découvrir comment fonctionnait CSFML et SFML d’abord puis j’ai été capable de réaliser un programme en C qui affiche une fenêtre. Par la suite j’ai également réussi à écrire un script qui ouvre une fenêtre en PHP (accessible sur le dépôt git) utilisant CSFML et FFI fraîchement installé.
 Maintenant que j’étais au point sur les dépendances de ma future bibliothèques j’ai pu commencé la phase de conception.</p>
+</div>
+</div>
+<div id="conception" class="section level2">
+<h2><span class="header-section-number">2.2</span> Conception</h2>
+<p>En ce qui concerne la conception, je n’ai pas l’intention de détailler tout mon processus de réflexion mais juste d’éclaircir sur certains point clé de l’architecture de la bibliothèque.
+La première chose dont je me suis donnée l’objectif de réaliser lors de ma phase de conception était de trouver une abstraction à la manipulation d’objets FFI.</p>
+<div id="ma-première-classe-abstractffi" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Ma première classe AbstractFFI</h3>
+<blockquote>
+<p>En informatique, le concept d’abstraction identifie et regroupe des caractéristiques et traitements communs applicables à des entités ou concepts variés ; une représentation abstraite commune de tels objets permet d’en simplifier et d’en unifier la manipulation.</p>
+<p>— <span class="citation">(Wikipédia <a href="#ref-wikipedia_abstraction_2019">2019</a>)</span></p>
+</blockquote>
+<p>L’objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser.
+Je suis passé par différentes idée de conception, et j’ai fini par aboutir à cellui-ci.</p>
+<div class="figure" style="text-align: center"><span id="fig:class-diagram-abstract-ffi"></span>
+<img src="assets/img/class-ffi-abstraction.png" alt="Diagramme de classe : AbstractFFI" width="496" />
+<p class="caption">
+FIGURE 2.1: Diagramme de classe : AbstractFFI
+</p>
+</div>
+<p>On y voit plusieurs classes abstraites, la principale étant <code>AbstractFFI</code> dont hérite <code>LibLoader</code>, leurs rôles est dans leur nom :</p>
+<ul>
+<li><strong>AbstractFFI</strong> : la principale classe qui se charge de s’abstraire du chargement de la bibliothèque et de faire les vérifications nécessaires. Elle a comme attribut un tableau d’objets FFI pour permettre l’utilisation de plusieurs bibliothèque tout au long du programme.</li>
+<li><strong>LibLoader</strong> : héritant de AbstractFFI elle a les mêmes fonctionnalités, mais en plus elle donne la base pour mettre en place un Singleton de génération de bibliothèque — une classe limité à une instance dont le seul objectif est de retourner une bibliothèque précise.</li>
+</ul>
+<p>Pour ce qui est de <strong>MyCData</strong>, il s’agit d’un <code>trait</code> — particularité de PHP, c’est simplement une classe abstraite qui s’utilise comme une interface pour faire simple. Son objectifs est d’avoir un ensemble de fonctions et d’attribut prêtes à être réutiliser pour définir une donnée C qui serait importer de la bibliothèque chargé avec FFI.</p>
+</div>
+<div id="architecture-globale" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Architecture globale</h3>
+<p>Le reste de la bibliothèque est un ensemble de classe inspiré de SFML qui s’emboîtent autour de l’abstraction FFI. Effectivement, SFML et pas CSFML, car CSFML est écrit en C, or le C n’est pas un langage orienté objet et CSFML est juste un pont vers SFML qui est écrit en C++ qui lui est bien orienté objet. Toujours est-il que j’ai du simplifier un maximum l’architecture pour ne pas alourdir la bibliothèque en elle même et son utilisation finale.</p>
+</div>
+<div id="exemple-de-la-classe-window" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Exemple de la classe Window</h3>
+<p>La classe Window est le deuxième pilier de l’architecture de la bibliothèque, comme la plupart des classes elle utilise MyCData pour bénéficier des méthodes et des attributs lier à l’échange de données entre PHP et la bibliothèque C via FFI. C’est le cas de la méthode <code>toCData()</code> qui convertit les attributs actuel de la classe en donnée C.</p>
+</div>
+<div id="diagramme-de-classe" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> Diagramme de classe</h3>
+<p>Le résultat de la phase de conception est le diagramme de classe suivant qui a constamment évolué même lors de l’implémentation des fonctionnalités de la bibliothèque.</p>
+<div class="figure" style="text-align: center"><span id="fig:class-diagramm"></span>
+<iframe src="https://app.diagrams.net/?lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=phpsfml-pre-class.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1LxYoQHLD5Z8fzSt4P4RyekhaTM5EHoAT%26export%3Ddownload" width="70%" height="600px">
+</iframe>
+<p class="caption">
+FIGURE 2.2: Diagramme de classe accessible à l’adresse <a href="https://cutt.ly/phpml-class-diagram" class="uri">https://cutt.ly/phpml-class-diagram</a>
+</p>
+</div>
+<p>Le temps passé sur la réflexion de l’architecture de la bibliothèque n’a pas été en vain car il va nous permettre d’en gagner sur la partie principale qui est l’implémentation des fonctionnalités trouvées lors de la phase de conception.</p>
 
 </div>
 </div>
@@ -280,6 +333,9 @@ Maintenant que j’étais au point sur les dépendances de ma future bibliothèq
 <div id="refs" class="references">
 <div id="ref-the_php_group_ffi_2019">
 <p>The PHP Group. 2019. “PHP: Installation/Configuration - Manual. PHP: Installation/Configuration - Manual.” 2019. <a href="https://www.php.net/manual/fr/ffi.setup.php">https://www.php.net/manual/fr/ffi.setup.php</a>.</p>
+</div>
+<div id="ref-wikipedia_abstraction_2019">
+<p>Wikipédia. 2019. “Abstraction (informatique).” <em>Wikipédia</em>. <a href="https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836">https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836</a>.</p>
 </div>
 </div>
 <script type="application/json" class="js-hypothesis-config">

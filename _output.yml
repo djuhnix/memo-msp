@@ -10,6 +10,7 @@ bookdown::gitbook:
         <li><a href="./">Mémoire de mise en situation professionnelle</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://www.flaticon.com/" title="Flaticon">Icons from Flaticon</a></li>
     download: [pdf]
     sharing:
       github: yes
@@ -27,7 +28,7 @@ bookdown::pdf_book:
     - --top-level-division=chapter
     - --wrap=none
   df_print: kable
-  toc_depth: 3
+  toc_depth: 2
   toc_unnumbered: no
   toc_appendix: yes
   highlight_bw: yes

@@ -1,6 +1,6 @@
 --- 
-title: "Memoire de mise en situation professionnel - Créer une bibliothèque PHP"
-favicon: assets/img/package-icon.png
+title: "Memoire de mise en situation professionnel --- Créer une bibliothèque PHP"
+favicon: assets/img/mortarboard.png
 author: "Germain Jr. OLEA-OYOUGOU"
 description: "Mémoire du projet de mise en situation professionnelle sur la création d'une bibliothèque PHP"
 thanks: |

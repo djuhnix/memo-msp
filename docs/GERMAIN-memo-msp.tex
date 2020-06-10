@@ -32,7 +32,7 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{
-            pdftitle={Memoire de mise en situation professionnel - Créer une bibliothèque PHP},
+            pdftitle={Memoire de mise en situation professionnel --- Créer une bibliothèque PHP},
             pdfauthor={Germain Jr.~OLEA-OYOUGOU},
             colorlinks=true,
             linkcolor=Maroon,
@@ -181,10 +181,10 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Memoire de mise en situation professionnel - Créer une bibliothèque PHP\thanks{IUT RCC\\
+\title{Memoire de mise en situation professionnel --- Créer une bibliothèque PHP\thanks{IUT RCC\\
 Barbara ROMANIUK}}
 \author{Germain Jr.~OLEA-OYOUGOU}
-\date{09 juin 2020}
+\date{10 juin 2020}
 
 \begin{document}
 \maketitle
@@ -202,7 +202,7 @@ Barbara ROMANIUK}}
 
 {
 \hypersetup{linkcolor=}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 \tableofcontents
 }
 \listoftables
@@ -255,7 +255,9 @@ Avant d'entrer dans le vif du sujet il est évident de définir le contexte dans
 En DUT Informatique on doit \textbf{obligatoirement} effectuer un stage de fin d'études en deuxième année. Le but premier de ce stage est d'appliquer les connaissances scolaire ``théorique'' apprise dans un contexte professionnel, c'est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l'on a appris mais aussi mais est aussi pour certains un accomplissement de vie d'étudiants. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires de ce diplôme ont la possibilité et la facilité d'entrer dans le monde professionnel car par
 
 \begin{quote}
-``l'acquisition de compétences professionnelles multiples et une solide culture générale, le DUT vise la polyvalence.'' --- \citep{onisep_dut}
+``l'acquisition de compétences professionnelles multiples et une solide culture générale, le DUT vise la polyvalence.''
+
+\VA{--- \citep{onisep_dut}}{}
 \end{quote}
 
 Bien que la plupart préfèrent poursuivre leurs études.
@@ -433,6 +435,62 @@ CSFML est juste un pont vers la bibliothèque graphique SFML il faut donc instal
 \end{itemize}
 
 Après avoir eu ces dépendances sur ma machine, j'ai pu découvrir comment fonctionnait CSFML et SFML d'abord puis j'ai été capable de réaliser un programme en C qui affiche une fenêtre. Par la suite j'ai également réussi à écrire un script qui ouvre une fenêtre en PHP (accessible sur le dépôt git) utilisant CSFML et FFI fraîchement installé. Maintenant que j'étais au point sur les dépendances de ma future bibliothèques j'ai pu commencé la phase de conception.
+
+\hypertarget{conception}{%
+\section{Conception}\label{conception}}
+
+En ce qui concerne la conception, je n'ai pas l'intention de détailler tout mon processus de réflexion mais juste d'éclaircir sur certains point clé de l'architecture de la bibliothèque. La première chose dont je me suis donnée l'objectif de réaliser lors de ma phase de conception était de trouver une abstraction à la manipulation d'objets FFI.
+
+\hypertarget{ma-premiuxe8re-classe-abstractffi}{%
+\subsection{Ma première classe AbstractFFI}\label{ma-premiuxe8re-classe-abstractffi}}
+
+\begin{quote}
+En informatique, le concept d'abstraction identifie et regroupe des caractéristiques et traitements communs applicables à des entités ou concepts variés ; une représentation abstraite commune de tels objets permet d'en simplifier et d'en unifier la manipulation.
+
+\VA{--- \citep{wikipedia_abstraction_2019}}{}
+\end{quote}
+
+L'objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser. Je suis passé par différentes idée de conception, et j'ai fini par aboutir à cellui-ci.
+
+\begin{figure}
+
+{\centering \includegraphics[width=13.76in]{assets/img/class-ffi-abstraction} 
+
+}
+
+\caption{Diagramme de classe : AbstractFFI}\label{fig:class-diagram-abstract-ffi}
+\end{figure}
+
+On y voit plusieurs classes abstraites, la principale étant \texttt{AbstractFFI} dont hérite \texttt{LibLoader}, leurs rôles est dans leur nom :
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{AbstractFFI} : la principale classe qui se charge de s'abstraire du chargement de la bibliothèque et de faire les vérifications nécessaires. Elle a comme attribut un tableau d'objets FFI pour permettre l'utilisation de plusieurs bibliothèque tout au long du programme.
+\item
+  \textbf{LibLoader} : héritant de AbstractFFI elle a les mêmes fonctionnalités, mais en plus elle donne la base pour mettre en place un Singleton de génération de bibliothèque --- une classe limité à une instance dont le seul objectif est de retourner une bibliothèque précise.
+\end{itemize}
+
+Pour ce qui est de \textbf{MyCData}, il s'agit d'un \texttt{trait} --- particularité de PHP, c'est simplement une classe abstraite qui s'utilise comme une interface pour faire simple. Son objectifs est d'avoir un ensemble de fonctions et d'attribut prêtes à être réutiliser pour définir une donnée C qui serait importer de la bibliothèque chargé avec FFI.
+
+\hypertarget{architecture-globale}{%
+\subsection{Architecture globale}\label{architecture-globale}}
+
+Le reste de la bibliothèque est un ensemble de classe inspiré de SFML qui s'emboîtent autour de l'abstraction FFI. Effectivement, SFML et pas CSFML, car CSFML est écrit en C, or le C n'est pas un langage orienté objet et CSFML est juste un pont vers SFML qui est écrit en C++ qui lui est bien orienté objet. Toujours est-il que j'ai du simplifier un maximum l'architecture pour ne pas alourdir la bibliothèque en elle même et son utilisation finale.
+
+\hypertarget{exemple-de-la-classe-window}{%
+\subsection{Exemple de la classe Window}\label{exemple-de-la-classe-window}}
+
+La classe Window est le deuxième pilier de l'architecture de la bibliothèque, comme la plupart des classes elle utilise MyCData pour bénéficier des méthodes et des attributs lier à l'échange de données entre PHP et la bibliothèque C via FFI. C'est le cas de la méthode \texttt{toCData()} qui convertit les attributs actuel de la classe en donnée C.
+
+\hypertarget{diagramme-de-classe}{%
+\subsection{Diagramme de classe}\label{diagramme-de-classe}}
+
+Le résultat de la phase de conception est le diagramme de classe suivant qui a constamment évolué même lors de l'implémentation des fonctionnalités de la bibliothèque.
+
+\label{fig:class-diagramm}Diagramme de classe accessible à l'adresse \url{https://cutt.ly/phpml-class-diagram}
+
+Le temps passé sur la réflexion de l'architecture de la bibliothèque n'a pas été en vain car il va nous permettre d'en gagner sur la partie principale qui est l'implémentation des fonctionnalités trouvées lors de la phase de conception.
 
 \hypertarget{utils}{%
 \chapter{Utilisation de la bibliothèque}\label{utils}}
