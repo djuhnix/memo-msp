@@ -183,8 +183,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="res.html"><a href="res.html"><i class="fa fa-check"></i><b>4</b> Résultat</a><ul>
-<li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#exemple-1"><i class="fa fa-check"></i><b>4.1</b> Exemple 1</a></li>
-<li class="chapter" data-level="4.2" data-path="res.html"><a href="res.html#exemple-2"><i class="fa fa-check"></i><b>4.2</b> Exemple 2</a></li>
+<li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#bilan-de-la-mise-en-situation-professionnelle"><i class="fa fa-check"></i><b>4.1</b> Bilan de la mise en situation professionnelle</a></li>
+<li class="chapter" data-level="4.2" data-path="res.html"><a href="res.html#finalité-de-la-bibliothèque"><i class="fa fa-check"></i><b>4.2</b> Finalité de la bibliothèque</a></li>
+<li class="chapter" data-level="4.3" data-path="res.html"><a href="res.html#ressenti-personnel"><i class="fa fa-check"></i><b>4.3</b> Ressenti personnel</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
 <li class="chapter" data-level="" data-path="liste-des-abbreviations.html"><a href="liste-des-abbreviations.html"><i class="fa fa-check"></i>Liste des Abbreviations</a></li>
@@ -212,7 +213,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="conclusion" class="section level1 unnumbered">
 <h1>Conclusion</h1>
-<p>J’aurai enfin fini…</p>
+<p>Pour décharger les tâches des professeurs du département informatique de l’IUT de Reims, liées à l’enseignement de la POO, il a été décidé de réaliser une bibliothèque graphique Java. Cependant elle a du être abandonné à cause du changement de langage dans le nouveau programme. Le projet de construire une nouvelle bibliothèque en PHP m’a donc été confié pour ma mise en situation professionnelle.</p>
+<p>Le but était alors de trouver comment créer une bibliothèque orientée objets en PHP avec les mêmes possibilités que celle précédemment utilisé par le département, la principale étant l’ouverture d’une fenêtre système et le dessin de formes sur cette fenêtre à l’aide de manipulations et d’instanciations d’objets. Tout en considérant le fait que ce sujet n’avait pas encore été abordé en profondeur pour avoir une base de travail et que de plus je n’en avait aucune connaissance jusqu’à ce que je plonge dans la phase de recherches.</p>
+<p>Avec les pointeurs que j’ai reçu en début de projet j’ai réussi grâce à FFI à implémenter une partie du module Graphics de CSFML en PHP et grâce à composer et packagist j’ai pu la distribuer pour une utilisation public. <strong>PHPML</strong> répond parfaitement aux réquisitions d’une bibliothèque PHP orientée objets et en ce qui concerne ses fonctionnalités elle comprend celles demandés en priorité par ma tutrice de projet. Bien que légère par rapport à toutes les fonctionnalités de l’ancienne bibliothèque et de CSFML elle pourra satisfaire les premiers besoins pour lesquels elle a été créer: alléger la création des travaux pratiques par les professeurs et leurs réalisations par les étudiants.</p>
+<p>Ainsi j’ai pu apprendre à créer une bibliothèque en PHP et me servir de FFI, sans oublier la gestion de mon temps et de mon projets en télétravail. Néanmoins tout n’est pas accompli, le minimum pour la suite serait l’implémentation complète du module Graphics de CSFML pour mettre à jour cette librairie et l’apogée l’ajout de tous les modules composant CSFML pour que PHPML porte réellement son nom. Malgré la motivation éprouvé à l’égard de ce que serait cet exploit il ne sera pas aisé de réaliser notre volonté à ce jour étant donné les limitations actuelles de FFI et l’investissement de temps que cela représente. Mais on peut déjà espérer développer de petits projets avec ce qu’est PHPML aujourd’hui.</p>
 
 </div>
 <script type="application/json" class="js-hypothesis-config">
