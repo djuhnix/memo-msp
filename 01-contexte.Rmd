@@ -6,7 +6,7 @@ Avant d'entrer dans le vif du sujet il est évident de définir le contexte dans
 
 ### Le stage en DUT Informatique
 
-En DUT Informatique on doit **obligatoirement** effectuer un stage de fin d'études en deuxième année. Le but premier de ce stage est d'appliquer les connaissances scolaire "théorique" apprise dans un contexte professionnel, c'est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l'on a appris mais aussi mais est aussi pour certains un accomplissement de vie d'étudiants. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires de ce diplôme ont la possibilité et la facilité d'entrer dans le monde professionnel car par 
+En DUT Informatique on doit **obligatoirement** effectuer un stage de fin d'études en deuxième année. Le but premier de ce stage est d'appliquer les connaissances scolaire "théoriques" apprises dans un contexte professionnel, c'est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l'on a appris mais est aussi pour certains le début de leur parcours dans le monde de l'emploi. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires de ce diplôme ont la possibilité et la facilité d'entrer dans le monde professionnel car par 
 
 > "l'acquisition de compétences professionnelles multiples et une solide culture générale, le DUT vise la polyvalence."
 > 
@@ -16,13 +16,13 @@ Bien que la plupart préfèrent poursuivre leurs études.
 
 ### Annulation de stage
 
-En ce qui me concerne, mon stage était censé se dérouler à la direction du numérique de l'Université de Reims Champagne Ardenne (URCA). "Censé" car le contexte de ces derniers mois lié à la pandémie du Covid-19 n'a pas permis la tenue de celui-ci. Malheureusement plusieurs stage ont ainsi été annulé parce qu'il n'ont pas pu non plus se poursuivre en télétravail. Il a donc fallu que le personnel de l'université et les responsables de formations trouvent une solution pour palier à cette situation. D'où la **mise en situation professionnelle** dont le but ne s'éloigne pas de celui du stage, cependant la mise en situation professionnelle en DUT Informatique s'apparente plus à un projet à réaliser seul(e), en télétravail, sous le tutorat d'un enseignant. Elle :
+En ce qui me concerne, mon stage était censé se dérouler à la direction du numérique de l'Université de Reims Champagne Ardenne (URCA). "Censé" car le contexte de ces derniers mois lié à la pandémie du Covid-19 n'a pas permis la tenue de celui-ci. Malheureusement plusieurs stages ont ainsi été annulés parce qu'ils n'ont pas pu se poursuivre même en télétravail. Il a donc fallu que le personnel de l'université et les responsables de formations trouvent une solution pour palier à cette situation. D'où la **mise en situation professionnelle** dont le but ne s'éloigne pas de celui du stage, cependant la mise en situation professionnelle en DUT Informatique s'apparente plus à un projet à réaliser seul(e), en télétravail, sous le tutorat d'un enseignant. Elle :
 
 - fait confronter l'étudiant à une problématique en rapport avec son choix d'orientation
 - permet d'approfondir les connaissances déjà acquises et de découvrir de nouvelles
 - ouvre vers de nouvelles méthodes de travail.
 
-Et c'est *mes* méthodes de travail que je détaillerai dans la suite. Mais avant il est bon de se pencher sur le pourquoi et le comment j'ai eu comme sujet de mise en situation professionnelle réalisation d'une bibliothèque.
+Et cz sont *mes* méthodes de travail en particulier que je détaillerai dans la suite. Mais avant il est bon de se pencher sur la raison d'être de ce sujet de mise en situation professionnelle qu'est la réalisation d'une bibliothèque.
 
 ## Pourquoi faire une bibliothèque en PHP
 
@@ -30,30 +30,30 @@ Le DUT Informatique est une formation généraliste, on y vois donc, de façon t
 
 ### L’arrière-plan
 
-L'IUT utilisais auparavant le Java comme langage principale pour apprendre la POO, et pour ce faire les enseignants ont choisis une pédagogie orienté graphique permettant aux étudiants une facilité de compréhension et d'adaptation au langage puis à l'orienté objet.
+L'IUT utilisait auparavant le Java comme langage principale pour apprendre la POO, et pour ce faire les enseignants ont choisis une pédagogie orienté graphique permettant aux étudiants une facilité de compréhension et d'adaptation au langage puis à l'orienté objet.
 
 L'objectif premier étant de réussir à manipuler de manière simple et intuitifs les objets d'une classe graphiquement, de telle sorte que ce soit facilement compréhensible par les nouveaux étudiants.
 
-Java était plus adapté et plus simple à mettre en place, une bibliothèque interne à été développé pour la cause. Cependant le Java a montrer certaines contraintes, la principale étant la lourdeur syntaxique, le java a donc été abandonné pour un premier contact avec la POO pour laisser place à du PHP typé. Cependant le côté graphique a été délaissé avec le Java étant donné qu'il était impossible de créer des éléments graphique car inexistence de bibliothèque et de fonctionnalité. Il est certes possible de le faire sous certaines contraintes dans un environnement web, mais cela éloignerait l'étudiant de la console, étant qu'il apprend et doit s'en servir en TP.
+Java était plus adapté et plus simple à mettre en place, une bibliothèque interne à été développé pour la cause. Cependant le Java a montré certaines contraintes, la principale étant la lourdeur syntaxique, le java a donc été abandonné pour un premier contact avec la POO pour laisser place à du PHP typé. Cependant le côté graphique a été délaissé avec le Java vu qu'il n'existait pas de bibliothèques et ni de fonctionnalités similaire en PHP. Il est certes possible de le faire sous certaines contraintes dans un environnement web, mais cela éloignerait l'étudiant de la console, étant donné qu'il apprend et doit s'en servir en TP.
 
 ### Le problème avec PHP
 
-Le passage à PHP pour l'apprentissage de la POO à changer la manière de réaliser les travaux pratiques à l'IUT de Reims. L'utilisation de scritps créer par l'étudiant pour créer des figures et en faire objets graphiques affichable sur une fenêtre système pour comprendre les notions de classes, d'objets et d'instances était très efficace. Malheureusement PHP est un langage orienté web qui ne permet pas la création de fenêtre graphique sur le système d'exploitation et par conséquent pas de manipulation d'objets graphique sur cette dernière.
+Le passage à PHP pour l'apprentissage de la POO a changé la manière de réaliser les travaux pratiques à l'IUT de Reims. L'utilisation de scritps écrits par l'étudiant pour créer des figures et en faire des objets graphiques affichables sur une fenêtre système pour comprendre les notions de classes, d'objets et d'instances était très efficace. Mais PHP est un langage orienté web qui ne permet pas la création de fenêtres graphiques sur le système d'exploitation et par conséquent laisse impossible la manipulation d'éléments sur cette dernière.
 
-L'arriver de l’extension FFI en PHP 7.4 a ouvert les possibilités du langage, il est désormais envisageable d'utiliser une bibliothèque C pour étendre les limites de ce dernier et apporter les fonctionnalités de la dite bibliothèques en PHP.
+L'arrivée de l’extension FFI en PHP 7.4 a ouvert les possibilités du langage, il est désormais envisageable d'utiliser une bibliothèque C pour étendre les limites de ce dernier et apporter les fonctionnalités de la dite bibliothèque en PHP.
 
-### L'intervention de Germain
+### Définition de l'objectif
 
-Madame Romaniuk, maître de conférences en Informatique et ma tutrice pour cette mise en situation professionnel, m'a donc proposé de refaire la bibliothèque Java utilisé pour les TPs de POO en PHP avec l'aide de CSFML et FFI.
+Madame Romaniuk, maître de conférences en Informatique et ma tutrice pour cette mise en situation professionnelle, m'a donc proposé de refaire la bibliothèque Java utilisé pour les TPs de POO en PHP avec l'aide de CSFML et FFI.
 
-CSFML est un pont écrit en C pour la bibliothèque SFML (Simple and Fast Media Libray). Cette dernière a le mérite d'être complète sur les fonctionnalités recherchées et n'a pas une grande courbe d'apprentissage pour être maîtrise quand on a un minimum de connaissance de C++. D'où le choix de madame Romaniuk pour l'implémentation de la nouvelle bibliothèque.
+CSFML est un pont écrit en C pour la bibliothèque SFML (Simple and Fast Media Libray). Cette dernière contient toutes les fonctionnalités que nous cherchons à implémenter et n'a pas une grande courbe d'apprentissage pour être maîtrisée quand on a un minimum de connaissance de C++. D'où la raison du choix de madame Romaniuk pour le développement de la nouvelle bibliothèque.
 
 ### La pertinence du projets
 
 Avec tout ce qui a été dit jusqu'à présent, il est vrai que la question sur la pertinence de ce sujet ne se pose plus, mais il n'est pas trivial de rappeler que la création de cette bibliothèque ne résoudra pas tous les problèmes **susmentionnés**. Toutefois :
 
-- Bien que les TPs de POO ne serait pas fortement affecté si cette bibliothèque ne naissait pas mais il est certains que son existence allégera fortement la tâche pédagogique des professeurs.
+- Bien que les TPs n'en seront pas fortement affecté, il est certains que son existence allégera fortement la tâche pédagogique des professeurs.
 
-- L'ouverture de possibilité pour les projets de fin d'année, car cette bibliothèque pourra être réutiliser et favoriser la créativité des étudiants.
+- L'ouverture de possibilités pour les projets de fin d'année, car cette bibliothèque pourra être réutiliser et favoriser la créativité des étudiants.
 
-Maintenant que nous savons pourquoi et quelle bibliothèque faut-il créer, il est temps d'entrer dans le vif du sujet et de parler du déroulement du développement de celle-ci en commençant par l'organisation de mon temps pendant la mise en situation professionnelle.
+Maintenant que nous savons quelles missions m'ont été confiées et leurs objectifs, on peut parler du déroulement de celles-ci en commençant par l'organisation de mon temps pendant la mise en situation professionnelle.
