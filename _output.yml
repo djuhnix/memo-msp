@@ -18,7 +18,6 @@ bookdown::gitbook:
 bookdown::pdf_book:
   includes:
     in_header: assets/latex/preamble.tex
-    before_body: assets/latex/before_body.tex
     after_body: assets/latex/after_body.tex
   latex_engine: xelatex
   citation_package: natbib

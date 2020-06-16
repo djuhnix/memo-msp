@@ -4,6 +4,8 @@
 # Références et bibliographie {-}
 '`
 
+<div id="refs"></div>
+
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 bib = knitr::write_bib(c(

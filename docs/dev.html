@@ -192,6 +192,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
 <li class="chapter" data-level="" data-path="liste-des-abbreviations.html"><a href="liste-des-abbreviations.html"><i class="fa fa-check"></i>Liste des Abbreviations</a></li>
 <li class="chapter" data-level="" data-path="références-et-bibliographie.html"><a href="références-et-bibliographie.html"><i class="fa fa-check"></i>Références et bibliographie</a></li>
+<li class="appendix"><span><b>Annexes</b></span></li>
+<li class="chapter" data-level="A" data-path="trello.html"><a href="trello.html"><i class="fa fa-check"></i><b>A</b> Trello</a><ul>
+<li class="chapter" data-level="A.1" data-path="trello.html"><a href="trello.html#tableau-trello-au-début-du-projet"><i class="fa fa-check"></i><b>A.1</b> Tableau trello au début du projet</a></li>
+<li class="chapter" data-level="A.2" data-path="trello.html"><a href="trello.html#tableau-trello-du-mémoire"><i class="fa fa-check"></i><b>A.2</b> Tableau trello du mémoire</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="documentations.html"><a href="documentations.html"><i class="fa fa-check"></i><b>B</b> Documentations</a><ul>
+<li class="chapter" data-level="B.1" data-path="documentations.html"><a href="documentations.html#extrait-de-documentation-1"><i class="fa fa-check"></i><b>B.1</b> Extrait de Documentation 1</a></li>
+<li class="chapter" data-level="B.2" data-path="documentations.html"><a href="documentations.html#extrait-de-documentation-2"><i class="fa fa-check"></i><b>B.2</b> Extrait de Documentation 2</a></li>
+<li class="chapter" data-level="B.3" data-path="documentations.html"><a href="documentations.html#extrait-de-documentation-textuelles"><i class="fa fa-check"></i><b>B.3</b> Extrait de documentation textuelles</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 <li><a href="https://www.flaticon.com/" title="Flaticon">Icons from Flaticon</a></li>
@@ -276,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Avant de réellement commencer le développement de la bibliothèque il m’a fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j’en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j’ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.</p>
 <div id="php-ffi" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> PHP FFI</h3>
-<p>L’extension FFI de PHP, disponible dès la version 7.4, est obligatoire pour développer et faire fonctionner la bibliothèque. Elle est intégrée mais “inactive” par défaut <span class="citation">(The PHP Group, <a href="#ref-the_php_group_ffi_2019">2019</a>)</span> sauf si l’on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s’assurer d’avoir la librairie FFI <code>libffi</code> installée sur sa machine. <a href="https://sourceware.org/libffi/">Sourceware libffi</a>.</p>
+<p>L’extension FFI de PHP, disponible dès la version 7.4, est obligatoire pour développer et faire fonctionner la bibliothèque. Elle est intégrée mais “inactive” par défaut <span class="citation">(The PHP Group, <a href="références-et-bibliographie.html#ref-the_php_group_ffi_2019">2019</a>)</span> sauf si l’on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s’assurer d’avoir la librairie FFI <code>libffi</code> installée sur sa machine. <a href="https://sourceware.org/libffi/">Sourceware libffi</a>.</p>
 <div id="installation-de-libffi" class="section level4">
 <h4><span class="header-section-number">2.2.1.1</span> Installation de <code>libffi</code></h4>
 <ul>
@@ -315,7 +325,7 @@ Avant tout il me fallait trouver un moyen de m’abstraire du processus de charg
 <h3><span class="header-section-number">2.3.1</span> Ma première classe AbstractFFI</h3>
 <blockquote>
 <p>En informatique, le concept d’abstraction identifie et regroupe des caractéristiques et traitements communs applicables à des entités ou concepts variés ; une représentation abstraite commune de tels objets permet d’en simplifier et d’en unifier la manipulation.</p>
-<p>— <span class="citation">(Wikipédia, <a href="#ref-wikipedia_abstraction_2019">2019</a>)</span></p>
+<p>— <span class="citation">(Wikipédia, <a href="références-et-bibliographie.html#ref-wikipedia_abstraction_2019">2019</a>)</span></p>
 </blockquote>
 <p>L’objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser.
 Je suis passé par différentes idée de conception, et j’ai fini par aboutir à celle-ci.</p>
@@ -367,7 +377,7 @@ En ce qui me concerne j’ai préféré commencer par la classe principale et re
 <p>En plus de diverses erreurs de conception corrigées sur le vif, j’ai été régulièrement confrontés à des erreurs de programmation plus techniques lié soit à FFI soit à CSFML. Celle qui m’a pris le plus de reflexions et de temps à corriger était une erreur de segmentation.</p>
 <blockquote>
 <p>Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault) est un plantage d’une application qui a tenté d’accéder à un emplacement mémoire qui ne lui était pas alloué.</p>
-<p>— <span class="citation">(Wikipédia, <a href="#ref-wikipedia_segfault_2020">2020</a><a href="#ref-wikipedia_segfault_2020">b</a>)</span></p>
+<p>— <span class="citation">(Wikipédia, <a href="références-et-bibliographie.html#ref-wikipedia_segfault_2020">2020</a><a href="références-et-bibliographie.html#ref-wikipedia_segfault_2020">b</a>)</span></p>
 </blockquote>
 <p>Il faut également noter que je n’ai jamais été confronté à cette erreur <em>en PHP</em> et il est très contraignant de retrouver la trace d’une erreur de segmentation quand on est développeur junior.
 Finalement il s’est avéré que retirer l’utilisation de la méthode <code>var_dump()</code> de mon script résolvait mon erreur.</p>
@@ -381,7 +391,7 @@ Finalement il s’est avéré que retirer l’utilisation de la méthode <code>v
 <h3><span class="header-section-number">2.5.1</span> Un gestionnaire de paquets : composer</h3>
 <blockquote>
 <p>Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d’installer les bibliothèques dont le projet principal a besoin.</p>
-<p>— <span class="citation">(Wikipédia, <a href="#ref-wikipedia_composer_2020">2020</a><a href="#ref-wikipedia_composer_2020">a</a>)</span></p>
+<p>— <span class="citation">(Wikipédia, <a href="références-et-bibliographie.html#ref-wikipedia_composer_2020">2020</a><a href="références-et-bibliographie.html#ref-wikipedia_composer_2020">a</a>)</span></p>
 </blockquote>
 </div>
 <div id="install-composer" class="section level3">
@@ -464,21 +474,6 @@ Pour faire court il est nécessaire d’avoir :</p>
 </tbody>
 </table>
 
-</div>
-</div>
-<h3>Références et bibliographie</h3>
-<div id="refs" class="references">
-<div id="ref-the_php_group_ffi_2019">
-<p>The PHP Group. (2019). PHP: Installation/Configuration - Manual. PHP: Installation/Configuration - Manual. Repéré à <a href="https://www.php.net/manual/fr/ffi.setup.php">https://www.php.net/manual/fr/ffi.setup.php</a></p>
-</div>
-<div id="ref-wikipedia_abstraction_2019">
-<p>Wikipédia. (2019). Abstraction (informatique). Dans <em>Wikipédia</em>. Repéré à <a href="https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836">https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836</a></p>
-</div>
-<div id="ref-wikipedia_composer_2020">
-<p>Wikipédia. (2020a). Composer (logiciel). Dans <em>Wikipédia</em>. Repéré à <a href="https://fr.wikipedia.org/w/index.php?title=Composer_(logiciel)&amp;oldid=169750090">https://fr.wikipedia.org/w/index.php?title=Composer_(logiciel)&amp;oldid=169750090</a></p>
-</div>
-<div id="ref-wikipedia_segfault_2020">
-<p>Wikipédia. (2020b). Erreur de segmentation. Dans <em>Wikipédia</em>. Repéré à <a href="https://fr.wikipedia.org/w/index.php?title=Erreur_de_segmentation&amp;oldid=171768684">https://fr.wikipedia.org/w/index.php?title=Erreur_de_segmentation&amp;oldid=171768684</a></p>
 </div>
 </div>
 <script type="application/json" class="js-hypothesis-config">
