@@ -2,12 +2,12 @@
 
 ## Pré-requis à l'utilisation {#utils-pre-requis}
 
-Nous avons vu dans le \@ref(pre-requis) que la bibliothèque développée comportait certaines dépendances, PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.
+Nous avons vu dans le \@ref(pre-requis) que la bibliothèque développée comportait certaines dépendances résumé dans le \@ref(tab:recap-dep), PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.
 
 ### Préchargement FFI et header CSFML
 
 La bibliothèque utilise la fonctionnalité de préchargement de PHP pour précharger les header CSFML nécessaire pour charger et utiliser cette dernière en PHP. Il s'agit donc de modifier certaines variables de configuration de `php.ini` pour convenir à nos besoins.
-*Les instructions donné seront pour linux, il est possible que la procédure change sur windows*
+*Les instructions données seront pour linux, il est possible que la procédure change sur windows*
 
 
 #### Activation de FFI : 
@@ -24,8 +24,8 @@ Il faut s'assurer que FFI est en mode `preload` et est bien activé
 
 Les fichiers header (extension en `.h`) à précharger sont dans le dossier `preloading` du dépot  de la bibliothèque. Les deux premières ligne de chaque fichiers définissent :
 
-- l'espace de définition utilisé pour chargé la bibliothèque C en PHP, **à ne pas modifier**
-- le chemin *absolu* vers le fichier binaire de la bibliothèque à chargé, CSFML pour notre cas.
+- l'espace de définition utilisé pour charger la bibliothèque C en PHP, **à ne pas modifier**
+- le chemin *absolu* vers le fichier binaire de la bibliothèque à charger, CSFML pour notre cas.
     - Il faut bien s'assurer que ce chemin est le bon pour réussir le chargement de la bibliothèque avec FFI.
 On peut vérifier cela avec la commande `locate`. Par exemple pour le module Graphics de CSFML il faut exécuter la commande `locate libcsfml-graphics.so`.
     - **Attention !** si *SFML* n'est pas installé avec *CSFML* la bibliothèque ne pourra pas se charger.
@@ -54,24 +54,189 @@ A présent vous êtes prêt à utiliser la bibliothèque PHPML dans votre projet
 
 ### Utilisation
 
-Vous pouvez trouver des exemples d'utilisation de la bibliothèque dans dans le dossier `tests/functionnal` du dépôt git.
-Voici par exemple les sources du test sur l'ouverture d'une fenêtre qui est le minimum à exécuter si vous voulez vérifier la bonne installation de la bibliothèque.
+Vous pouvez trouver des exemples d'utilisation de la bibliothèque dans le dossier `tests/functionnal` du dépôt git. Mais voici comment réaliser certaines tâches avec PHPML.
+
+#### Comment ouvrir une fenêtre
+
+Il deux façons d'ouvrir une fenêtre, la première consiste à utiliser la classe de base `Window` et gérer par sois même les boucles qui permettent de garder la fenêtre ouverte et de gérer les événements, notamment la fermeture de la fenêtre pour éviter de démarrer une boucle infini.
 
 ```php
-require_once __DIR__ . '/../../vendor/autoload.php';
-
-use PHPML\Graphics\Event;
-use PHPML\Graphics\VideoMode;
-use PHPML\Graphics\Window;
-
-
 $window = new Window(
+    new VideoMode(400, 400),
+    'Test Window Opening'
+);
+$event = new Event();
+
+//Début de la boucle (tant que la fenêtre est ouverte)
+while ($window->isOpen()) {
+    
+    // Gestion des événements
+    while ($window->pollEvent($event->toCData())) {
+        // Ferme la fenêtre si l'événement 'closed' est enregistré
+        if ($event->getType()->getValue() == EventType::CLOSED) {
+            $window->close();
+        }
+    }
+    
+    // DESSINER ICI
+    
+    
+    // Nettoyage de l'écran de la fenêtre et affichage
+    $window->clear($window->getBackgroundColor());
+    
+    // rafraîchissement et affichage des dessins s'il y en a
+    $window->display();
+}
+```
+La création d'une instance de la classe `Window` nécessite obligatoirement de définir un mode de rendu qui contient également la taille de la fenêtre.
+Pour simplifier, la création de la fenêtre j'ai pris la décision de ne pas permettre la surcharge du mode de rendu vidéo et j'utilise celui de l'ordinateur par défaut, généralement de 32 bits par pixel.
+
+Malgré cela, cette procédure restant fastidieuse à réaliser à chacun de ses scripts j'ai pensé à réaliser une autre classe `ExtendedWindow` héritant de la classe `Window` et qui étend ou plutôt facilite l'utilisation des fonctionnalités de cette dernière.
+
+Désormais ouvrir une fenêtre revient à écrire
+
+```php
+$window = new ExtendedWindow(
     new VideoMode(800, 600)
 );
 
 $window->run(new Event());
 ```
 
+Comme le dit la documentation, la méthode `run()` de la classe `Window`
+
+> Lance la boucle principale de la fenêtre et l'ouvre dans le même temps.
+
+En plus de cela elle gère également la boucle d'événement qui s'occupe de la fermeture de la fenêtre, s'occupe de dessiner à chaque rafraîchissement les objets qui lui sont attachés et possède bien plus d'atouts que nous détaillerons plus tard.
+Cette méthode facilite l'utilisation de bibliothèque à un point considérable car elle permet de s'abstraire des tâches répétitives lié à la création d'une fenêtre dans les bibliothèques graphiques classiques, c'est également la pierre angulaire de la librairie parce que c'est par elle que commence toutes activités que l'on voudrait réaliser avec la bibliothèque, comme dessiner des formes.
+
+#### Comment dessiner
+
+Pour dessiner sur une fenêtre il n'y a rien de plus simple que l'appelle à la méthode `draw()` de la classe `Window` qui prend en paramètre un objet  "dessinable" préalablement initialisé (de préférence à l'extérieur de la boucle) et l'affiche sur la fenêtre actuelle.
+
+Après avoir ouvert notre fenêtre, en supposant qu'on utilise la première méthode qu'offre notre bibliothèque, il faudrait écrire dans la partie réserver aux dessins (mise en évidence plus haut) :
+
+```php
+$window->draw(
+            new RectangleShape(
+                [400, 200],
+                [100, 200],
+                $blue
+            )
+        );
+```
+
+Cependant faire cela est une mauvaise pratique et il serait préférable de créer ses formes avant le lancement de la boucle de la fenêtre, cela empêcherait l'inutile création de la même forme tout au long de la boucle qui maintient la fenêtre ouverte.
+
+Cela reste valable même si l'on utilise la seconde possibilité d'ouverture de fenêtre qu'est la méthode `run()` de la `ExtendedWindow`. Pour revenir sur cette méthode, il faut savoir qu'elle prend en paramètre en plus de la variable d'événements, deux fonctions qui sont respectivement utilisé pour la gestion personnalisée d'événements par l'utilisateur et la réalisation de dessins sur la fenêtre, s'il n'y a que cette dernière option qui nous intéresse on peut toujours passé null à la fonction `run()` à la place de la fonction de gestion d'événements. Il est vrai que cette façon de faire nécessite de connaître le concept de fonction anonyme (closure) qui relève de l'algorithmie légèrement avancé pour un débutant mais dès qu'on sait comment l'utiliser le reste n'est que de simples détails théoriques.
+
+```php
+$text = new Text("Hello");
+$text->setFillColor($blue);
+$text->setPosition([150, 50]);
+$text->setCharacterSize(50);
+
+$window->run(
+    new Event(),
+    null,
+    function () use ($text, $window) {
+        $window->draw($text);
+    }
+);
+```
+
+Le mot clé use est là pour dire que nous voulons utiliser ces  variables pré-définie à l'interieur de notre fonction anonyme, sinon PHP ne sait pas que ces variables ont bien été déclaré et initialisé. Notre fonction anonyme peut ne pas être si anonyme qu'on peut le croire car on peut lui donner un nom, l'enregistrer dans une variable et passer cette dernière dans à la méthode `run()` plus tard dans notre script.
+
+```php
+function dessine() {
+...
+}
+
+$maFonction = 'dessine';
+//ou
+$maFonction = function () {
+...
+}
+
+$window->run(new Event(), null, $maFonction);
+```
+
+Cependant il faut prendre en compte le fait que si l'on utiliser des variables mise à jour dynamiquement par la bibliothèque comme les événements cette méthode est à proscrire. 
+
+#### Comment garder les modifications appliquées à ses objets
+
+Par défaut la bibliothèque n'enregistre pas toutes les modifications que vous appliquer à vos formes et autres objets dessinables parce qu'ils ne sont pas attachés à la fenêtre. Pour ce faire il faut utiliser la méthode `addToDrawingList()` qui comme son nom l'indique ajoute un objet identifié par une clé à la liste des éléments à dessiner qui seront enregistrés avec les données de la fenêtre et mis à jour à toutes futures modifications. 
+L'objet enregistré peut toujours être retrouvé grâce à son identifiant et modifié si besoin.
+
+```php
+$window->addToDrawingList(
+    'rectangle', // la clé de l'objet
+    new RectangleShape(
+        [400, 200],
+        [100, 200],
+        new Color(Color::BLUE) // définition de la couleur de fond en bleue
+    )
+);
+
+$window->run(
+    new Event(),
+    null,
+    function () use ($red, $window) {
+
+        $window
+            ->getDrawingList()
+            ->getObject('rectangle')
+            ->setFillColor($red) // Le rectangle affiché sera rouge au lieu d'être bleue comme défini plus haut
+    ;
+    }
+);
+```
+
+Tout cela dans le but de faciliter l'utilisation de la bibliothèque par des débutants et surtout flexibilité de celle-ci.
+
+#### Extra
+
+##### Créer une couleur
+
+Des couleurs sont prédéfinie dans l'énumération prévu pour. Mais pour s'en servir il faut créer une instance de couleur avec l'une de ces valeurs.
+
+```php
+$color = new Color(Color::RED) // équivaut à Color::DYNAMIC()
+```
+
+Il est évidemment possible de créer des couleurs dynamique avec des valeur de couleurs primaires.
+
+```php
+$color = (new Color(Color::DYNAMIC)) // équivaut à Color::DYNAMIC()
+    ->fromRGB(12, 12, 13);
+```
+
+##### Gérer des événements
+
+On ne pourrait pas parler proprement de bibliothèque graphique sans gestion des événements déclencher sur la fenêtre, voilà pourquoi l'implémentation de la gestion des événements et des entrées (clavier et souris) faisaient parties de mes priorités.
+
+On a précédemment vu sur les morceaux de codes qu'on pouvait créer une instance d'événement avec 
+
+```php
+new Event()
+```
+
+Le constructeur de cette classe ne prend rien en paramètre car tout est géré en interne pour l'utilisateur. Tout ce qu'il reste à faire pour l'utiliser c'est de vérifier qu'un certain type d'événement à bien été reçu et le traiter en tant que tel. Un exemple d'utilisation serait :
+
+```php
+$event = new Event();
+$window->run(
+    $event,
+    function () use ($event, $window) {
+        if ($event->getType()->getValue() == EventType::MOUSE_BUTTON_PRESSED) {
+            // réaliser une action si un bouton de la souris est cliqué
+        }
+    },
+    function () use ($event, $window) {
+       // faire ses dessins
+);
+```
+
 ### Documentation
 
-Actuellement la documentation de la bibliothèque n'est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèques sur le dépôt github.
+Actuellement la documentation de la bibliothèque n'est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèque sur le dépôt github.

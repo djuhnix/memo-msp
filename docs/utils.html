@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 3 Utilisation de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP</title>
+  <title>Chapitre 3 Utilisation de la bibliothèque | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP</title>
   <meta name="description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 3 Utilisation de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP" />
+  <meta property="og:title" content="Chapitre 3 Utilisation de la bibliothèque | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://djuhnix.github.io/memo-msp/" />
   <meta property="og:image" content="https://djuhnix.github.io/memo-msp/assets/img/undraw_developer_activity.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="djuhnix/memo-msp" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 3 Utilisation de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP" />
+  <meta name="twitter:title" content="Chapitre 3 Utilisation de la bibliothèque | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP" />
   
   <meta name="twitter:description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
   <meta name="twitter:image" content="https://djuhnix.github.io/memo-msp/assets/img/undraw_developer_activity.png" />
@@ -132,6 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Avant-propos</a></li>
+<li class="chapter" data-level="" data-path="remerciements.html"><a href="remerciements.html"><i class="fa fa-check"></i>Remerciements</a></li>
 <li class="chapter" data-level="" data-path="résumé.html"><a href="résumé.html"><i class="fa fa-check"></i>Résumé</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="context.html"><a href="context.html"><i class="fa fa-check"></i><b>1</b> Contexte</a><ul>
@@ -142,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="context.html"><a href="context.html#pourquoi-faire-une-bibliothèque-en-php"><i class="fa fa-check"></i><b>1.2</b> Pourquoi faire une bibliothèque en PHP</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="context.html"><a href="context.html#larrière-plan"><i class="fa fa-check"></i><b>1.2.1</b> L’arrière-plan</a></li>
 <li class="chapter" data-level="1.2.2" data-path="context.html"><a href="context.html#le-problème-avec-php"><i class="fa fa-check"></i><b>1.2.2</b> Le problème avec PHP</a></li>
-<li class="chapter" data-level="1.2.3" data-path="context.html"><a href="context.html#lintervention-de-germain"><i class="fa fa-check"></i><b>1.2.3</b> L’intervention de Germain</a></li>
+<li class="chapter" data-level="1.2.3" data-path="context.html"><a href="context.html#définition-de-lobjectif"><i class="fa fa-check"></i><b>1.2.3</b> Définition de l’objectif</a></li>
 <li class="chapter" data-level="1.2.4" data-path="context.html"><a href="context.html#la-pertinence-du-projets"><i class="fa fa-check"></i><b>1.2.4</b> La pertinence du projets</a></li>
 </ul></li>
 </ul></li>
@@ -159,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="dev.html"><a href="dev.html#ma-première-classe-abstractffi"><i class="fa fa-check"></i><b>2.3.1</b> Ma première classe AbstractFFI</a></li>
 <li class="chapter" data-level="2.3.2" data-path="dev.html"><a href="dev.html#architecture-globale"><i class="fa fa-check"></i><b>2.3.2</b> Architecture globale</a></li>
 <li class="chapter" data-level="2.3.3" data-path="dev.html"><a href="dev.html#exemple-de-la-classe-window"><i class="fa fa-check"></i><b>2.3.3</b> Exemple de la classe Window</a></li>
-<li class="chapter" data-level="2.3.4" data-path="dev.html"><a href="dev.html#diagramme-de-classe"><i class="fa fa-check"></i><b>2.3.4</b> Diagramme de classe</a></li>
+<li class="chapter" data-level="2.3.4" data-path="dev.html"><a href="dev.html#diagramme-de-classes"><i class="fa fa-check"></i><b>2.3.4</b> Diagramme de classes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="dev.html"><a href="dev.html#implémentation-de-la-bibliothèque"><i class="fa fa-check"></i><b>2.4</b> Implémentation de la bibliothèque</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="dev.html"><a href="dev.html#lordre-dimplémentation"><i class="fa fa-check"></i><b>2.4.1</b> L’ordre d’implémentation</a></li>
@@ -171,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.3" data-path="dev.html"><a href="dev.html#publication-de-bibliothèque-avec-composer-et-packagist"><i class="fa fa-check"></i><b>2.5.3</b> Publication de bibliothèque avec composer et packagist</a></li>
 <li class="chapter" data-level="2.5.4" data-path="dev.html"><a href="dev.html#maintenabilité"><i class="fa fa-check"></i><b>2.5.4</b> Maintenabilité</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="dev.html"><a href="dev.html#tableau-récapitulatif"><i class="fa fa-check"></i><b>2.6</b> Tableau récapitulatif</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a><ul>
 <li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis à l’utilisation</a><ul>
@@ -183,8 +185,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="res.html"><a href="res.html"><i class="fa fa-check"></i><b>4</b> Résultat</a><ul>
-<li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#bilan-de-la-mise-en-situation-professionnelle"><i class="fa fa-check"></i><b>4.1</b> Bilan de la mise en situation professionnelle</a></li>
-<li class="chapter" data-level="4.2" data-path="res.html"><a href="res.html#finalité-de-la-bibliothèque"><i class="fa fa-check"></i><b>4.2</b> Finalité de la bibliothèque</a></li>
+<li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#finalité-de-la-bibliothèque"><i class="fa fa-check"></i><b>4.1</b> Finalité de la bibliothèque</a></li>
+<li class="chapter" data-level="4.2" data-path="res.html"><a href="res.html#bilan-de-la-mise-en-situation-professionnelle"><i class="fa fa-check"></i><b>4.2</b> Bilan de la mise en situation professionnelle</a></li>
 <li class="chapter" data-level="4.3" data-path="res.html"><a href="res.html#ressenti-personnel"><i class="fa fa-check"></i><b>4.3</b> Ressenti personnel</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
@@ -203,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Memoire de mise en situation professionnel — Créer une bibliothèque PHP</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Memoire de mise en situation professionnel — Création d’une bibliothèque PHP</a>
           </h1>
         </div>
 
@@ -215,11 +217,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapitre 3</span> Utilisation de la bibliothèque</h1>
 <div id="utils-pre-requis" class="section level2">
 <h2><span class="header-section-number">3.1</span> Pré-requis à l’utilisation</h2>
-<p>Nous avons vu dans le <a href="dev.html#pre-requis">2.2</a> que la bibliothèque développée comportait certaines dépendances, PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.</p>
+<p>Nous avons vu dans le <a href="dev.html#pre-requis">2.2</a> que la bibliothèque développée comportait certaines dépendances résumé dans le <a href="dev.html#tab:recap-dep">2.2</a>, PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.</p>
 <div id="préchargement-ffi-et-header-csfml" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Préchargement FFI et header CSFML</h3>
 <p>La bibliothèque utilise la fonctionnalité de préchargement de PHP pour précharger les header CSFML nécessaire pour charger et utiliser cette dernière en PHP. Il s’agit donc de modifier certaines variables de configuration de <code>php.ini</code> pour convenir à nos besoins.
-<em>Les instructions donné seront pour linux, il est possible que la procédure change sur windows</em></p>
+<em>Les instructions données seront pour linux, il est possible que la procédure change sur windows</em></p>
 <div id="activation-de-ffi" class="section level4">
 <h4><span class="header-section-number">3.1.1.1</span> Activation de FFI :</h4>
 <p>Il faut s’assurer que FFI est en mode <code>preload</code> et est bien activé</p>
@@ -233,8 +235,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">3.1.1.2</span> Mettre en place le préchargement :</h4>
 <p>Les fichiers header (extension en <code>.h</code>) à précharger sont dans le dossier <code>preloading</code> du dépot de la bibliothèque. Les deux premières ligne de chaque fichiers définissent :</p>
 <ul>
-<li>l’espace de définition utilisé pour chargé la bibliothèque C en PHP, <strong>à ne pas modifier</strong></li>
-<li>le chemin <em>absolu</em> vers le fichier binaire de la bibliothèque à chargé, CSFML pour notre cas.
+<li>l’espace de définition utilisé pour charger la bibliothèque C en PHP, <strong>à ne pas modifier</strong></li>
+<li>le chemin <em>absolu</em> vers le fichier binaire de la bibliothèque à charger, CSFML pour notre cas.
 <ul>
 <li>Il faut bien s’assurer que ce chemin est le bon pour réussir le chargement de la bibliothèque avec FFI.
 On peut vérifier cela avec la commande <code>locate</code>. Par exemple pour le module Graphics de CSFML il faut exécuter la commande <code>locate libcsfml-graphics.so</code>.</li>
@@ -269,24 +271,151 @@ Ce chemin doit ensuite être suffixé de <code>*.h</code> pour préciser que nou
 <h2><span class="header-section-number">3.2</span> Exemple d’utilisation et documentations</h2>
 <div id="utilisation" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Utilisation</h3>
-<p>Vous pouvez trouver des exemples d’utilisation de la bibliothèque dans dans le dossier <code>tests/functionnal</code> du dépôt git.
-Voici par exemple les sources du test sur l’ouverture d’une fenêtre qui est le minimum à exécuter si vous voulez vérifier la bonne installation de la bibliothèque.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">require_once</span> <span class="kw">__DIR__</span> . <span class="st">&#39;/../../vendor/autoload.php&#39;</span><span class="ot">;</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">use</span> <span class="kw">PHPML</span>\Graphics\Event<span class="ot">;</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">use</span> <span class="kw">PHPML</span>\Graphics\VideoMode<span class="ot">;</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw">use</span> <span class="kw">PHPML</span>\Graphics\Window<span class="ot">;</span></a>
+<p>Vous pouvez trouver des exemples d’utilisation de la bibliothèque dans le dossier <code>tests/functionnal</code> du dépôt git. Mais voici comment réaliser certaines tâches avec PHPML.</p>
+<div id="comment-ouvrir-une-fenêtre" class="section level4">
+<h4><span class="header-section-number">3.2.1.1</span> Comment ouvrir une fenêtre</h4>
+<p>Il deux façons d’ouvrir une fenêtre, la première consiste à utiliser la classe de base <code>Window</code> et gérer par sois même les boucles qui permettent de garder la fenêtre ouverte et de gérer les événements, notamment la fermeture de la fenêtre pour éviter de démarrer une boucle infini.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">$window</span> = <span class="kw">new</span> Window<span class="ot">(</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="kw">new</span> VideoMode<span class="ot">(</span><span class="dv">400</span><span class="ot">,</span> <span class="dv">400</span><span class="ot">),</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="st">&#39;Test Window Opening&#39;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="ot">);</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw">$event</span> = <span class="kw">new</span> Event<span class="ot">();</span></a>
 <a class="sourceLine" id="cb6-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="kw">$window</span> = <span class="kw">new</span> Window<span class="ot">(</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="kw">new</span> VideoMode<span class="ot">(</span><span class="dv">800</span><span class="ot">,</span> <span class="dv">600</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="ot">);</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="kw">$window</span>-&gt;run<span class="ot">(</span><span class="kw">new</span> Event<span class="ot">());</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">//Début de la boucle (tant que la fenêtre est ouverte)</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="kw">while</span> <span class="ot">(</span><span class="kw">$window</span>-&gt;isOpen<span class="ot">())</span> {</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    </a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="co">// Gestion des événements</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">    <span class="kw">while</span> <span class="ot">(</span><span class="kw">$window</span>-&gt;pollEvent<span class="ot">(</span><span class="kw">$event</span>-&gt;toCData<span class="ot">()))</span> {</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">        <span class="co">// Ferme la fenêtre si l&#39;événement &#39;closed&#39; est enregistré</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">        <span class="kw">if</span> <span class="ot">(</span><span class="kw">$event</span>-&gt;<span class="fu">getType</span><span class="ot">()</span>-&gt;getValue<span class="ot">()</span> == EventType::<span class="kw">CLOSED</span><span class="ot">)</span> {</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">            <span class="kw">$window</span>-&gt;close<span class="ot">();</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">        }</a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">    }</a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">    </a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">    <span class="co">// DESSINER ICI</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">    </a>
+<a class="sourceLine" id="cb6-20" data-line-number="20">    </a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">    <span class="co">// Nettoyage de l&#39;écran de la fenêtre et affichage</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">    <span class="kw">$window</span>-&gt;clear<span class="ot">(</span><span class="kw">$window</span>-&gt;getBackgroundColor<span class="ot">());</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23">    </a>
+<a class="sourceLine" id="cb6-24" data-line-number="24">    <span class="co">// rafraîchissement et affichage des dessins s&#39;il y en a</span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25">    <span class="kw">$window</span>-&gt;display<span class="ot">();</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26">}</a></code></pre></div>
+<p>La création d’une instance de la classe <code>Window</code> nécessite obligatoirement de définir un mode de rendu qui contient également la taille de la fenêtre.
+Pour simplifier, la création de la fenêtre j’ai pris la décision de ne pas permettre la surcharge du mode de rendu vidéo et j’utilise celui de l’ordinateur par défaut, généralement de 32 bits par pixel.</p>
+<p>Malgré cela, cette procédure restant fastidieuse à réaliser à chacun de ses scripts j’ai pensé à réaliser une autre classe <code>ExtendedWindow</code> héritant de la classe <code>Window</code> et qui étend ou plutôt facilite l’utilisation des fonctionnalités de cette dernière.</p>
+<p>Désormais ouvrir une fenêtre revient à écrire</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">$window</span> = <span class="kw">new</span> ExtendedWindow<span class="ot">(</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    <span class="kw">new</span> VideoMode<span class="ot">(</span><span class="dv">800</span><span class="ot">,</span> <span class="dv">600</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="ot">);</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="kw">$window</span>-&gt;run<span class="ot">(</span><span class="kw">new</span> Event<span class="ot">());</span></a></code></pre></div>
+<p>Comme le dit la documentation, la méthode <code>run()</code> de la classe <code>Window</code></p>
+<blockquote>
+<p>Lance la boucle principale de la fenêtre et l’ouvre dans le même temps.</p>
+</blockquote>
+<p>En plus de cela elle gère également la boucle d’événement qui s’occupe de la fermeture de la fenêtre, s’occupe de dessiner à chaque rafraîchissement les objets qui lui sont attachés et possède bien plus d’atouts que nous détaillerons plus tard.
+Cette méthode facilite l’utilisation de bibliothèque à un point considérable car elle permet de s’abstraire des tâches répétitives lié à la création d’une fenêtre dans les bibliothèques graphiques classiques, c’est également la pierre angulaire de la librairie parce que c’est par elle que commence toutes activités que l’on voudrait réaliser avec la bibliothèque, comme dessiner des formes.</p>
+</div>
+<div id="comment-dessiner" class="section level4">
+<h4><span class="header-section-number">3.2.1.2</span> Comment dessiner</h4>
+<p>Pour dessiner sur une fenêtre il n’y a rien de plus simple que l’appelle à la méthode <code>draw()</code> de la classe <code>Window</code> qui prend en paramètre un objet “dessinable” préalablement initialisé (de préférence à l’extérieur de la boucle) et l’affiche sur la fenêtre actuelle.</p>
+<p>Après avoir ouvert notre fenêtre, en supposant qu’on utilise la première méthode qu’offre notre bibliothèque, il faudrait écrire dans la partie réserver aux dessins (mise en évidence plus haut) :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">$window</span>-&gt;draw<span class="ot">(</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">            <span class="kw">new</span> RectangleShape<span class="ot">(</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">                <span class="ot">[</span><span class="dv">400</span><span class="ot">,</span> <span class="dv">200</span><span class="ot">],</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">                <span class="ot">[</span><span class="dv">100</span><span class="ot">,</span> <span class="dv">200</span><span class="ot">],</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">                <span class="kw">$blue</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">            <span class="ot">)</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">        <span class="ot">);</span></a></code></pre></div>
+<p>Cependant faire cela est une mauvaise pratique et il serait préférable de créer ses formes avant le lancement de la boucle de la fenêtre, cela empêcherait l’inutile création de la même forme tout au long de la boucle qui maintient la fenêtre ouverte.</p>
+<p>Cela reste valable même si l’on utilise la seconde possibilité d’ouverture de fenêtre qu’est la méthode <code>run()</code> de la <code>ExtendedWindow</code>. Pour revenir sur cette méthode, il faut savoir qu’elle prend en paramètre en plus de la variable d’événements, deux fonctions qui sont respectivement utilisé pour la gestion personnalisée d’événements par l’utilisateur et la réalisation de dessins sur la fenêtre, s’il n’y a que cette dernière option qui nous intéresse on peut toujours passé null à la fonction <code>run()</code> à la place de la fonction de gestion d’événements. Il est vrai que cette façon de faire nécessite de connaître le concept de fonction anonyme (closure) qui relève de l’algorithmie légèrement avancé pour un débutant mais dès qu’on sait comment l’utiliser le reste n’est que de simples détails théoriques.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">$text</span> = <span class="kw">new</span> Text<span class="ot">(</span><span class="st">&quot;Hello&quot;</span><span class="ot">);</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">$text</span>-&gt;setFillColor<span class="ot">(</span><span class="kw">$blue</span><span class="ot">);</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">$text</span>-&gt;setPosition<span class="ot">([</span><span class="dv">150</span><span class="ot">,</span> <span class="dv">50</span><span class="ot">]);</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw">$text</span>-&gt;setCharacterSize<span class="ot">(</span><span class="dv">50</span><span class="ot">);</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw">$window</span>-&gt;run<span class="ot">(</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="kw">new</span> Event<span class="ot">(),</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">    <span class="kw">null</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">    <span class="kw">function</span> <span class="ot">()</span> <span class="kw">use</span> <span class="ot">(</span><span class="kw">$text</span><span class="ot">,</span> <span class="kw">$window</span><span class="ot">)</span> {</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">        <span class="kw">$window</span>-&gt;draw<span class="ot">(</span><span class="kw">$text</span><span class="ot">);</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">    }</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="ot">);</span></a></code></pre></div>
+<p>Le mot clé use est là pour dire que nous voulons utiliser ces variables pré-définie à l’interieur de notre fonction anonyme, sinon PHP ne sait pas que ces variables ont bien été déclaré et initialisé. Notre fonction anonyme peut ne pas être si anonyme qu’on peut le croire car on peut lui donner un nom, l’enregistrer dans une variable et passer cette dernière dans à la méthode <code>run()</code> plus tard dans notre script.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">function</span> dessine<span class="ot">()</span> {</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">...</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="kw">$maFonction</span> = <span class="st">&#39;dessine&#39;</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">//ou</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="kw">$maFonction</span> = <span class="kw">function</span> <span class="ot">()</span> {</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="st">...</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">}</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="kw">$window</span>-&gt;run<span class="ot">(</span><span class="kw">new</span> Event<span class="ot">(),</span> <span class="kw">null</span><span class="ot">,</span> <span class="kw">$maFonction</span><span class="ot">);</span></a></code></pre></div>
+<p>Cependant il faut prendre en compte le fait que si l’on utiliser des variables mise à jour dynamiquement par la bibliothèque comme les événements cette méthode est à proscrire.</p>
+</div>
+<div id="comment-garder-les-modifications-appliquées-à-ses-objets" class="section level4">
+<h4><span class="header-section-number">3.2.1.3</span> Comment garder les modifications appliquées à ses objets</h4>
+<p>Par défaut la bibliothèque n’enregistre pas toutes les modifications que vous appliquer à vos formes et autres objets dessinables parce qu’ils ne sont pas attachés à la fenêtre. Pour ce faire il faut utiliser la méthode <code>addToDrawingList()</code> qui comme son nom l’indique ajoute un objet identifié par une clé à la liste des éléments à dessiner qui seront enregistrés avec les données de la fenêtre et mis à jour à toutes futures modifications.
+L’objet enregistré peut toujours être retrouvé grâce à son identifiant et modifié si besoin.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">$window</span>-&gt;addToDrawingList<span class="ot">(</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">    <span class="st">&#39;rectangle&#39;</span><span class="ot">,</span> <span class="co">// la clé de l&#39;objet</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="kw">new</span> RectangleShape<span class="ot">(</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">        <span class="ot">[</span><span class="dv">400</span><span class="ot">,</span> <span class="dv">200</span><span class="ot">],</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">        <span class="ot">[</span><span class="dv">100</span><span class="ot">,</span> <span class="dv">200</span><span class="ot">],</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">        <span class="kw">new</span> Color<span class="ot">(</span>Color::<span class="kw">BLUE</span><span class="ot">)</span> <span class="co">// définition de la couleur de fond en bleue</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">    <span class="ot">)</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="ot">);</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="kw">$window</span>-&gt;run<span class="ot">(</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">    <span class="kw">new</span> Event<span class="ot">(),</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">    <span class="kw">null</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">    <span class="kw">function</span> <span class="ot">()</span> <span class="kw">use</span> <span class="ot">(</span><span class="kw">$red</span><span class="ot">,</span> <span class="kw">$window</span><span class="ot">)</span> {</a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15">        <span class="kw">$window</span></a>
+<a class="sourceLine" id="cb11-16" data-line-number="16">            -&gt;getDrawingList<span class="ot">()</span></a>
+<a class="sourceLine" id="cb11-17" data-line-number="17">            -&gt;getObject<span class="ot">(</span><span class="st">&#39;rectangle&#39;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb11-18" data-line-number="18">            -&gt;setFillColor<span class="ot">(</span><span class="kw">$red</span><span class="ot">)</span> <span class="co">// Le rectangle affiché sera rouge au lieu d&#39;être bleue comme défini plus haut</span></a>
+<a class="sourceLine" id="cb11-19" data-line-number="19">    <span class="ot">;</span></a>
+<a class="sourceLine" id="cb11-20" data-line-number="20">    }</a>
+<a class="sourceLine" id="cb11-21" data-line-number="21"><span class="ot">);</span></a></code></pre></div>
+<p>Tout cela dans le but de faciliter l’utilisation de la bibliothèque par des débutants et surtout flexibilité de celle-ci.</p>
+</div>
+<div id="extra" class="section level4">
+<h4><span class="header-section-number">3.2.1.4</span> Extra</h4>
+<div id="créer-une-couleur" class="section level5">
+<h5><span class="header-section-number">3.2.1.4.1</span> Créer une couleur</h5>
+<p>Des couleurs sont prédéfinie dans l’énumération prévu pour. Mais pour s’en servir il faut créer une instance de couleur avec l’une de ces valeurs.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">$color</span> = <span class="kw">new</span> Color<span class="ot">(</span>Color::<span class="kw">RED</span><span class="ot">)</span> <span class="co">// équivaut à Color::DYNAMIC()</span></a></code></pre></div>
+<p>Il est évidemment possible de créer des couleurs dynamique avec des valeur de couleurs primaires.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">$color</span> = <span class="ot">(</span><span class="kw">new</span> Color<span class="ot">(</span>Color::<span class="kw">DYNAMIC</span><span class="ot">))</span> <span class="co">// équivaut à Color::DYNAMIC()</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">    -&gt;fromRGB<span class="ot">(</span><span class="dv">12</span><span class="ot">,</span> <span class="dv">12</span><span class="ot">,</span> <span class="dv">13</span><span class="ot">);</span></a></code></pre></div>
+</div>
+<div id="gérer-des-événements" class="section level5">
+<h5><span class="header-section-number">3.2.1.4.2</span> Gérer des événements</h5>
+<p>On ne pourrait pas parler proprement de bibliothèque graphique sans gestion des événements déclencher sur la fenêtre, voilà pourquoi l’implémentation de la gestion des événements et des entrées (clavier et souris) faisaient parties de mes priorités.</p>
+<p>On a précédemment vu sur les morceaux de codes qu’on pouvait créer une instance d’événement avec</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">new</span> Event<span class="ot">()</span></a></code></pre></div>
+<p>Le constructeur de cette classe ne prend rien en paramètre car tout est géré en interne pour l’utilisateur. Tout ce qu’il reste à faire pour l’utiliser c’est de vérifier qu’un certain type d’événement à bien été reçu et le traiter en tant que tel. Un exemple d’utilisation serait :</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">$event</span> = <span class="kw">new</span> Event<span class="ot">();</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">$window</span>-&gt;run<span class="ot">(</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">    <span class="kw">$event</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">    <span class="kw">function</span> <span class="ot">()</span> <span class="kw">use</span> <span class="ot">(</span><span class="kw">$event</span><span class="ot">,</span> <span class="kw">$window</span><span class="ot">)</span> {</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">        <span class="kw">if</span> <span class="ot">(</span><span class="kw">$event</span>-&gt;<span class="fu">getType</span><span class="ot">()</span>-&gt;getValue<span class="ot">()</span> == EventType::<span class="kw">MOUSE_BUTTON_PRESSED</span><span class="ot">)</span> {</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">            <span class="co">// réaliser une action si un bouton de la souris est cliqué</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">        }</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">    }<span class="ot">,</span></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">    <span class="kw">function</span> <span class="ot">()</span> <span class="kw">use</span> <span class="ot">(</span><span class="kw">$event</span><span class="ot">,</span> <span class="kw">$window</span><span class="ot">)</span> {</a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">       <span class="co">// faire ses dessins</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="ot">);</span></a></code></pre></div>
+</div>
+</div>
 </div>
 <div id="documentation" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Documentation</h3>
-<p>Actuellement la documentation de la bibliothèque n’est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèques sur le dépôt github.</p>
+<p>Actuellement la documentation de la bibliothèque n’est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèque sur le dépôt github.</p>
 
 </div>
 </div>

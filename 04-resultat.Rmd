@@ -1,9 +1,31 @@
 # Résultat {#res}
 
-*J'ai hâte moi aussi ...*
+## Finalité de la bibliothèque
+
+A la fin de mes quatre semaines de travail j'ai pu implémenté la majorité sinon toutes les fonctionnalités demandées par ma tutrice de projets pour cette mise en situation professionnelle. On peut alors être fier et dire que l'objectif est atteint, malgré tout la bibliothèque n'est pas complète et il reste des choses à approfondir.
+
+Par exemple la possibilité de créer des formes personnalisé en redéfinissant ou en héritant de la classe `Shape` comme cela est expliqué dans un tutoriel de SFML sur [la création de forme](https://www.sfml-dev.org/tutorials/2.5/graphics-shape-fr.php#formes-personnaliscees). 
+C'est l'une des choses que j'aurai aimé implémenter sur la fin de ma période de travail avec la création de formes convexes --- la classe [`ConvexShape`](https://www.sfml-dev.org/documentation/2.5.1-fr/classsf_1_1ConvexShape.php). Ce qui ne pourra pas être fait par manque de temps mais surtout de capacités offertes par FFI.
+
+Le principal étant que la bibliothèque soit utilisable pour les TPs de POO, l'implémentation de ce genre de fonctionnalités complexes passe au second plan. Même si cela n'est pas impossible, il est peut probable qu'un débutant puisse avoir l'initiative de se lancer dans ce genre de défi.
 
 ## Bilan de la mise en situation professionnelle
 
-## Finalité de la bibliothèque
+La mise en situation professionnelle fut une épreuve très enrichissante sur tellement de points que je ne pourrai tous les aborder.
+
+Elle m'a d'abord aidé à développer des compétences nouvelles tout comme à approfondir et étendre celles que je possédais déjà. Je pourrai citer la découverte et l'utilisation maximale des nouveautés qu'apporte le PHP 7.4 dans la création de PHPML mais aussi la connaissance du C --- que je n'ai jamais pratiqué --- et la bibliothèque SFML. 
+Elle a également permis la culture de bonnes habitudes personnelle et professionnel grâce à la confrontation au télétravail, ce qui n'aurait pas forcément été possible lors d'un stage.
+
+Il est certains que créer un package PHP n'est pas un projet aisé qui se fait dès la première idée. J'ai donc du établir un plan de développement et l'adapter à chaque évolution du projet que ce soit sur la conception ou l'implémentation, cela à évidemment contribuer à élargir la vision que j'avais de la gestion de projet et dans le même temps améliorer mes compétences dans le domaine.
+
+Pourtant il est difficile de croire que la mise ne situation professionnelle n'a que des qualités. En effet, malgré tout ce que j'ai gagné à réaliser ce projet il ne sera pas officiellement compté comme une expérience professionnelle; la où mon stage aurait permis d'en avoir un minimum et me démarquer parmi tous les autres débouchés la mise en situation professionnelle n'est qu'un projet de plus dans mon cursus d'étudiants.
 
 ## Ressenti personnel
+
+Globalement j'ai un ressenti positif envers l'expérience que j'ai vécu lors de ma mise en situation professionnelle. Il est plus pertinent de se faire un point de vue sur les bénéfices que sur les inconvénients.
+
+Il était éprouvant psychologiquement de travailler au même endroit ou je me divertis, se retenir d'arrêter le travail pour jouer par exemple, alors que presque tout était réuni pour, fut l'un des efforts que j'ai du fournir pour arriver au terme du projet ou du moins à un minimum viable.
+
+J'ai été confronté à divers problématiques que je n'ai pas tout le temps réussi à résoudre ou que j'ai failli abandonner, mais quoiqu'il en était contourner le problème pour y arriver ou demander conseil à ma tutrice de projet a toujours été le meilleur choix.
+Finalement j'en suis sorti avec plus d'acquis qu'avant et c'est je pense le plus important.
+^

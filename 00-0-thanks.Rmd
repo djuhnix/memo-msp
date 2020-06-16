@@ -1,0 +1,9 @@
+\mainmatter
+
+# Remerciements {- #remerciements}
+
+En premier lieu je voudrais remercier Madame Romaniuk, en tant que professeure elle m'a enseigné et aidé à mieux comprendre la Programmation Orientée Objets dans la majorité de ses aspects et en tant que tutrice pour ce projet elle m'a orienté dans mon travail, je la remercie pour ses conseils qui m'ont aidé à avancer sur certaines problématiques.
+
+J'aimerais également remercier toute l'équipe pédagogique qui m'a apporté toutes les connaissances que j'ai pu acquérir jusqu'ici et sans oublier tous ceux et toutes celles qui participent à la vie du département informatique de l'IUT de Reims.
+
+Je souhaite particulièrement remercier mes amis et proches, pour leur amour, leurs conseils ainsi que leur soutien sans qui ces deux années passées en DUT ne seraient pas ce qu'elles sont pour moi aujourd'hui.

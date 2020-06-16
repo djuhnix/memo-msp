@@ -4,7 +4,7 @@ POO
 
 : Programmation Orientée Objets
 
-    La programmation orientée objet (POO), ou programmation par objet, est un paradigme de programmation informatique. Il consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre.
+    > La programmation orientée objet (POO), ou programmation par objet, est un paradigme de programmation informatique. Il consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre.
     
     --- [@wikipedia_programmation_2020]
   
@@ -15,6 +15,21 @@ FFI
 
     C'est un mécanisme par lequel un programme écrit dans un langage de programmation peut appeler des routines ou utiliser des services écrits dans un autre.
 
+SFML
+
+: Simple and Fast Media Library
+
+    > SFML offre une interface simple vers les différents composants de votre PC, afin de faciliter le développement de jeux ou d'applications multimedia. Elle se compose de cinq modules : système, fenêtrage, graphisme, audio et réseau.
+    
+    --- [@laurent_sfml_2020]
+    
+CSFML
+
+: C Simple and Fast Media Library
+
+    > CSFML est le binding officiel de SFML pour le langage C. Son API est aussi proche que possible que l'API C++ (mais dans le style C, bien entendu), ce qui en fait un candidat parfait pour construire des bindings SFML pour d'autres langages qui ne supportent pas directement les bibliothèques C++.
+    
+    --- [@laurent_sfml_2020]
 
 URCA
 

@@ -4,11 +4,11 @@ Impossible de parler du développement de la bibliothèque sans aborder le progr
 
 ## Programme de la mise en situation professionnelle.
 
-La mise en situation professionnelle, se déroule dans un cadre du confinement donc il m'était dans l'obligation de faire du télétravail.
+La mise en situation professionnelle s'est déroulé dans le cadre du confinement, il m'était donc obligatoire de le faire en télétravail.
 
 ### Organisation
 
-Dès le début je me suis fait un programme pour répartir convenablement les 4 semaines qui m'étaient donné pour la réalisation de la bibliothèque. 
+Dès le début je me suis fait un programme pour répartir convenablement les 4 semaines qui m'étaient données pour la réalisation de la bibliothèque. 
 
 - **Semaine 1** : documentation et découverte
 - **Semaine 2** : Conception de l'architecture de la bibliothèque et template de développement
@@ -37,21 +37,21 @@ Objectivement j'ai pu respecté ce planning à 70%. Il est évident que travaill
 
 ## Pré-requis avant le développement de la bibliothèque {#pre-requis}
 
-Avant de réellement commencer le développement de la bibliothèque il m'as fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j'en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j'ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.
+Avant de réellement commencer le développement de la bibliothèque il m'a fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j'en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j'ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.
 
 ### PHP FFI
 
-L’extension FFI de PHP disponible à partir de la version 7.4 est obligatoirement pour développer et faire fonctionner la bibliothèque. Elle est intégré mais "inactive" par défaut [@the_php_group_ffi_2019] sauf si l'on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s'assurer d'avoir la librairie FFI `libffi` installé sur sa machine. [Sourceware libffi](https://sourceware.org/libffi/).
+L’extension FFI de PHP, disponible dès la version 7.4, est obligatoire pour développer et faire fonctionner la bibliothèque. Elle est intégrée mais "inactive" par défaut [@the_php_group_ffi_2019] sauf si l'on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s'assurer d'avoir la librairie FFI `libffi` installée sur sa machine. [Sourceware libffi](https://sourceware.org/libffi/).
 
 #### Installation de `libffi`
 
-- Sur linux (Debian pour moi) la librairie est accessible via le paquet `libffi-dev`. Donc l'exécution de la commande suivante devrait installé le nécessaire pour activer l’extension FFI de PHP.
+- Sur linux (Debian pour moi) la librairie est accessible via le paquet `libffi-dev`. Donc l'exécution de la commande suivante devrait installer les paquets nécessaires au bon fonctionnement de l’extension FFI de PHP.
 
 ```bash
 sudo apt install libffi-dev
 ```
 
-- Sur Windows je n'ai pas explorer le processus d'installation mais il est disponible à l'adresse suivante :
+- Sur Windows je n'ai pas exploré le processus d'installation mais il est disponible à l'adresse suivante :
 [Goldencode.com : Building and Installing libffi on Windows](https://proj.goldencode.com/projects/p2j/wiki/Building_and_Installing_libffi_on_Windows)
 
 #### Configuration/Activation de FFI
@@ -71,12 +71,12 @@ sudo apt install libsfml-dev libcsfml-dev
 - Sur Windows on peut les télécharger sur le site officiel de la bibliothèque [sfml.org](https://www.sfml-dev.org/download.php)
 
  Après avoir eu ces dépendances sur ma machine, j'ai pu découvrir comment fonctionnait CSFML et SFML d'abord puis j'ai été capable de réaliser un programme en C qui affiche une fenêtre. Par la suite j'ai également réussi à écrire un script qui ouvre une fenêtre en PHP (accessible sur le dépôt git) utilisant CSFML et FFI fraîchement installé.
-Maintenant que j'étais au point sur les dépendances de ma future bibliothèques j'ai pu commencé la phase de conception.
+Maintenant que j'étais au point sur les dépendances de ma future bibliothèque j'ai pu commencé la phase de conception.
 
 ## Conception
 
-En ce qui concerne la conception, je n'ai pas l'intention de détailler tout mon processus de réflexion mais juste d'éclaircir sur certains point clé de l'architecture de la bibliothèque.
-La première chose dont je me suis donnée l'objectif de réaliser lors de ma phase de conception était de trouver une abstraction à la manipulation d'objets FFI.
+En ce qui concerne la conception, je n'ai pas l'intention de détailler tout mon processus de réflexion mais juste d'éclaircir sur certains points clés de l'architecture de la bibliothèque.
+Avant tout il me fallait trouver un moyen de m'abstraire du processus de chargement d'une bibliothèque avec FFI. La première tâche que je me suis donnée lors de ma phase de conception fut alors de réaliser une abstraction à la manipulation d'objets FFI.
 
 ### Ma première classe AbstractFFI
 
@@ -86,7 +86,7 @@ La première chose dont je me suis donnée l'objectif de réaliser lors de ma ph
 > --- [@wikipedia_abstraction_2019]
 
 L'objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser.
-Je suis passé par différentes idée de conception, et j'ai fini par aboutir à cellui-ci.
+Je suis passé par différentes idée de conception, et j'ai fini par aboutir à celle-ci.
 
 ```{r class-diagram-abstract-ffi, echo=FALSE, fig.cap="Diagramme de classe : AbstractFFI" ,fig.align='center', out.width='90%'}
 
@@ -96,24 +96,24 @@ knitr::include_graphics("assets/img/class-ffi-abstraction.png")
 
 On y voit plusieurs classes abstraites, la principale étant `AbstractFFI` dont hérite `LibLoader`, leurs rôles est dans leur nom :
 
-- **AbstractFFI** : la principale classe qui se charge de s'abstraire du chargement de la bibliothèque et de faire les vérifications nécessaires. Elle a comme attribut un tableau d'objets FFI pour permettre l'utilisation de plusieurs bibliothèque tout au long du programme.
-- **LibLoader** : héritant de AbstractFFI elle a les mêmes fonctionnalités, mais en plus elle donne la base pour mettre en place un Singleton de génération de bibliothèque --- une classe limité à une instance dont le seul objectif est de retourner une bibliothèque précise.
+- **AbstractFFI** : la principale classe qui se charge de s'abstraire du chargement de la bibliothèque et de faire les vérifications nécessaires. Elle a comme attribut un tableau d'objets FFI pour permettre l'utilisation de plusieurs bibliothèques tout au long du programme.
+- **LibLoader** : héritant de AbstractFFI elle a les mêmes fonctionnalités, mais donne en plus la base pour mettre en place un _singleton_ de génération de bibliothèque --- une classe limité à une instance dont le seul objectif est de retourner une bibliothèque précise.
 
-Pour ce qui est de **MyCData**, il s'agit d'un `trait` --- particularité de PHP, c'est simplement une classe abstraite qui s'utilise comme une interface pour faire simple. Son objectifs est d'avoir un ensemble de fonctions et d'attribut prêtes à être réutiliser pour définir une donnée C qui serait importer de la bibliothèque chargé avec FFI.
+Pour ce qui est de **MyCData**, il s'agit d'un `trait`, particularité de PHP, qui est pour faire simple une classe abstraite qui s'utilise comme une interface. Son objectif est d'avoir un ensemble de fonctions et d'attributs prêts à être réutilisé pour définir une donnée C qui serait importée de la bibliothèque chargée avec FFI.
 
 ### Architecture globale
 
-Le reste de la bibliothèque est un ensemble de classe inspiré de SFML qui s’emboîtent autour de l'abstraction FFI. Effectivement, SFML et pas CSFML, car CSFML est écrit en C, or le C n'est pas un langage orienté objet et CSFML est juste un pont vers SFML qui est écrit en C++ qui lui est bien orienté objet. Toujours est-il que j'ai du simplifier un maximum l'architecture pour ne pas alourdir la bibliothèque en elle même et son utilisation finale.
+Le reste de la bibliothèque est un ensemble de classes inspirées de SFML qui s’emboîtent autour de l'abstraction FFI. Effectivement, **SFML** et pas **C**SFML comme dit précédemment, car CSFML est juste un pont écrit en C vers SFML, or le C n'est pas un langage orienté objet. Par conséquent SFML qui est écrit en C++ qui lui est bien un langage orienté objet est idéal pour de servir de bases pour l'implémentation de mes classes. Toujours est-il que j'ai du simplifier un maximum l'architecture pour ne pas alourdir la bibliothèque en elle même et son utilisation finale.
 
 ### Exemple de la classe Window
 
 La classe Window est le deuxième pilier de l'architecture de la bibliothèque, comme la plupart des classes elle utilise MyCData pour bénéficier des méthodes et des attributs lier à l'échange de données entre PHP et la bibliothèque C via FFI. C'est le cas de la méthode `toCData()` qui convertit les attributs actuel de la classe en donnée C.
 
-### Diagramme de classe
+### Diagramme de classes
 
 Le résultat de la phase de conception est le diagramme de classe suivant qui a constamment évolué même lors de l'implémentation des fonctionnalités de la bibliothèque.
 
-```{r class-diagramm, fig.cap="Diagramme de classe accessible à l'adresse https://cutt.ly/phpml-class-diagram", echo=FALSE, dev='png', cache=TRUE, fig.align='center', screenshot.opts = list(delay = 5)}
+```{r class-diagramm, fig.cap="*Diagramme de classes intéractif accessible à l'adresse* https://cutt.ly/phpml-class-diagram", echo=FALSE, dev='png', cache=TRUE, fig.align='center', screenshot.opts = list(delay = 20)}
 
 knitr::include_app("https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=phpsfml-pre-class.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1LxYoQHLD5Z8fzSt4P4RyekhaTM5EHoAT%26export%3Ddownload")
 
@@ -124,24 +124,24 @@ Le temps passé sur la réflexion de l'architecture de la bibliothèque n'a pas 
 
 ## Implémentation de la bibliothèque
 
-L'implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans grands accrocs lorsque la phase de conception s'est bien déroulé car il n'y a pas besoin de réfléchir sur la structure de l'application ou de la bibliothèque car elle a déjà été définie. N'empêche que c'est au moment de l'implémentation qu'il faut penser à l'ordre de programmation des composants (bien que cela peut être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d'en citer quelques unes.
+L'implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans problèmes particuliers lorsque la phase de conception s'est bien déroulé car il n'y a pas besoin de réfléchir sur la structure de l'application ou de la bibliothèque car elle a déjà été définie. Néanmoins c'est au moment de l'implémentation qu'il faut penser à l'ordre de programmation des composants (bien que cela puisse être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d'en citer quelques unes.
 
 ### L'ordre d'implémentation
 
-Si la bibliothèque que l'on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau ce dépendance le plus bas possible. C'est là que se pose la question de l'ordre l'implémentation.
-En ce qui me concerne j'ai préféré commencé par la classe principale et redescendre l'arbre de dépendance, ce qui n'est pas forcément la meilleure des solutions mais elle a eu le mérite d'être efficace et de me révéler certaines erreurs de conceptions que j'avais commise.
+Si la bibliothèque que l'on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau de dépendance le plus bas possible. C'est là que se pose la question de l'ordre l'implémentation.
+En ce qui me concerne j'ai préféré commencer par la classe principale et redescendre l'arbre de dépendance, ce qui n'est pas forcément la meilleure des solutions mais elle a eu le mérite d'être efficace et de me révéler certaines erreurs de conceptions que j'avais commises.
 
 ### Erreurs de conception
 
 La plus grande erreur que j'ai pu faire a été au niveau de l'abstraction, car j'utilisais un `trait` qui n'était pas vraiment adapté à ce que je concevais à la base, erreur qui m'a été notifié par ma tutrice de projet après consultation. En corrigeant cela j'ai pu aboutir à la version que vous pouvez voir au \@ref(fig:class-diagram-abstract-ffi).
 
-En plus de diverses erreurs de conception corrigées sur le vif, j'ai été régulièrement confrontés à des erreurs de programmation plus technique lié soit à FFI soit à CSFML. Celle qui m'a pris le plus de ressources cérébrales et de temps à corriger était une erreur de segmentation.
+En plus de diverses erreurs de conception corrigées sur le vif, j'ai été régulièrement confrontés à des erreurs de programmation plus techniques lié soit à FFI soit à CSFML. Celle qui m'a pris le plus de reflexions et de temps à corriger était une erreur de segmentation.
 
 > Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault) est un plantage d'une application qui a tenté d'accéder à un emplacement mémoire qui ne lui était pas alloué. 
 > 
 > --- [@wikipedia_segfault_2020]
 
-Il faut également noté que je n'ai jamais été confronté à cette erreur *en PHP* et il est très contraignant de retrouver la trace d'une erreur de segmentation quand on est développeur junior.
+Il faut également noter que je n'ai jamais été confronté à cette erreur *en PHP* et il est très contraignant de retrouver la trace d'une erreur de segmentation quand on est développeur junior.
 Finalement il s'est avéré que retirer l'utilisation de la méthode `var_dump()` de mon script résolvait mon erreur.
 
 Une fois l'implémentation finis il faut à présent s'attarder à la distribution de notre bibliothèque.
@@ -158,7 +158,7 @@ Cette section est purement subjective car il s'agit de choisir comment partager 
 
 ### Installation de composer {#install-composer}
 
-Pour installer composer on a juste besoin d'avoir php installé sur sa machine, ensuite les étapes d'installation sont détaillées sur la page d'[introduction à composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos). Mais pour résumé l'une des méthodes d'installation pour avoir composer globalement sur linux :
+Pour installer composer nous avons juste besoin d'avoir php installé sur sa machine, ensuite les étapes d'installation sont détaillées sur la page d'[introduction à composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos). Mais pour résumer l'une des méthodes d'installation pour avoir composer globalement sur linux :
 
 - Exécuter ces commandes pour télécharger la dernière archive de composer.
 
@@ -169,13 +169,13 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
 
-- Déplacer l'archive télécharger vers son dossier bin : 
+- Déplacer l'archive téléchargée vers son dossier bin : 
 
 ```bash
 mv composer.phar /usr/local/bin/composer
 ```
 
-Avec composer installé on peut créer intéractivement un fichier` composer.json` dans n'importe quel dossier ou projet avec la commande `composer init`.
+Avec composer installé nous pouvons créer intéractivement un fichier` composer.json` dans n'importe quel dossier ou projet avec la commande `composer init`.
 
 ### Publication de bibliothèque avec composer et packagist
 
@@ -199,7 +199,7 @@ Pour faire court il est nécessaire d'avoir :
 
 ### Maintenabilité
 
-Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n'importe qui de "demandé" votre bibliothèque via composer avec la commande `composer require vendor-name/package-name` à condition d'avoir également un fichier `composer.json` à la racine de son projet.
+Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n'importe qui de "demander" votre bibliothèque via composer avec la commande `composer require vendor-name/package-name` à condition d'avoir également un fichier `composer.json` à la racine de son projet.
 
 Ce qu'il nous reste à faire est de maintenir la bibliothèques, c'est à dire : 
 
@@ -207,4 +207,16 @@ Ce qu'il nous reste à faire est de maintenir la bibliothèques, c'est à dire :
 - ajouter de nouvelles fonctionnalités si on le souhaite.
 - re-publier sur packagist quand cela est fait (ou activer la mise à jour automatique sur son compte).
 
-Nous avons donc terminé le développement y compris la distribution de notre bibliothèque, on peut à présent apprendre à l'utiliser, ce qui n'est pas aussi trivial qu'on pourrait le croire.
+Nous avons donc terminé le développement y compris la distribution de notre bibliothèque, nous pouvons à présent apprendre à l'utiliser, ce qui n'est pas aussi trivial que nous pourrions  le croire.
+
+## Tableau récapitulatif
+
+Table: (\#tab:recap-dep) Récapitulatif des dépendances
+
+| Dépendances |                    Commandes                   |
+|-------------|------------------------------------------------|
+| PHP 7.4     | `sudo apt install php7.4`                      |
+| FFI         | `sudo apt install libffi-dev`                  |
+| SFML        | `sudo apt install libsfml-dev`                 |
+| CSFML       | `sudo apt install libcsfml-dev`                |
+| Composer    | voir le lien https://getcomposer.org/download/ |

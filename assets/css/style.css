@@ -1,3 +1,16 @@
+#avant-propos > p img:first-child {
+   width : 150px;
+}
+
+#avant-propos > p img:last-child {
+  width : 210px;
+}
+@media (min-width: 400px) {
+  #avant-propos > p img:last-child {
+    float : right;
+  }
+}
+
 body {
   text-align: justify;
 }

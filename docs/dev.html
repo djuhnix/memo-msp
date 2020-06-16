@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP</title>
+  <title>Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP</title>
   <meta name="description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP" />
+  <meta property="og:title" content="Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://djuhnix.github.io/memo-msp/" />
   <meta property="og:image" content="https://djuhnix.github.io/memo-msp/assets/img/undraw_developer_activity.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="djuhnix/memo-msp" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Créer une bibliothèque PHP" />
+  <meta name="twitter:title" content="Chapitre 2 Développement de la bibliothèque | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP" />
   
   <meta name="twitter:description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
   <meta name="twitter:image" content="https://djuhnix.github.io/memo-msp/assets/img/undraw_developer_activity.png" />
@@ -132,6 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Avant-propos</a></li>
+<li class="chapter" data-level="" data-path="remerciements.html"><a href="remerciements.html"><i class="fa fa-check"></i>Remerciements</a></li>
 <li class="chapter" data-level="" data-path="résumé.html"><a href="résumé.html"><i class="fa fa-check"></i>Résumé</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="context.html"><a href="context.html"><i class="fa fa-check"></i><b>1</b> Contexte</a><ul>
@@ -142,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="context.html"><a href="context.html#pourquoi-faire-une-bibliothèque-en-php"><i class="fa fa-check"></i><b>1.2</b> Pourquoi faire une bibliothèque en PHP</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="context.html"><a href="context.html#larrière-plan"><i class="fa fa-check"></i><b>1.2.1</b> L’arrière-plan</a></li>
 <li class="chapter" data-level="1.2.2" data-path="context.html"><a href="context.html#le-problème-avec-php"><i class="fa fa-check"></i><b>1.2.2</b> Le problème avec PHP</a></li>
-<li class="chapter" data-level="1.2.3" data-path="context.html"><a href="context.html#lintervention-de-germain"><i class="fa fa-check"></i><b>1.2.3</b> L’intervention de Germain</a></li>
+<li class="chapter" data-level="1.2.3" data-path="context.html"><a href="context.html#définition-de-lobjectif"><i class="fa fa-check"></i><b>1.2.3</b> Définition de l’objectif</a></li>
 <li class="chapter" data-level="1.2.4" data-path="context.html"><a href="context.html#la-pertinence-du-projets"><i class="fa fa-check"></i><b>1.2.4</b> La pertinence du projets</a></li>
 </ul></li>
 </ul></li>
@@ -159,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="dev.html"><a href="dev.html#ma-première-classe-abstractffi"><i class="fa fa-check"></i><b>2.3.1</b> Ma première classe AbstractFFI</a></li>
 <li class="chapter" data-level="2.3.2" data-path="dev.html"><a href="dev.html#architecture-globale"><i class="fa fa-check"></i><b>2.3.2</b> Architecture globale</a></li>
 <li class="chapter" data-level="2.3.3" data-path="dev.html"><a href="dev.html#exemple-de-la-classe-window"><i class="fa fa-check"></i><b>2.3.3</b> Exemple de la classe Window</a></li>
-<li class="chapter" data-level="2.3.4" data-path="dev.html"><a href="dev.html#diagramme-de-classe"><i class="fa fa-check"></i><b>2.3.4</b> Diagramme de classe</a></li>
+<li class="chapter" data-level="2.3.4" data-path="dev.html"><a href="dev.html#diagramme-de-classes"><i class="fa fa-check"></i><b>2.3.4</b> Diagramme de classes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="dev.html"><a href="dev.html#implémentation-de-la-bibliothèque"><i class="fa fa-check"></i><b>2.4</b> Implémentation de la bibliothèque</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="dev.html"><a href="dev.html#lordre-dimplémentation"><i class="fa fa-check"></i><b>2.4.1</b> L’ordre d’implémentation</a></li>
@@ -171,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.3" data-path="dev.html"><a href="dev.html#publication-de-bibliothèque-avec-composer-et-packagist"><i class="fa fa-check"></i><b>2.5.3</b> Publication de bibliothèque avec composer et packagist</a></li>
 <li class="chapter" data-level="2.5.4" data-path="dev.html"><a href="dev.html#maintenabilité"><i class="fa fa-check"></i><b>2.5.4</b> Maintenabilité</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="dev.html"><a href="dev.html#tableau-récapitulatif"><i class="fa fa-check"></i><b>2.6</b> Tableau récapitulatif</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a><ul>
 <li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis à l’utilisation</a><ul>
@@ -183,8 +185,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="res.html"><a href="res.html"><i class="fa fa-check"></i><b>4</b> Résultat</a><ul>
-<li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#bilan-de-la-mise-en-situation-professionnelle"><i class="fa fa-check"></i><b>4.1</b> Bilan de la mise en situation professionnelle</a></li>
-<li class="chapter" data-level="4.2" data-path="res.html"><a href="res.html#finalité-de-la-bibliothèque"><i class="fa fa-check"></i><b>4.2</b> Finalité de la bibliothèque</a></li>
+<li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#finalité-de-la-bibliothèque"><i class="fa fa-check"></i><b>4.1</b> Finalité de la bibliothèque</a></li>
+<li class="chapter" data-level="4.2" data-path="res.html"><a href="res.html#bilan-de-la-mise-en-situation-professionnelle"><i class="fa fa-check"></i><b>4.2</b> Bilan de la mise en situation professionnelle</a></li>
 <li class="chapter" data-level="4.3" data-path="res.html"><a href="res.html#ressenti-personnel"><i class="fa fa-check"></i><b>4.3</b> Ressenti personnel</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
@@ -203,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Memoire de mise en situation professionnel — Créer une bibliothèque PHP</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Memoire de mise en situation professionnel — Création d’une bibliothèque PHP</a>
           </h1>
         </div>
 
@@ -216,10 +218,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Impossible de parler du développement de la bibliothèque sans aborder le programme que je me suis fixé pour le faire.</p>
 <div id="programme-de-la-mise-en-situation-professionnelle." class="section level2">
 <h2><span class="header-section-number">2.1</span> Programme de la mise en situation professionnelle.</h2>
-<p>La mise en situation professionnelle, se déroule dans un cadre du confinement donc il m’était dans l’obligation de faire du télétravail.</p>
+<p>La mise en situation professionnelle s’est déroulé dans le cadre du confinement, il m’était donc obligatoire de le faire en télétravail.</p>
 <div id="organisation" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Organisation</h3>
-<p>Dès le début je me suis fait un programme pour répartir convenablement les 4 semaines qui m’étaient donné pour la réalisation de la bibliothèque.</p>
+<p>Dès le début je me suis fait un programme pour répartir convenablement les 4 semaines qui m’étaient données pour la réalisation de la bibliothèque.</p>
 <ul>
 <li><strong>Semaine 1</strong> : documentation et découverte</li>
 <li><strong>Semaine 2</strong> : Conception de l’architecture de la bibliothèque et template de développement</li>
@@ -271,18 +273,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="pre-requis" class="section level2">
 <h2><span class="header-section-number">2.2</span> Pré-requis avant le développement de la bibliothèque</h2>
-<p>Avant de réellement commencer le développement de la bibliothèque il m’as fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j’en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j’ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.</p>
+<p>Avant de réellement commencer le développement de la bibliothèque il m’a fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j’en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j’ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.</p>
 <div id="php-ffi" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> PHP FFI</h3>
-<p>L’extension FFI de PHP disponible à partir de la version 7.4 est obligatoirement pour développer et faire fonctionner la bibliothèque. Elle est intégré mais “inactive” par défaut <span class="citation">(The PHP Group <a href="#ref-the_php_group_ffi_2019">2019</a>)</span> sauf si l’on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s’assurer d’avoir la librairie FFI <code>libffi</code> installé sur sa machine. <a href="https://sourceware.org/libffi/">Sourceware libffi</a>.</p>
+<p>L’extension FFI de PHP, disponible dès la version 7.4, est obligatoire pour développer et faire fonctionner la bibliothèque. Elle est intégrée mais “inactive” par défaut <span class="citation">(The PHP Group, <a href="#ref-the_php_group_ffi_2019">2019</a>)</span> sauf si l’on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s’assurer d’avoir la librairie FFI <code>libffi</code> installée sur sa machine. <a href="https://sourceware.org/libffi/">Sourceware libffi</a>.</p>
 <div id="installation-de-libffi" class="section level4">
 <h4><span class="header-section-number">2.2.1.1</span> Installation de <code>libffi</code></h4>
 <ul>
-<li>Sur linux (Debian pour moi) la librairie est accessible via le paquet <code>libffi-dev</code>. Donc l’exécution de la commande suivante devrait installé le nécessaire pour activer l’extension FFI de PHP.</li>
+<li>Sur linux (Debian pour moi) la librairie est accessible via le paquet <code>libffi-dev</code>. Donc l’exécution de la commande suivante devrait installer les paquets nécessaires au bon fonctionnement de l’extension FFI de PHP.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">sudo</span> apt install libffi-dev</a></code></pre></div>
 <ul>
-<li>Sur Windows je n’ai pas explorer le processus d’installation mais il est disponible à l’adresse suivante :
+<li>Sur Windows je n’ai pas exploré le processus d’installation mais il est disponible à l’adresse suivante :
 <a href="https://proj.goldencode.com/projects/p2j/wiki/Building_and_Installing_libffi_on_Windows">Goldencode.com : Building and Installing libffi on Windows</a></li>
 </ul>
 </div>
@@ -302,21 +304,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Sur Windows on peut les télécharger sur le site officiel de la bibliothèque <a href="https://www.sfml-dev.org/download.php">sfml.org</a></li>
 </ul>
 <p>Après avoir eu ces dépendances sur ma machine, j’ai pu découvrir comment fonctionnait CSFML et SFML d’abord puis j’ai été capable de réaliser un programme en C qui affiche une fenêtre. Par la suite j’ai également réussi à écrire un script qui ouvre une fenêtre en PHP (accessible sur le dépôt git) utilisant CSFML et FFI fraîchement installé.
-Maintenant que j’étais au point sur les dépendances de ma future bibliothèques j’ai pu commencé la phase de conception.</p>
+Maintenant que j’étais au point sur les dépendances de ma future bibliothèque j’ai pu commencé la phase de conception.</p>
 </div>
 </div>
 <div id="conception" class="section level2">
 <h2><span class="header-section-number">2.3</span> Conception</h2>
-<p>En ce qui concerne la conception, je n’ai pas l’intention de détailler tout mon processus de réflexion mais juste d’éclaircir sur certains point clé de l’architecture de la bibliothèque.
-La première chose dont je me suis donnée l’objectif de réaliser lors de ma phase de conception était de trouver une abstraction à la manipulation d’objets FFI.</p>
+<p>En ce qui concerne la conception, je n’ai pas l’intention de détailler tout mon processus de réflexion mais juste d’éclaircir sur certains points clés de l’architecture de la bibliothèque.
+Avant tout il me fallait trouver un moyen de m’abstraire du processus de chargement d’une bibliothèque avec FFI. La première tâche que je me suis donnée lors de ma phase de conception fut alors de réaliser une abstraction à la manipulation d’objets FFI.</p>
 <div id="ma-première-classe-abstractffi" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Ma première classe AbstractFFI</h3>
 <blockquote>
 <p>En informatique, le concept d’abstraction identifie et regroupe des caractéristiques et traitements communs applicables à des entités ou concepts variés ; une représentation abstraite commune de tels objets permet d’en simplifier et d’en unifier la manipulation.</p>
-<p>— <span class="citation">(Wikipédia <a href="#ref-wikipedia_abstraction_2019">2019</a>)</span></p>
+<p>— <span class="citation">(Wikipédia, <a href="#ref-wikipedia_abstraction_2019">2019</a>)</span></p>
 </blockquote>
 <p>L’objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser.
-Je suis passé par différentes idée de conception, et j’ai fini par aboutir à cellui-ci.</p>
+Je suis passé par différentes idée de conception, et j’ai fini par aboutir à celle-ci.</p>
 <div class="figure" style="text-align: center"><span id="fig:class-diagram-abstract-ffi"></span>
 <img src="assets/img/class-ffi-abstraction.png" alt="Diagramme de classe : AbstractFFI" width="90%" />
 <p class="caption">
@@ -325,27 +327,27 @@ FIGURE 2.1: Diagramme de classe : AbstractFFI
 </div>
 <p>On y voit plusieurs classes abstraites, la principale étant <code>AbstractFFI</code> dont hérite <code>LibLoader</code>, leurs rôles est dans leur nom :</p>
 <ul>
-<li><strong>AbstractFFI</strong> : la principale classe qui se charge de s’abstraire du chargement de la bibliothèque et de faire les vérifications nécessaires. Elle a comme attribut un tableau d’objets FFI pour permettre l’utilisation de plusieurs bibliothèque tout au long du programme.</li>
-<li><strong>LibLoader</strong> : héritant de AbstractFFI elle a les mêmes fonctionnalités, mais en plus elle donne la base pour mettre en place un Singleton de génération de bibliothèque — une classe limité à une instance dont le seul objectif est de retourner une bibliothèque précise.</li>
+<li><strong>AbstractFFI</strong> : la principale classe qui se charge de s’abstraire du chargement de la bibliothèque et de faire les vérifications nécessaires. Elle a comme attribut un tableau d’objets FFI pour permettre l’utilisation de plusieurs bibliothèques tout au long du programme.</li>
+<li><strong>LibLoader</strong> : héritant de AbstractFFI elle a les mêmes fonctionnalités, mais donne en plus la base pour mettre en place un <em>singleton</em> de génération de bibliothèque — une classe limité à une instance dont le seul objectif est de retourner une bibliothèque précise.</li>
 </ul>
-<p>Pour ce qui est de <strong>MyCData</strong>, il s’agit d’un <code>trait</code> — particularité de PHP, c’est simplement une classe abstraite qui s’utilise comme une interface pour faire simple. Son objectifs est d’avoir un ensemble de fonctions et d’attribut prêtes à être réutiliser pour définir une donnée C qui serait importer de la bibliothèque chargé avec FFI.</p>
+<p>Pour ce qui est de <strong>MyCData</strong>, il s’agit d’un <code>trait</code>, particularité de PHP, qui est pour faire simple une classe abstraite qui s’utilise comme une interface. Son objectif est d’avoir un ensemble de fonctions et d’attributs prêts à être réutilisé pour définir une donnée C qui serait importée de la bibliothèque chargée avec FFI.</p>
 </div>
 <div id="architecture-globale" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Architecture globale</h3>
-<p>Le reste de la bibliothèque est un ensemble de classe inspiré de SFML qui s’emboîtent autour de l’abstraction FFI. Effectivement, SFML et pas CSFML, car CSFML est écrit en C, or le C n’est pas un langage orienté objet et CSFML est juste un pont vers SFML qui est écrit en C++ qui lui est bien orienté objet. Toujours est-il que j’ai du simplifier un maximum l’architecture pour ne pas alourdir la bibliothèque en elle même et son utilisation finale.</p>
+<p>Le reste de la bibliothèque est un ensemble de classes inspirées de SFML qui s’emboîtent autour de l’abstraction FFI. Effectivement, <strong>SFML</strong> et pas <strong>C</strong>SFML comme dit précédemment, car CSFML est juste un pont écrit en C vers SFML, or le C n’est pas un langage orienté objet. Par conséquent SFML qui est écrit en C++ qui lui est bien un langage orienté objet est idéal pour de servir de bases pour l’implémentation de mes classes. Toujours est-il que j’ai du simplifier un maximum l’architecture pour ne pas alourdir la bibliothèque en elle même et son utilisation finale.</p>
 </div>
 <div id="exemple-de-la-classe-window" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Exemple de la classe Window</h3>
 <p>La classe Window est le deuxième pilier de l’architecture de la bibliothèque, comme la plupart des classes elle utilise MyCData pour bénéficier des méthodes et des attributs lier à l’échange de données entre PHP et la bibliothèque C via FFI. C’est le cas de la méthode <code>toCData()</code> qui convertit les attributs actuel de la classe en donnée C.</p>
 </div>
-<div id="diagramme-de-classe" class="section level3">
-<h3><span class="header-section-number">2.3.4</span> Diagramme de classe</h3>
+<div id="diagramme-de-classes" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> Diagramme de classes</h3>
 <p>Le résultat de la phase de conception est le diagramme de classe suivant qui a constamment évolué même lors de l’implémentation des fonctionnalités de la bibliothèque.</p>
 <div class="figure" style="text-align: center"><span id="fig:class-diagramm"></span>
 <iframe src="https://app.diagrams.net/?lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=phpsfml-pre-class.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1LxYoQHLD5Z8fzSt4P4RyekhaTM5EHoAT%26export%3Ddownload" width="672" height="400px">
 </iframe>
 <p class="caption">
-FIGURE 2.2: Diagramme de classe accessible à l’adresse <a href="https://cutt.ly/phpml-class-diagram" class="uri">https://cutt.ly/phpml-class-diagram</a>
+FIGURE 2.2: <em>Diagramme de classes intéractif accessible à l’adresse</em> <a href="https://cutt.ly/phpml-class-diagram" class="uri">https://cutt.ly/phpml-class-diagram</a>
 </p>
 </div>
 <p>Le temps passé sur la réflexion de l’architecture de la bibliothèque n’a pas été en vain car il va nous permettre d’en gagner sur la partie principale qui est l’implémentation des fonctionnalités trouvées lors de la phase de conception.</p>
@@ -353,21 +355,21 @@ FIGURE 2.2: Diagramme de classe accessible à l’adresse <a href="https://cutt.
 </div>
 <div id="implémentation-de-la-bibliothèque" class="section level2">
 <h2><span class="header-section-number">2.4</span> Implémentation de la bibliothèque</h2>
-<p>L’implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans grands accrocs lorsque la phase de conception s’est bien déroulé car il n’y a pas besoin de réfléchir sur la structure de l’application ou de la bibliothèque car elle a déjà été définie. N’empêche que c’est au moment de l’implémentation qu’il faut penser à l’ordre de programmation des composants (bien que cela peut être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d’en citer quelques unes.</p>
+<p>L’implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans problèmes particuliers lorsque la phase de conception s’est bien déroulé car il n’y a pas besoin de réfléchir sur la structure de l’application ou de la bibliothèque car elle a déjà été définie. Néanmoins c’est au moment de l’implémentation qu’il faut penser à l’ordre de programmation des composants (bien que cela puisse être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d’en citer quelques unes.</p>
 <div id="lordre-dimplémentation" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> L’ordre d’implémentation</h3>
-<p>Si la bibliothèque que l’on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau ce dépendance le plus bas possible. C’est là que se pose la question de l’ordre l’implémentation.
-En ce qui me concerne j’ai préféré commencé par la classe principale et redescendre l’arbre de dépendance, ce qui n’est pas forcément la meilleure des solutions mais elle a eu le mérite d’être efficace et de me révéler certaines erreurs de conceptions que j’avais commise.</p>
+<p>Si la bibliothèque que l’on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau de dépendance le plus bas possible. C’est là que se pose la question de l’ordre l’implémentation.
+En ce qui me concerne j’ai préféré commencer par la classe principale et redescendre l’arbre de dépendance, ce qui n’est pas forcément la meilleure des solutions mais elle a eu le mérite d’être efficace et de me révéler certaines erreurs de conceptions que j’avais commises.</p>
 </div>
 <div id="erreurs-de-conception" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> Erreurs de conception</h3>
 <p>La plus grande erreur que j’ai pu faire a été au niveau de l’abstraction, car j’utilisais un <code>trait</code> qui n’était pas vraiment adapté à ce que je concevais à la base, erreur qui m’a été notifié par ma tutrice de projet après consultation. En corrigeant cela j’ai pu aboutir à la version que vous pouvez voir au <a href="dev.html#fig:class-diagram-abstract-ffi">2.1</a>.</p>
-<p>En plus de diverses erreurs de conception corrigées sur le vif, j’ai été régulièrement confrontés à des erreurs de programmation plus technique lié soit à FFI soit à CSFML. Celle qui m’a pris le plus de ressources cérébrales et de temps à corriger était une erreur de segmentation.</p>
+<p>En plus de diverses erreurs de conception corrigées sur le vif, j’ai été régulièrement confrontés à des erreurs de programmation plus techniques lié soit à FFI soit à CSFML. Celle qui m’a pris le plus de reflexions et de temps à corriger était une erreur de segmentation.</p>
 <blockquote>
 <p>Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault) est un plantage d’une application qui a tenté d’accéder à un emplacement mémoire qui ne lui était pas alloué.</p>
-<p>— <span class="citation">(Wikipédia <a href="#ref-wikipedia_segfault_2020">2020</a><a href="#ref-wikipedia_segfault_2020">b</a>)</span></p>
+<p>— <span class="citation">(Wikipédia, <a href="#ref-wikipedia_segfault_2020">2020</a><a href="#ref-wikipedia_segfault_2020">b</a>)</span></p>
 </blockquote>
-<p>Il faut également noté que je n’ai jamais été confronté à cette erreur <em>en PHP</em> et il est très contraignant de retrouver la trace d’une erreur de segmentation quand on est développeur junior.
+<p>Il faut également noter que je n’ai jamais été confronté à cette erreur <em>en PHP</em> et il est très contraignant de retrouver la trace d’une erreur de segmentation quand on est développeur junior.
 Finalement il s’est avéré que retirer l’utilisation de la méthode <code>var_dump()</code> de mon script résolvait mon erreur.</p>
 <p>Une fois l’implémentation finis il faut à présent s’attarder à la distribution de notre bibliothèque.</p>
 </div>
@@ -379,12 +381,12 @@ Finalement il s’est avéré que retirer l’utilisation de la méthode <code>v
 <h3><span class="header-section-number">2.5.1</span> Un gestionnaire de paquets : composer</h3>
 <blockquote>
 <p>Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d’installer les bibliothèques dont le projet principal a besoin.</p>
-<p>— <span class="citation">(Wikipédia <a href="#ref-wikipedia_composer_2020">2020</a><a href="#ref-wikipedia_composer_2020">a</a>)</span></p>
+<p>— <span class="citation">(Wikipédia, <a href="#ref-wikipedia_composer_2020">2020</a><a href="#ref-wikipedia_composer_2020">a</a>)</span></p>
 </blockquote>
 </div>
 <div id="install-composer" class="section level3">
 <h3><span class="header-section-number">2.5.2</span> Installation de composer</h3>
-<p>Pour installer composer on a juste besoin d’avoir php installé sur sa machine, ensuite les étapes d’installation sont détaillées sur la page d’<a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos">introduction à composer</a>. Mais pour résumé l’une des méthodes d’installation pour avoir composer globalement sur linux :</p>
+<p>Pour installer composer nous avons juste besoin d’avoir php installé sur sa machine, ensuite les étapes d’installation sont détaillées sur la page d’<a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos">introduction à composer</a>. Mais pour résumer l’une des méthodes d’installation pour avoir composer globalement sur linux :</p>
 <ul>
 <li>Exécuter ces commandes pour télécharger la dernière archive de composer.</li>
 </ul>
@@ -393,10 +395,10 @@ Finalement il s’est avéré que retirer l’utilisation de la méthode <code>v
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="ex">php</span> composer-setup.php</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="ex">php</span> -r <span class="st">&quot;unlink(&#39;composer-setup.php&#39;);&quot;</span></a></code></pre></div>
 <ul>
-<li>Déplacer l’archive télécharger vers son dossier bin :</li>
+<li>Déplacer l’archive téléchargée vers son dossier bin :</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">mv</span> composer.phar /usr/local/bin/composer</a></code></pre></div>
-<p>Avec composer installé on peut créer intéractivement un fichier<code>composer.json</code> dans n’importe quel dossier ou projet avec la commande <code>composer init</code>.</p>
+<p>Avec composer installé nous pouvons créer intéractivement un fichier<code>composer.json</code> dans n’importe quel dossier ou projet avec la commande <code>composer init</code>.</p>
 </div>
 <div id="publication-de-bibliothèque-avec-composer-et-packagist" class="section level3">
 <h3><span class="header-section-number">2.5.3</span> Publication de bibliothèque avec composer et packagist</h3>
@@ -418,31 +420,65 @@ Pour faire court il est nécessaire d’avoir :</p>
 </div>
 <div id="maintenabilité" class="section level3">
 <h3><span class="header-section-number">2.5.4</span> Maintenabilité</h3>
-<p>Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n’importe qui de “demandé” votre bibliothèque via composer avec la commande <code>composer require vendor-name/package-name</code> à condition d’avoir également un fichier <code>composer.json</code> à la racine de son projet.</p>
+<p>Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n’importe qui de “demander” votre bibliothèque via composer avec la commande <code>composer require vendor-name/package-name</code> à condition d’avoir également un fichier <code>composer.json</code> à la racine de son projet.</p>
 <p>Ce qu’il nous reste à faire est de maintenir la bibliothèques, c’est à dire :</p>
 <ul>
 <li>aux nouvelles pratiques de notre langage et mises à jour de nos dépendances</li>
 <li>ajouter de nouvelles fonctionnalités si on le souhaite.</li>
 <li>re-publier sur packagist quand cela est fait (ou activer la mise à jour automatique sur son compte).</li>
 </ul>
-<p>Nous avons donc terminé le développement y compris la distribution de notre bibliothèque, on peut à présent apprendre à l’utiliser, ce qui n’est pas aussi trivial qu’on pourrait le croire.</p>
-
+<p>Nous avons donc terminé le développement y compris la distribution de notre bibliothèque, nous pouvons à présent apprendre à l’utiliser, ce qui n’est pas aussi trivial que nous pourrions le croire.</p>
 </div>
+</div>
+<div id="tableau-récapitulatif" class="section level2">
+<h2><span class="header-section-number">2.6</span> Tableau récapitulatif</h2>
+<table>
+<caption><span id="tab:recap-dep">TABLEAU 2.2: </span> Récapitulatif des dépendances</caption>
+<thead>
+<tr class="header">
+<th>Dépendances</th>
+<th>Commandes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PHP 7.4</td>
+<td><code>sudo apt install php7.4</code></td>
+</tr>
+<tr class="even">
+<td>FFI</td>
+<td><code>sudo apt install libffi-dev</code></td>
+</tr>
+<tr class="odd">
+<td>SFML</td>
+<td><code>sudo apt install libsfml-dev</code></td>
+</tr>
+<tr class="even">
+<td>CSFML</td>
+<td><code>sudo apt install libcsfml-dev</code></td>
+</tr>
+<tr class="odd">
+<td>Composer</td>
+<td>voir le lien <a href="https://getcomposer.org/download/" class="uri">https://getcomposer.org/download/</a></td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 <h3>Références et bibliographie</h3>
 <div id="refs" class="references">
 <div id="ref-the_php_group_ffi_2019">
-<p>The PHP Group. 2019. “PHP: Installation/Configuration - Manual. PHP: Installation/Configuration - Manual.” 2019. <a href="https://www.php.net/manual/fr/ffi.setup.php">https://www.php.net/manual/fr/ffi.setup.php</a>.</p>
+<p>The PHP Group. (2019). PHP: Installation/Configuration - Manual. PHP: Installation/Configuration - Manual. Repéré à <a href="https://www.php.net/manual/fr/ffi.setup.php">https://www.php.net/manual/fr/ffi.setup.php</a></p>
 </div>
 <div id="ref-wikipedia_abstraction_2019">
-<p>Wikipédia. 2019. “Abstraction (informatique).” <em>Wikipédia</em>. <a href="https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836">https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836</a>.</p>
+<p>Wikipédia. (2019). Abstraction (informatique). Dans <em>Wikipédia</em>. Repéré à <a href="https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836">https://fr.wikipedia.org/w/index.php?title=Abstraction_(informatique)&amp;oldid=164904836</a></p>
 </div>
 <div id="ref-wikipedia_composer_2020">
-<p>Wikipédia. 2020a. “Composer (logiciel).” <em>Wikipédia</em>. <a href="https://fr.wikipedia.org/w/index.php?title=Composer_(logiciel)&amp;oldid=169750090">https://fr.wikipedia.org/w/index.php?title=Composer_(logiciel)&amp;oldid=169750090</a>.</p>
+<p>Wikipédia. (2020a). Composer (logiciel). Dans <em>Wikipédia</em>. Repéré à <a href="https://fr.wikipedia.org/w/index.php?title=Composer_(logiciel)&amp;oldid=169750090">https://fr.wikipedia.org/w/index.php?title=Composer_(logiciel)&amp;oldid=169750090</a></p>
 </div>
 <div id="ref-wikipedia_segfault_2020">
-<p>Wikipédia. 2020b. “Erreur de segmentation.” <em>Wikipédia</em>. <a href="https://fr.wikipedia.org/w/index.php?title=Erreur_de_segmentation&amp;oldid=171768684">https://fr.wikipedia.org/w/index.php?title=Erreur_de_segmentation&amp;oldid=171768684</a>.</p>
+<p>Wikipédia. (2020b). Erreur de segmentation. Dans <em>Wikipédia</em>. Repéré à <a href="https://fr.wikipedia.org/w/index.php?title=Erreur_de_segmentation&amp;oldid=171768684">https://fr.wikipedia.org/w/index.php?title=Erreur_de_segmentation&amp;oldid=171768684</a></p>
 </div>
 </div>
 <script type="application/json" class="js-hypothesis-config">

@@ -22,7 +22,7 @@ En ce qui me concerne, mon stage était censé se dérouler à la direction du n
 - permet d'approfondir les connaissances déjà acquises et de découvrir de nouvelles
 - ouvre vers de nouvelles méthodes de travail.
 
-Et cz sont *mes* méthodes de travail en particulier que je détaillerai dans la suite. Mais avant il est bon de se pencher sur la raison d'être de ce sujet de mise en situation professionnelle qu'est la réalisation d'une bibliothèque.
+Et ce sont *mes* méthodes de travail en particulier que je détaillerai dans la suite. Mais avant il est bon de se pencher sur la raison d'être de ce sujet de mise en situation professionnelle qu'est la réalisation d'une bibliothèque.
 
 ## Pourquoi faire une bibliothèque en PHP
 
@@ -30,7 +30,7 @@ Le DUT Informatique est une formation généraliste, on y vois donc, de façon t
 
 ### L’arrière-plan
 
-L'IUT utilisait auparavant le Java comme langage principale pour apprendre la POO, et pour ce faire les enseignants ont choisis une pédagogie orienté graphique permettant aux étudiants une facilité de compréhension et d'adaptation au langage puis à l'orienté objet.
+L'IUT utilisait auparavant le Java comme langage principal pour apprendre la POO, et pour ce faire les enseignants ont choisis une pédagogie orienté graphique permettant aux étudiants une facilité de compréhension et d'adaptation au langage puis à l'orienté objet.
 
 L'objectif premier étant de réussir à manipuler de manière simple et intuitifs les objets d'une classe graphiquement, de telle sorte que ce soit facilement compréhensible par les nouveaux étudiants.
 
@@ -46,7 +46,7 @@ L'arrivée de l’extension FFI en PHP 7.4 a ouvert les possibilités du langage
 
 Madame Romaniuk, maître de conférences en Informatique et ma tutrice pour cette mise en situation professionnelle, m'a donc proposé de refaire la bibliothèque Java utilisé pour les TPs de POO en PHP avec l'aide de CSFML et FFI.
 
-CSFML est un pont écrit en C pour la bibliothèque SFML (Simple and Fast Media Libray). Cette dernière contient toutes les fonctionnalités que nous cherchons à implémenter et n'a pas une grande courbe d'apprentissage pour être maîtrisée quand on a un minimum de connaissance de C++. D'où la raison du choix de madame Romaniuk pour le développement de la nouvelle bibliothèque.
+CSFML est un pont écrit en C pour la bibliothèque SFML (Simple and Fast Media Libray). Cette dernière contient toutes les fonctionnalités que nous cherchons à implémenter et n'a pas une grande courbe d'apprentissage pour être maîtrisée quand on a un minimum de connaissance de C++. Voilà qui explique le choix de madame Romaniuk pour le développement de la nouvelle bibliothèque.
 
 ### La pertinence du projets
 

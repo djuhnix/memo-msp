@@ -33,7 +33,7 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{
-            pdftitle={Memoire de mise en situation professionnel --- Créer une bibliothèque PHP},
+            pdftitle={Memoire de mise en situation professionnel --- Création d'une bibliothèque PHP},
             pdfauthor={Germain Jr.~OLEA-OYOUGOU},
             colorlinks=true,
             linkcolor=Maroon,
@@ -182,10 +182,10 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Memoire de mise en situation professionnel --- Créer une bibliothèque PHP\thanks{IUT RCC\\
+\title{Memoire de mise en situation professionnel --- Création d'une bibliothèque PHP\thanks{IUT RCC\\
 Barbara ROMANIUK}}
 \author{Germain Jr.~OLEA-OYOUGOU}
-\date{11 juin 2020}
+\date{16 juin 2020}
 
 \begin{document}
 \maketitle
@@ -212,13 +212,35 @@ Barbara ROMANIUK}}
 \chapter*{Avant-propos}\label{avant-propos}}
 
 
+Ce document est un mémoire de mise en situation professionnelle, réalisé dans le cadre de l'obtention de mon DUT Informatique à l'IUT Reims-Châlons-Charleville. Il abordera les moyens de développement d'une bibliothèque graphique en PHP avec l'aide de l'extension FFI, objectif fixé par ma tutrice de projet madame Romaniuk Barbara, maître de conférence en Informatique et enseignante au département Informatique de l'IUT de Reims.
+
+En effet elle a remarqué la lacune de ressources dans le domaine et a voulu dans le même temps ré-implémenter une bibliothèque utilisée par le département informatique pour la réalisation des TPs de Programmation Orientée Objet en Java, inutilisable à cause du passage à PHP.
+
+Mon but est alors de créer en quatre semaines une bibliothèque graphique en PHP assez facile d'utilisation pour qu'un débutant en programmation puisse l'utiliser. Par bibliothèque graphique nous entendons un ensemble de fonctionnalités permettant principalement la création de fenêtres et l'affichage de diverse formes sur cette dernière.
+
+Il est sûr que je rencontrerai des difficultés au cours de ce projet assez ambitieux même pour un étudiant de deuxième année, la principale étant la gestion de l'échange de données entre FFI et la bibliothèque C choisie pour l'implémentation de ces fonctionnalités en PHP. C'est notamment l'une des raisons qui me poussera à voir à la baisse mes ambitions pour cette bibliothèque.
+
+Les sources de ce projet sont disponibles sur Github à l'adresse \url{https://github.com/djuhnix/phpml} j'en ferai souvent références dans ce mémoire.
+
+\mainmatter
+
+\hypertarget{remerciements}{%
+\chapter*{Remerciements}\label{remerciements}}
+
+
+En premier lieu je voudrais remercier Madame Romaniuk, en tant que professeure elle m'a enseigné et aidé à mieux comprendre la Programmation Orientée Objets dans la majorité de ses aspects et en tant que tutrice pour ce projet elle m'a orienté dans mon travail, je la remercie pour ses conseils qui m'ont aidé à avancer sur certaines problématiques.
+
+J'aimerais également remercier toute l'équipe pédagogique qui m'a apporté toutes les connaissances que j'ai pu acquérir jusqu'ici et sans oublier tous ceux et toutes celles qui participent à la vie du département informatique de l'IUT de Reims.
+
+Je souhaite particulièrement remercier mes amis et proches, pour leur amour, leurs conseils ainsi que leur soutien sans qui ces deux années passées en DUT ne seraient pas ce qu'elles sont pour moi aujourd'hui.
+
 \mainmatter
 
 \hypertarget{ruxe9sumuxe9}{%
 \chapter*{Résumé}\label{ruxe9sumuxe9}}
 
 
-L'objectif de ce mémoire est de montrer comment on peut créer une bibliothèque qui pourra faciliter la découverte de la Programmation Orientée Objets (POO) à des débutants via des travaux pratiques guidés. Il relate les faits de réalisations de mon projet de mise en situation professionnelle. Pour faire très simple, la POO est un moyen de programmer avec une représentation du monde courant avec des ``objets algorithmiques''. Comme dit plus haut cela est une définition très minime car la programmation orienté objets ne se résume pas à ça. Il n'est donc pas si facile de cerner ce qu'est la programmation orientée objet via une simple définition, c'est pour cela qu'il existe différentes méthodes d'apprentissage et l'IUT de Reims s'oriente vers une pédagogie graphique soutenue par ses enseignant-chercheurs. Cependant le passage à PHP pour l'apprentissage de la POO a changé la manière de réaliser les travaux pratiques pendant la formation. En effet il n'existe pas à ce jour de bibliothèque graphique en PHP pour assurer cette méthode d'enseignement. D'où nous vient la problématique de la création d'une bibliothèque PHP ayant la capacité de faire découvrir simplement la programmation orienté objet par la création d'objet graphique.
+L'objectif de ce mémoire est de montrer comment on peut créer une bibliothèque qui pourra faciliter la découverte de la Programmation Orientée Objet (POO) à des débutants via des travaux pratiques guidés. Il relate les faits de réalisations de mon projet de mise en situation professionnelle. Pour faire très simple, la POO est un moyen de programmer avec une représentation du monde courant avec des ``objets algorithmiques''. Comme dit plus haut cela est une définition très minime car la programmation orienté objets ne se résume pas à ça. Il n'est donc pas si facile de cerner ce qu'est la programmation orientée objet via une simple définition, c'est pour cela qu'il existe différentes méthodes d'apprentissage et l'IUT de Reims s'oriente vers une pédagogie graphique soutenue par ses enseignant-chercheurs. Cependant le passage à PHP pour l'apprentissage de la POO a changé la manière de réaliser les travaux pratiques pendant la formation. En effet il n'existe pas à ce jour de bibliothèque graphique en PHP pour assurer cette méthode d'enseignement. D'où nous vient la problématique de la création d'une bibliothèque PHP ayant la capacité de faire découvrir simplement la Programmation Orientée Objet par la création d'objets graphiques.
 
 Avant le passage en PHP une bibliothèque Java du département Informatique était utilisée pour permettre aux étudiants de créer une fenêtre et des formes sur cette fenêtre, mais cette pratique a été abandonnée lors de l'adoption du PHP comme langage orienté objet principal, jusqu'à l'arrivée de PHP 7.4. L'arrivée de l'extension FFI (Foreign Function Interface) en PHP 7.4 permet d'importer les fonctionnalités d'une bibliothèque externe au sein de PHP. C'est à dire qu'il est possible d'utiliser des librairies partagées écrite en C, en Go ou encore en Rust, etc. Cela ouvre un large panel de possibilités. L'espoir de pouvoir reprendre les anciennes habitudes d'enseignement renaît.
 
@@ -230,9 +252,9 @@ Bien que cette bibliothèque utilise CSFML elle n'en sera pas une complète copi
 \chapter*{Introduction}\label{intro}}
 
 
-Apprendre la programmation ne devrait pas être une épreuve, mais plutôt un plaisir. Il est vrai qu'il existe beaucoup de styles de programmation, de la programmation procédurale à la programmation logique en passant par la programmation orientée objet. Chacun peut avoir un avis sur le sujet mais peut importe le style choisie apprendre à programmer devrait être le plus simple possible pour ouvrir ce merveilleux monde au plus grand nombre.
+Apprendre la programmation ne devrait pas être une épreuve, mais plutôt un plaisir. Il est vrai qu'il existe beaucoup de styles de programmation, de la programmation procédurale à la programmation logique en passant par la Programmation Orientée Objet. Chacun peut avoir un avis sur le sujet mais peut importe le style choisie apprendre à programmer devrait être le plus simple possible pour ouvrir ce merveilleux monde au plus grand nombre.
 
-C'est dans cette optique que j'ai accepté de refaire pour mon projet de mise en situation professionnelle la bibliothèque graphique utilisée par l'IUT de Reims pour l'apprentissage de la programmation Orientée Objets (POO). Avec elle un débutant en programmation apprend en interagissant avec des entités visuelles ou tangibles via un programme préalablement écris par ce dernier. Le principe de la POO est de pouvoir manipuler dans son programme les concepts de la ``vraie vie'', étant donné que voir le résultat de ses travaux fait partie des meilleurs moyens d'apprentissage il est évident d'allier ces deux visions pour aboutir à un enseignement efficace. Ainsi avoir un ensemble de fonctions qui permettent de créer et manipuler des objets graphiques aplanirait grandement la tâche d'enseignement des professeurs en favorisant l'autonomie des étudiants.
+C'est dans cette optique que j'ai accepté de refaire pour mon projet de mise en situation professionnelle la bibliothèque graphique utilisée par l'IUT de Reims pour l'apprentissage de la Programmation Orientée Objet (POO). Avec elle un débutant en programmation apprend en interagissant avec des entités visuelles ou tangibles via un programme préalablement écris par ce dernier. Le principe de la POO est de pouvoir manipuler dans son programme les concepts de la ``vraie vie'', étant donné que voir le résultat de ses travaux fait partie des meilleurs moyens d'apprentissage il est évident d'allier ces deux visions pour aboutir à un enseignement efficace. Ainsi avoir un ensemble de fonctions qui permettent de créer et manipuler des objets graphiques aplanirait grandement la tâche d'enseignement des professeurs en favorisant l'autonomie des étudiants.
 
 Cependant le développement d'une bibliothèque en générale fait intervenir différentes questions à ne pas prendre à la légère. Il faut s'interroger sur comment la réaliser mais surtout s'il est possible de la réaliser. Par exemple il était inimaginable de développer une application hors environnement web en PHP jusqu'à la sortie de sa version 7.4. En effet l'arrivée de l'extension FFI a ouvert les possibilités du langage car elle emmène avec elle le moyen d'inclure des librairies C directement en PHP sans avoir besoin de préalablement créer des extensions PHP en C, ce qui allège la courbe de développement.
 
@@ -253,7 +275,7 @@ Avant d'entrer dans le vif du sujet il est évident de définir le contexte dans
 \hypertarget{le-stage-en-dut-informatique}{%
 \subsection{Le stage en DUT Informatique}\label{le-stage-en-dut-informatique}}
 
-En DUT Informatique on doit \textbf{obligatoirement} effectuer un stage de fin d'études en deuxième année. Le but premier de ce stage est d'appliquer les connaissances scolaire ``théorique'' apprise dans un contexte professionnel, c'est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l'on a appris mais aussi mais est aussi pour certains un accomplissement de vie d'étudiants. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires de ce diplôme ont la possibilité et la facilité d'entrer dans le monde professionnel car par
+En DUT Informatique on doit \textbf{obligatoirement} effectuer un stage de fin d'études en deuxième année. Le but premier de ce stage est d'appliquer les connaissances scolaire ``théoriques'' apprises dans un contexte professionnel, c'est à dire entouré de personnes qualifiées qui sauront corriger et nous montrer nos erreurs. Ce cadre est nécessaire non seulement pour faire valoir ce que l'on a appris mais est aussi pour certains le début de leur parcours dans le monde de l'emploi. En effet le DUT est une formation professionnalisante, ce qui signifie que les titulaires de ce diplôme ont la possibilité et la facilité d'entrer dans le monde professionnel car par
 
 \begin{quote}
 ``l'acquisition de compétences professionnelles multiples et une solide culture générale, le DUT vise la polyvalence.''
@@ -266,7 +288,7 @@ Bien que la plupart préfèrent poursuivre leurs études.
 \hypertarget{annulation-de-stage}{%
 \subsection{Annulation de stage}\label{annulation-de-stage}}
 
-En ce qui me concerne, mon stage était censé se dérouler à la direction du numérique de l'Université de Reims Champagne Ardenne (URCA). ``Censé'' car le contexte de ces derniers mois lié à la pandémie du Covid-19 n'a pas permis la tenue de celui-ci. Malheureusement plusieurs stage ont ainsi été annulé parce qu'il n'ont pas pu non plus se poursuivre en télétravail. Il a donc fallu que le personnel de l'université et les responsables de formations trouvent une solution pour palier à cette situation. D'où la \textbf{mise en situation professionnelle} dont le but ne s'éloigne pas de celui du stage, cependant la mise en situation professionnelle en DUT Informatique s'apparente plus à un projet à réaliser seul(e), en télétravail, sous le tutorat d'un enseignant. Elle :
+En ce qui me concerne, mon stage était censé se dérouler à la direction du numérique de l'Université de Reims Champagne Ardenne (URCA). ``Censé'' car le contexte de ces derniers mois lié à la pandémie du Covid-19 n'a pas permis la tenue de celui-ci. Malheureusement plusieurs stages ont ainsi été annulés parce qu'ils n'ont pas pu se poursuivre même en télétravail. Il a donc fallu que le personnel de l'université et les responsables de formations trouvent une solution pour palier à cette situation. D'où la \textbf{mise en situation professionnelle} dont le but ne s'éloigne pas de celui du stage, cependant la mise en situation professionnelle en DUT Informatique s'apparente plus à un projet à réaliser seul(e), en télétravail, sous le tutorat d'un enseignant. Elle :
 
 \begin{itemize}
 \tightlist
@@ -278,7 +300,7 @@ En ce qui me concerne, mon stage était censé se dérouler à la direction du n
   ouvre vers de nouvelles méthodes de travail.
 \end{itemize}
 
-Et c'est \emph{mes} méthodes de travail que je détaillerai dans la suite. Mais avant il est bon de se pencher sur le pourquoi et le comment j'ai eu comme sujet de mise en situation professionnelle réalisation d'une bibliothèque.
+Et ce sont \emph{mes} méthodes de travail en particulier que je détaillerai dans la suite. Mais avant il est bon de se pencher sur la raison d'être de ce sujet de mise en situation professionnelle qu'est la réalisation d'une bibliothèque.
 
 \hypertarget{pourquoi-faire-une-bibliothuxe8que-en-php}{%
 \section{Pourquoi faire une bibliothèque en PHP}\label{pourquoi-faire-une-bibliothuxe8que-en-php}}
@@ -288,25 +310,25 @@ Le DUT Informatique est une formation généraliste, on y vois donc, de façon t
 \hypertarget{larriuxe8re-plan}{%
 \subsection{L'arrière-plan}\label{larriuxe8re-plan}}
 
-L'IUT utilisais auparavant le Java comme langage principale pour apprendre la POO, et pour ce faire les enseignants ont choisis une pédagogie orienté graphique permettant aux étudiants une facilité de compréhension et d'adaptation au langage puis à l'orienté objet.
+L'IUT utilisait auparavant le Java comme langage principal pour apprendre la POO, et pour ce faire les enseignants ont choisis une pédagogie orienté graphique permettant aux étudiants une facilité de compréhension et d'adaptation au langage puis à l'orienté objet.
 
 L'objectif premier étant de réussir à manipuler de manière simple et intuitifs les objets d'une classe graphiquement, de telle sorte que ce soit facilement compréhensible par les nouveaux étudiants.
 
-Java était plus adapté et plus simple à mettre en place, une bibliothèque interne à été développé pour la cause. Cependant le Java a montrer certaines contraintes, la principale étant la lourdeur syntaxique, le java a donc été abandonné pour un premier contact avec la POO pour laisser place à du PHP typé. Cependant le côté graphique a été délaissé avec le Java étant donné qu'il était impossible de créer des éléments graphique car inexistence de bibliothèque et de fonctionnalité. Il est certes possible de le faire sous certaines contraintes dans un environnement web, mais cela éloignerait l'étudiant de la console, étant qu'il apprend et doit s'en servir en TP.
+Java était plus adapté et plus simple à mettre en place, une bibliothèque interne à été développé pour la cause. Cependant le Java a montré certaines contraintes, la principale étant la lourdeur syntaxique, le java a donc été abandonné pour un premier contact avec la POO pour laisser place à du PHP typé. Cependant le côté graphique a été délaissé avec le Java vu qu'il n'existait pas de bibliothèques et ni de fonctionnalités similaire en PHP. Il est certes possible de le faire sous certaines contraintes dans un environnement web, mais cela éloignerait l'étudiant de la console, étant donné qu'il apprend et doit s'en servir en TP.
 
 \hypertarget{le-probluxe8me-avec-php}{%
 \subsection{Le problème avec PHP}\label{le-probluxe8me-avec-php}}
 
-Le passage à PHP pour l'apprentissage de la POO à changer la manière de réaliser les travaux pratiques à l'IUT de Reims. L'utilisation de scritps créer par l'étudiant pour créer des figures et en faire objets graphiques affichable sur une fenêtre système pour comprendre les notions de classes, d'objets et d'instances était très efficace. Malheureusement PHP est un langage orienté web qui ne permet pas la création de fenêtre graphique sur le système d'exploitation et par conséquent pas de manipulation d'objets graphique sur cette dernière.
+Le passage à PHP pour l'apprentissage de la POO a changé la manière de réaliser les travaux pratiques à l'IUT de Reims. L'utilisation de scritps écrits par l'étudiant pour créer des figures et en faire des objets graphiques affichables sur une fenêtre système pour comprendre les notions de classes, d'objets et d'instances était très efficace. Mais PHP est un langage orienté web qui ne permet pas la création de fenêtres graphiques sur le système d'exploitation et par conséquent laisse impossible la manipulation d'éléments sur cette dernière.
 
-L'arriver de l'extension FFI en PHP 7.4 a ouvert les possibilités du langage, il est désormais envisageable d'utiliser une bibliothèque C pour étendre les limites de ce dernier et apporter les fonctionnalités de la dite bibliothèques en PHP.
+L'arrivée de l'extension FFI en PHP 7.4 a ouvert les possibilités du langage, il est désormais envisageable d'utiliser une bibliothèque C pour étendre les limites de ce dernier et apporter les fonctionnalités de la dite bibliothèque en PHP.
 
-\hypertarget{lintervention-de-germain}{%
-\subsection{L'intervention de Germain}\label{lintervention-de-germain}}
+\hypertarget{duxe9finition-de-lobjectif}{%
+\subsection{Définition de l'objectif}\label{duxe9finition-de-lobjectif}}
 
-Madame Romaniuk, maître de conférences en Informatique et ma tutrice pour cette mise en situation professionnel, m'a donc proposé de refaire la bibliothèque Java utilisé pour les TPs de POO en PHP avec l'aide de CSFML et FFI.
+Madame Romaniuk, maître de conférences en Informatique et ma tutrice pour cette mise en situation professionnelle, m'a donc proposé de refaire la bibliothèque Java utilisé pour les TPs de POO en PHP avec l'aide de CSFML et FFI.
 
-CSFML est un pont écrit en C pour la bibliothèque SFML (Simple and Fast Media Libray). Cette dernière a le mérite d'être complète sur les fonctionnalités recherchées et n'a pas une grande courbe d'apprentissage pour être maîtrise quand on a un minimum de connaissance de C++. D'où le choix de madame Romaniuk pour l'implémentation de la nouvelle bibliothèque.
+CSFML est un pont écrit en C pour la bibliothèque SFML (Simple and Fast Media Libray). Cette dernière contient toutes les fonctionnalités que nous cherchons à implémenter et n'a pas une grande courbe d'apprentissage pour être maîtrisée quand on a un minimum de connaissance de C++. Voilà qui explique le choix de madame Romaniuk pour le développement de la nouvelle bibliothèque.
 
 \hypertarget{la-pertinence-du-projets}{%
 \subsection{La pertinence du projets}\label{la-pertinence-du-projets}}
@@ -315,12 +337,12 @@ Avec tout ce qui a été dit jusqu'à présent, il est vrai que la question sur 
 
 \begin{itemize}
 \item
-  Bien que les TPs de POO ne serait pas fortement affecté si cette bibliothèque ne naissait pas mais il est certains que son existence allégera fortement la tâche pédagogique des professeurs.
+  Bien que les TPs n'en seront pas fortement affecté, il est certains que son existence allégera fortement la tâche pédagogique des professeurs.
 \item
-  L'ouverture de possibilité pour les projets de fin d'année, car cette bibliothèque pourra être réutiliser et favoriser la créativité des étudiants.
+  L'ouverture de possibilités pour les projets de fin d'année, car cette bibliothèque pourra être réutiliser et favoriser la créativité des étudiants.
 \end{itemize}
 
-Maintenant que nous savons pourquoi et quelle bibliothèque faut-il créer, il est temps d'entrer dans le vif du sujet et de parler du déroulement du développement de celle-ci en commençant par l'organisation de mon temps pendant la mise en situation professionnelle.
+Maintenant que nous savons quelles missions m'ont été confiées et leurs objectifs, on peut parler du déroulement de celles-ci en commençant par l'organisation de mon temps pendant la mise en situation professionnelle.
 
 \hypertarget{dev}{%
 \chapter{Développement de la bibliothèque}\label{dev}}
@@ -330,12 +352,12 @@ Impossible de parler du développement de la bibliothèque sans aborder le progr
 \hypertarget{programme-de-la-mise-en-situation-professionnelle.}{%
 \section{Programme de la mise en situation professionnelle.}\label{programme-de-la-mise-en-situation-professionnelle.}}
 
-La mise en situation professionnelle, se déroule dans un cadre du confinement donc il m'était dans l'obligation de faire du télétravail.
+La mise en situation professionnelle s'est déroulé dans le cadre du confinement, il m'était donc obligatoire de le faire en télétravail.
 
 \hypertarget{organisation}{%
 \subsection{Organisation}\label{organisation}}
 
-Dès le début je me suis fait un programme pour répartir convenablement les 4 semaines qui m'étaient donné pour la réalisation de la bibliothèque.
+Dès le début je me suis fait un programme pour répartir convenablement les 4 semaines qui m'étaient données pour la réalisation de la bibliothèque.
 
 \begin{itemize}
 \tightlist
@@ -387,12 +409,12 @@ Objectivement j'ai pu respecté ce planning à 70\%. Il est évident que travail
 \hypertarget{pre-requis}{%
 \section{Pré-requis avant le développement de la bibliothèque}\label{pre-requis}}
 
-Avant de réellement commencer le développement de la bibliothèque il m'as fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j'en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j'ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.
+Avant de réellement commencer le développement de la bibliothèque il m'a fallu une période de documentation et de découverte qui a durée une semaine. Evidemment j'en avait besoin car avant cette mise en situation professionnel je ne connaissais rien de FFI ou de CSFML. Je vais résumé ce que j'ai pu apprendre en donnant les pré-requis au développement et fonctionnement de la bibliothèque.
 
 \hypertarget{php-ffi}{%
 \subsection{PHP FFI}\label{php-ffi}}
 
-L'extension FFI de PHP disponible à partir de la version 7.4 est obligatoirement pour développer et faire fonctionner la bibliothèque. Elle est intégré mais ``inactive'' par défaut \citep{the_php_group_ffi_2019} sauf si l'on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s'assurer d'avoir la librairie FFI \texttt{libffi} installé sur sa machine. \href{https://sourceware.org/libffi/}{Sourceware libffi}.
+L'extension FFI de PHP, disponible dès la version 7.4, est obligatoire pour développer et faire fonctionner la bibliothèque. Elle est intégrée mais ``inactive'' par défaut \citep{the_php_group_ffi_2019} sauf si l'on utilise PHP en ligne de commande ou la fonctionnalité de pré-chargement de PHP en environnement web. Pour activer FFI il faut s'assurer d'avoir la librairie FFI \texttt{libffi} installée sur sa machine. \href{https://sourceware.org/libffi/}{Sourceware libffi}.
 
 \hypertarget{installation-de-libffi}{%
 \subsubsection{\texorpdfstring{Installation de \texttt{libffi}}{Installation de libffi}}\label{installation-de-libffi}}
@@ -400,7 +422,7 @@ L'extension FFI de PHP disponible à partir de la version 7.4 est obligatoiremen
 \begin{itemize}
 \tightlist
 \item
-  Sur linux (Debian pour moi) la librairie est accessible via le paquet \texttt{libffi-dev}. Donc l'exécution de la commande suivante devrait installé le nécessaire pour activer l'extension FFI de PHP.
+  Sur linux (Debian pour moi) la librairie est accessible via le paquet \texttt{libffi-dev}. Donc l'exécution de la commande suivante devrait installer les paquets nécessaires au bon fonctionnement de l'extension FFI de PHP.
 \end{itemize}
 
 \begin{Shaded}
@@ -412,7 +434,7 @@ L'extension FFI de PHP disponible à partir de la version 7.4 est obligatoiremen
 \begin{itemize}
 \tightlist
 \item
-  Sur Windows je n'ai pas explorer le processus d'installation mais il est disponible à l'adresse suivante : \href{https://proj.goldencode.com/projects/p2j/wiki/Building_and_Installing_libffi_on_Windows}{Goldencode.com : Building and Installing libffi on Windows}
+  Sur Windows je n'ai pas exploré le processus d'installation mais il est disponible à l'adresse suivante : \href{https://proj.goldencode.com/projects/p2j/wiki/Building_and_Installing_libffi_on_Windows}{Goldencode.com : Building and Installing libffi on Windows}
 \end{itemize}
 
 \hypertarget{configurationactivation-de-ffi}{%
@@ -443,12 +465,12 @@ CSFML est juste un pont vers la bibliothèque graphique SFML il faut donc instal
   Sur Windows on peut les télécharger sur le site officiel de la bibliothèque \href{https://www.sfml-dev.org/download.php}{sfml.org}
 \end{itemize}
 
-Après avoir eu ces dépendances sur ma machine, j'ai pu découvrir comment fonctionnait CSFML et SFML d'abord puis j'ai été capable de réaliser un programme en C qui affiche une fenêtre. Par la suite j'ai également réussi à écrire un script qui ouvre une fenêtre en PHP (accessible sur le dépôt git) utilisant CSFML et FFI fraîchement installé. Maintenant que j'étais au point sur les dépendances de ma future bibliothèques j'ai pu commencé la phase de conception.
+Après avoir eu ces dépendances sur ma machine, j'ai pu découvrir comment fonctionnait CSFML et SFML d'abord puis j'ai été capable de réaliser un programme en C qui affiche une fenêtre. Par la suite j'ai également réussi à écrire un script qui ouvre une fenêtre en PHP (accessible sur le dépôt git) utilisant CSFML et FFI fraîchement installé. Maintenant que j'étais au point sur les dépendances de ma future bibliothèque j'ai pu commencé la phase de conception.
 
 \hypertarget{conception}{%
 \section{Conception}\label{conception}}
 
-En ce qui concerne la conception, je n'ai pas l'intention de détailler tout mon processus de réflexion mais juste d'éclaircir sur certains point clé de l'architecture de la bibliothèque. La première chose dont je me suis donnée l'objectif de réaliser lors de ma phase de conception était de trouver une abstraction à la manipulation d'objets FFI.
+En ce qui concerne la conception, je n'ai pas l'intention de détailler tout mon processus de réflexion mais juste d'éclaircir sur certains points clés de l'architecture de la bibliothèque. Avant tout il me fallait trouver un moyen de m'abstraire du processus de chargement d'une bibliothèque avec FFI. La première tâche que je me suis donnée lors de ma phase de conception fut alors de réaliser une abstraction à la manipulation d'objets FFI.
 
 \hypertarget{ma-premiuxe8re-classe-abstractffi}{%
 \subsection{Ma première classe AbstractFFI}\label{ma-premiuxe8re-classe-abstractffi}}
@@ -459,7 +481,7 @@ En informatique, le concept d'abstraction identifie et regroupe des caractérist
 \VA{--- \citep{wikipedia_abstraction_2019}}{}
 \end{quote}
 
-L'objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser. Je suis passé par différentes idée de conception, et j'ai fini par aboutir à cellui-ci.
+L'objectif est de ne pas utiliser directement FFI mais plutôt de passer par une classe intermédiaire. Cette abstraction devrait dans sa version la plus simple être capable de me retourner un objet FFI contenant la bibliothèque que je compte utiliser. Je suis passé par différentes idée de conception, et j'ai fini par aboutir à celle-ci.
 
 \begin{figure}
 
@@ -475,48 +497,48 @@ On y voit plusieurs classes abstraites, la principale étant \texttt{AbstractFFI
 \begin{itemize}
 \tightlist
 \item
-  \textbf{AbstractFFI} : la principale classe qui se charge de s'abstraire du chargement de la bibliothèque et de faire les vérifications nécessaires. Elle a comme attribut un tableau d'objets FFI pour permettre l'utilisation de plusieurs bibliothèque tout au long du programme.
+  \textbf{AbstractFFI} : la principale classe qui se charge de s'abstraire du chargement de la bibliothèque et de faire les vérifications nécessaires. Elle a comme attribut un tableau d'objets FFI pour permettre l'utilisation de plusieurs bibliothèques tout au long du programme.
 \item
-  \textbf{LibLoader} : héritant de AbstractFFI elle a les mêmes fonctionnalités, mais en plus elle donne la base pour mettre en place un Singleton de génération de bibliothèque --- une classe limité à une instance dont le seul objectif est de retourner une bibliothèque précise.
+  \textbf{LibLoader} : héritant de AbstractFFI elle a les mêmes fonctionnalités, mais donne en plus la base pour mettre en place un \emph{singleton} de génération de bibliothèque --- une classe limité à une instance dont le seul objectif est de retourner une bibliothèque précise.
 \end{itemize}
 
-Pour ce qui est de \textbf{MyCData}, il s'agit d'un \texttt{trait} --- particularité de PHP, c'est simplement une classe abstraite qui s'utilise comme une interface pour faire simple. Son objectifs est d'avoir un ensemble de fonctions et d'attribut prêtes à être réutiliser pour définir une donnée C qui serait importer de la bibliothèque chargé avec FFI.
+Pour ce qui est de \textbf{MyCData}, il s'agit d'un \texttt{trait}, particularité de PHP, qui est pour faire simple une classe abstraite qui s'utilise comme une interface. Son objectif est d'avoir un ensemble de fonctions et d'attributs prêts à être réutilisé pour définir une donnée C qui serait importée de la bibliothèque chargée avec FFI.
 
 \hypertarget{architecture-globale}{%
 \subsection{Architecture globale}\label{architecture-globale}}
 
-Le reste de la bibliothèque est un ensemble de classe inspiré de SFML qui s'emboîtent autour de l'abstraction FFI. Effectivement, SFML et pas CSFML, car CSFML est écrit en C, or le C n'est pas un langage orienté objet et CSFML est juste un pont vers SFML qui est écrit en C++ qui lui est bien orienté objet. Toujours est-il que j'ai du simplifier un maximum l'architecture pour ne pas alourdir la bibliothèque en elle même et son utilisation finale.
+Le reste de la bibliothèque est un ensemble de classes inspirées de SFML qui s'emboîtent autour de l'abstraction FFI. Effectivement, \textbf{SFML} et pas \textbf{C}SFML comme dit précédemment, car CSFML est juste un pont écrit en C vers SFML, or le C n'est pas un langage orienté objet. Par conséquent SFML qui est écrit en C++ qui lui est bien un langage orienté objet est idéal pour de servir de bases pour l'implémentation de mes classes. Toujours est-il que j'ai du simplifier un maximum l'architecture pour ne pas alourdir la bibliothèque en elle même et son utilisation finale.
 
 \hypertarget{exemple-de-la-classe-window}{%
 \subsection{Exemple de la classe Window}\label{exemple-de-la-classe-window}}
 
 La classe Window est le deuxième pilier de l'architecture de la bibliothèque, comme la plupart des classes elle utilise MyCData pour bénéficier des méthodes et des attributs lier à l'échange de données entre PHP et la bibliothèque C via FFI. C'est le cas de la méthode \texttt{toCData()} qui convertit les attributs actuel de la classe en donnée C.
 
-\hypertarget{diagramme-de-classe}{%
-\subsection{Diagramme de classe}\label{diagramme-de-classe}}
+\hypertarget{diagramme-de-classes}{%
+\subsection{Diagramme de classes}\label{diagramme-de-classes}}
 
 Le résultat de la phase de conception est le diagramme de classe suivant qui a constamment évolué même lors de l'implémentation des fonctionnalités de la bibliothèque.
 
-\label{fig:class-diagramm}Diagramme de classe accessible à l'adresse \url{https://cutt.ly/phpml-class-diagram}
+\label{fig:class-diagramm}\emph{Diagramme de classes intéractif accessible à l'adresse} \url{https://cutt.ly/phpml-class-diagram}
 
 Le temps passé sur la réflexion de l'architecture de la bibliothèque n'a pas été en vain car il va nous permettre d'en gagner sur la partie principale qui est l'implémentation des fonctionnalités trouvées lors de la phase de conception.
 
 \hypertarget{impluxe9mentation-de-la-bibliothuxe8que}{%
 \section{Implémentation de la bibliothèque}\label{impluxe9mentation-de-la-bibliothuxe8que}}
 
-L'implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans grands accrocs lorsque la phase de conception s'est bien déroulé car il n'y a pas besoin de réfléchir sur la structure de l'application ou de la bibliothèque car elle a déjà été définie. N'empêche que c'est au moment de l'implémentation qu'il faut penser à l'ordre de programmation des composants (bien que cela peut être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d'en citer quelques unes.
+L'implémentation des fonctionnalités se déroule lors de la phase de programmation, elle se déroule sans problèmes particuliers lorsque la phase de conception s'est bien déroulé car il n'y a pas besoin de réfléchir sur la structure de l'application ou de la bibliothèque car elle a déjà été définie. Néanmoins c'est au moment de l'implémentation qu'il faut penser à l'ordre de programmation des composants (bien que cela puisse être également fait lors de la conception) et que certaines faiblesses de conception apparaissent et je vais essayer d'en citer quelques unes.
 
 \hypertarget{lordre-dimpluxe9mentation}{%
 \subsection{L'ordre d'implémentation}\label{lordre-dimpluxe9mentation}}
 
-Si la bibliothèque que l'on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau ce dépendance le plus bas possible. C'est là que se pose la question de l'ordre l'implémentation. En ce qui me concerne j'ai préféré commencé par la classe principale et redescendre l'arbre de dépendance, ce qui n'est pas forcément la meilleure des solutions mais elle a eu le mérite d'être efficace et de me révéler certaines erreurs de conceptions que j'avais commise.
+Si la bibliothèque que l'on souhaite créer a des dépendances il est également probable que les éléments internes soient également interdépendants, cependant il est important de garder le niveau de dépendance le plus bas possible. C'est là que se pose la question de l'ordre l'implémentation. En ce qui me concerne j'ai préféré commencer par la classe principale et redescendre l'arbre de dépendance, ce qui n'est pas forcément la meilleure des solutions mais elle a eu le mérite d'être efficace et de me révéler certaines erreurs de conceptions que j'avais commises.
 
 \hypertarget{erreurs-de-conception}{%
 \subsection{Erreurs de conception}\label{erreurs-de-conception}}
 
 La plus grande erreur que j'ai pu faire a été au niveau de l'abstraction, car j'utilisais un \texttt{trait} qui n'était pas vraiment adapté à ce que je concevais à la base, erreur qui m'a été notifié par ma tutrice de projet après consultation. En corrigeant cela j'ai pu aboutir à la version que vous pouvez voir au \ref{fig:class-diagram-abstract-ffi}.
 
-En plus de diverses erreurs de conception corrigées sur le vif, j'ai été régulièrement confrontés à des erreurs de programmation plus technique lié soit à FFI soit à CSFML. Celle qui m'a pris le plus de ressources cérébrales et de temps à corriger était une erreur de segmentation.
+En plus de diverses erreurs de conception corrigées sur le vif, j'ai été régulièrement confrontés à des erreurs de programmation plus techniques lié soit à FFI soit à CSFML. Celle qui m'a pris le plus de reflexions et de temps à corriger était une erreur de segmentation.
 
 \begin{quote}
 Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault) est un plantage d'une application qui a tenté d'accéder à un emplacement mémoire qui ne lui était pas alloué.
@@ -524,7 +546,7 @@ Une erreur de segmentation (en anglais segmentation fault, en abrégé segfault)
 \VA{--- \citep{wikipedia_segfault_2020}}{}
 \end{quote}
 
-Il faut également noté que je n'ai jamais été confronté à cette erreur \emph{en PHP} et il est très contraignant de retrouver la trace d'une erreur de segmentation quand on est développeur junior. Finalement il s'est avéré que retirer l'utilisation de la méthode \texttt{var\_dump()} de mon script résolvait mon erreur.
+Il faut également noter que je n'ai jamais été confronté à cette erreur \emph{en PHP} et il est très contraignant de retrouver la trace d'une erreur de segmentation quand on est développeur junior. Finalement il s'est avéré que retirer l'utilisation de la méthode \texttt{var\_dump()} de mon script résolvait mon erreur.
 
 Une fois l'implémentation finis il faut à présent s'attarder à la distribution de notre bibliothèque.
 
@@ -545,7 +567,7 @@ Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il pe
 \hypertarget{install-composer}{%
 \subsection{Installation de composer}\label{install-composer}}
 
-Pour installer composer on a juste besoin d'avoir php installé sur sa machine, ensuite les étapes d'installation sont détaillées sur la page d'\href{https://getcomposer.org/doc/00-intro.md\#installation-linux-unix-macos}{introduction à composer}. Mais pour résumé l'une des méthodes d'installation pour avoir composer globalement sur linux :
+Pour installer composer nous avons juste besoin d'avoir php installé sur sa machine, ensuite les étapes d'installation sont détaillées sur la page d'\href{https://getcomposer.org/doc/00-intro.md\#installation-linux-unix-macos}{introduction à composer}. Mais pour résumer l'une des méthodes d'installation pour avoir composer globalement sur linux :
 
 \begin{itemize}
 \tightlist
@@ -565,7 +587,7 @@ Pour installer composer on a juste besoin d'avoir php installé sur sa machine, 
 \begin{itemize}
 \tightlist
 \item
-  Déplacer l'archive télécharger vers son dossier bin :
+  Déplacer l'archive téléchargée vers son dossier bin :
 \end{itemize}
 
 \begin{Shaded}
@@ -574,7 +596,7 @@ Pour installer composer on a juste besoin d'avoir php installé sur sa machine, 
 \end{Highlighting}
 \end{Shaded}
 
-Avec composer installé on peut créer intéractivement un fichier\texttt{composer.json} dans n'importe quel dossier ou projet avec la commande \texttt{composer\ init}.
+Avec composer installé nous pouvons créer intéractivement un fichier\texttt{composer.json} dans n'importe quel dossier ou projet avec la commande \texttt{composer\ init}.
 
 \hypertarget{publication-de-bibliothuxe8que-avec-composer-et-packagist}{%
 \subsection{Publication de bibliothèque avec composer et packagist}\label{publication-de-bibliothuxe8que-avec-composer-et-packagist}}
@@ -607,7 +629,7 @@ Avec composer il est facile de gérer les dépendances de son projet et de publi
 \hypertarget{maintenabilituxe9}{%
 \subsection{Maintenabilité}\label{maintenabilituxe9}}
 
-Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n'importe qui de ``demandé'' votre bibliothèque via composer avec la commande \texttt{composer\ require\ vendor-name/package-name} à condition d'avoir également un fichier \texttt{composer.json} à la racine de son projet.
+Une fois son packet ou sa bibliothèque publié sur packagist il est désormais possible à n'importe qui de ``demander'' votre bibliothèque via composer avec la commande \texttt{composer\ require\ vendor-name/package-name} à condition d'avoir également un fichier \texttt{composer.json} à la racine de son projet.
 
 Ce qu'il nous reste à faire est de maintenir la bibliothèques, c'est à dire :
 
@@ -621,7 +643,28 @@ Ce qu'il nous reste à faire est de maintenir la bibliothèques, c'est à dire :
   re-publier sur packagist quand cela est fait (ou activer la mise à jour automatique sur son compte).
 \end{itemize}
 
-Nous avons donc terminé le développement y compris la distribution de notre bibliothèque, on peut à présent apprendre à l'utiliser, ce qui n'est pas aussi trivial qu'on pourrait le croire.
+Nous avons donc terminé le développement y compris la distribution de notre bibliothèque, nous pouvons à présent apprendre à l'utiliser, ce qui n'est pas aussi trivial que nous pourrions le croire.
+
+\hypertarget{tableau-ruxe9capitulatif}{%
+\section{Tableau récapitulatif}\label{tableau-ruxe9capitulatif}}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:recap-dep} Récapitulatif des dépendances}\tabularnewline
+\toprule
+Dépendances & Commandes\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Dépendances & Commandes\tabularnewline
+\midrule
+\endhead
+PHP 7.4 & \texttt{sudo\ apt\ install\ php7.4}\tabularnewline
+FFI & \texttt{sudo\ apt\ install\ libffi-dev}\tabularnewline
+SFML & \texttt{sudo\ apt\ install\ libsfml-dev}\tabularnewline
+CSFML & \texttt{sudo\ apt\ install\ libcsfml-dev}\tabularnewline
+Composer & voir le lien \url{https://getcomposer.org/download/}\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{utils}{%
 \chapter{Utilisation de la bibliothèque}\label{utils}}
@@ -629,12 +672,12 @@ Nous avons donc terminé le développement y compris la distribution de notre bi
 \hypertarget{utils-pre-requis}{%
 \section{Pré-requis à l'utilisation}\label{utils-pre-requis}}
 
-Nous avons vu dans le \ref{pre-requis} que la bibliothèque développée comportait certaines dépendances, PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.
+Nous avons vu dans le \ref{pre-requis} que la bibliothèque développée comportait certaines dépendances résumé dans le \ref{tab:recap-dep}, PHP FFI et CSFML. Après les avoir installées il reste un minimum de configuration pour pouvoir parfaitement exécuter votre premier script.
 
 \hypertarget{pruxe9chargement-ffi-et-header-csfml}{%
 \subsection{Préchargement FFI et header CSFML}\label{pruxe9chargement-ffi-et-header-csfml}}
 
-La bibliothèque utilise la fonctionnalité de préchargement de PHP pour précharger les header CSFML nécessaire pour charger et utiliser cette dernière en PHP. Il s'agit donc de modifier certaines variables de configuration de \texttt{php.ini} pour convenir à nos besoins. \emph{Les instructions donné seront pour linux, il est possible que la procédure change sur windows}
+La bibliothèque utilise la fonctionnalité de préchargement de PHP pour précharger les header CSFML nécessaire pour charger et utiliser cette dernière en PHP. Il s'agit donc de modifier certaines variables de configuration de \texttt{php.ini} pour convenir à nos besoins. \emph{Les instructions données seront pour linux, il est possible que la procédure change sur windows}
 
 \hypertarget{activation-de-ffi}{%
 \subsubsection{Activation de FFI :}\label{activation-de-ffi}}
@@ -659,9 +702,9 @@ Les fichiers header (extension en \texttt{.h}) à précharger sont dans le dossi
 \begin{itemize}
 \tightlist
 \item
-  l'espace de définition utilisé pour chargé la bibliothèque C en PHP, \textbf{à ne pas modifier}
+  l'espace de définition utilisé pour charger la bibliothèque C en PHP, \textbf{à ne pas modifier}
 \item
-  le chemin \emph{absolu} vers le fichier binaire de la bibliothèque à chargé, CSFML pour notre cas.
+  le chemin \emph{absolu} vers le fichier binaire de la bibliothèque à charger, CSFML pour notre cas.
 
   \begin{itemize}
   \tightlist
@@ -713,18 +756,53 @@ A présent vous êtes prêt à utiliser la bibliothèque PHPML dans votre projet
 \hypertarget{utilisation}{%
 \subsection{Utilisation}\label{utilisation}}
 
-Vous pouvez trouver des exemples d'utilisation de la bibliothèque dans dans le dossier \texttt{tests/functionnal} du dépôt git. Voici par exemple les sources du test sur l'ouverture d'une fenêtre qui est le minimum à exécuter si vous voulez vérifier la bonne installation de la bibliothèque.
+Vous pouvez trouver des exemples d'utilisation de la bibliothèque dans le dossier \texttt{tests/functionnal} du dépôt git. Mais voici comment réaliser certaines tâches avec PHPML.
+
+\hypertarget{comment-ouvrir-une-fenuxeatre}{%
+\subsubsection{Comment ouvrir une fenêtre}\label{comment-ouvrir-une-fenuxeatre}}
+
+Il deux façons d'ouvrir une fenêtre, la première consiste à utiliser la classe de base \texttt{Window} et gérer par sois même les boucles qui permettent de garder la fenêtre ouverte et de gérer les événements, notamment la fermeture de la fenêtre pour éviter de démarrer une boucle infini.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{require_once} \KeywordTok{__DIR__}\NormalTok{ . }\StringTok{'/../../vendor/autoload.php'}\OtherTok{;}
-
-\KeywordTok{use} \KeywordTok{PHPML}\NormalTok{\textbackslash{}Graphics\textbackslash{}Event}\OtherTok{;}
-\KeywordTok{use} \KeywordTok{PHPML}\NormalTok{\textbackslash{}Graphics\textbackslash{}VideoMode}\OtherTok{;}
-\KeywordTok{use} \KeywordTok{PHPML}\NormalTok{\textbackslash{}Graphics\textbackslash{}Window}\OtherTok{;}
-
-
 \KeywordTok{$window}\NormalTok{ = }\KeywordTok{new}\NormalTok{ Window}\OtherTok{(}
+    \KeywordTok{new}\NormalTok{ VideoMode}\OtherTok{(}\DecValTok{400}\OtherTok{,} \DecValTok{400}\OtherTok{),}
+    \StringTok{'Test Window Opening'}
+\OtherTok{);}
+\KeywordTok{$event}\NormalTok{ = }\KeywordTok{new}\NormalTok{ Event}\OtherTok{();}
+
+\CommentTok{//Début de la boucle (tant que la fenêtre est ouverte)}
+\KeywordTok{while} \OtherTok{(}\KeywordTok{$window}\NormalTok{->isOpen}\OtherTok{())}\NormalTok{ \{}
+    
+    \CommentTok{// Gestion des événements}
+    \KeywordTok{while} \OtherTok{(}\KeywordTok{$window}\NormalTok{->pollEvent}\OtherTok{(}\KeywordTok{$event}\NormalTok{->toCData}\OtherTok{()))}\NormalTok{ \{}
+        \CommentTok{// Ferme la fenêtre si l'événement 'closed' est enregistré}
+        \KeywordTok{if} \OtherTok{(}\KeywordTok{$event}\NormalTok{->}\FunctionTok{getType}\OtherTok{()}\NormalTok{->getValue}\OtherTok{()}\NormalTok{ == EventType::}\KeywordTok{CLOSED}\OtherTok{)}\NormalTok{ \{}
+            \KeywordTok{$window}\NormalTok{->close}\OtherTok{();}
+\NormalTok{        \}}
+\NormalTok{    \}}
+    
+    \CommentTok{// DESSINER ICI}
+    
+    
+    \CommentTok{// Nettoyage de l'écran de la fenêtre et affichage}
+    \KeywordTok{$window}\NormalTok{->clear}\OtherTok{(}\KeywordTok{$window}\NormalTok{->getBackgroundColor}\OtherTok{());}
+    
+    \CommentTok{// rafraîchissement et affichage des dessins s'il y en a}
+    \KeywordTok{$window}\NormalTok{->display}\OtherTok{();}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+La création d'une instance de la classe \texttt{Window} nécessite obligatoirement de définir un mode de rendu qui contient également la taille de la fenêtre. Pour simplifier, la création de la fenêtre j'ai pris la décision de ne pas permettre la surcharge du mode de rendu vidéo et j'utilise celui de l'ordinateur par défaut, généralement de 32 bits par pixel.
+
+Malgré cela, cette procédure restant fastidieuse à réaliser à chacun de ses scripts j'ai pensé à réaliser une autre classe \texttt{ExtendedWindow} héritant de la classe \texttt{Window} et qui étend ou plutôt facilite l'utilisation des fonctionnalités de cette dernière.
+
+Désormais ouvrir une fenêtre revient à écrire
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{$window}\NormalTok{ = }\KeywordTok{new}\NormalTok{ ExtendedWindow}\OtherTok{(}
     \KeywordTok{new}\NormalTok{ VideoMode}\OtherTok{(}\DecValTok{800}\OtherTok{,} \DecValTok{600}\OtherTok{)}
 \OtherTok{);}
 
@@ -732,24 +810,197 @@ Vous pouvez trouver des exemples d'utilisation de la bibliothèque dans dans le 
 \end{Highlighting}
 \end{Shaded}
 
+Comme le dit la documentation, la méthode \texttt{run()} de la classe \texttt{Window}
+
+\begin{quote}
+Lance la boucle principale de la fenêtre et l'ouvre dans le même temps.
+\end{quote}
+
+En plus de cela elle gère également la boucle d'événement qui s'occupe de la fermeture de la fenêtre, s'occupe de dessiner à chaque rafraîchissement les objets qui lui sont attachés et possède bien plus d'atouts que nous détaillerons plus tard. Cette méthode facilite l'utilisation de bibliothèque à un point considérable car elle permet de s'abstraire des tâches répétitives lié à la création d'une fenêtre dans les bibliothèques graphiques classiques, c'est également la pierre angulaire de la librairie parce que c'est par elle que commence toutes activités que l'on voudrait réaliser avec la bibliothèque, comme dessiner des formes.
+
+\hypertarget{comment-dessiner}{%
+\subsubsection{Comment dessiner}\label{comment-dessiner}}
+
+Pour dessiner sur une fenêtre il n'y a rien de plus simple que l'appelle à la méthode \texttt{draw()} de la classe \texttt{Window} qui prend en paramètre un objet ``dessinable'' préalablement initialisé (de préférence à l'extérieur de la boucle) et l'affiche sur la fenêtre actuelle.
+
+Après avoir ouvert notre fenêtre, en supposant qu'on utilise la première méthode qu'offre notre bibliothèque, il faudrait écrire dans la partie réserver aux dessins (mise en évidence plus haut) :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{$window}\NormalTok{->draw}\OtherTok{(}
+            \KeywordTok{new}\NormalTok{ RectangleShape}\OtherTok{(}
+                \OtherTok{[}\DecValTok{400}\OtherTok{,} \DecValTok{200}\OtherTok{],}
+                \OtherTok{[}\DecValTok{100}\OtherTok{,} \DecValTok{200}\OtherTok{],}
+                \KeywordTok{$blue}
+            \OtherTok{)}
+        \OtherTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+Cependant faire cela est une mauvaise pratique et il serait préférable de créer ses formes avant le lancement de la boucle de la fenêtre, cela empêcherait l'inutile création de la même forme tout au long de la boucle qui maintient la fenêtre ouverte.
+
+Cela reste valable même si l'on utilise la seconde possibilité d'ouverture de fenêtre qu'est la méthode \texttt{run()} de la \texttt{ExtendedWindow}. Pour revenir sur cette méthode, il faut savoir qu'elle prend en paramètre en plus de la variable d'événements, deux fonctions qui sont respectivement utilisé pour la gestion personnalisée d'événements par l'utilisateur et la réalisation de dessins sur la fenêtre, s'il n'y a que cette dernière option qui nous intéresse on peut toujours passé null à la fonction \texttt{run()} à la place de la fonction de gestion d'événements. Il est vrai que cette façon de faire nécessite de connaître le concept de fonction anonyme (closure) qui relève de l'algorithmie légèrement avancé pour un débutant mais dès qu'on sait comment l'utiliser le reste n'est que de simples détails théoriques.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{$text}\NormalTok{ = }\KeywordTok{new}\NormalTok{ Text}\OtherTok{(}\StringTok{"Hello"}\OtherTok{);}
+\KeywordTok{$text}\NormalTok{->setFillColor}\OtherTok{(}\KeywordTok{$blue}\OtherTok{);}
+\KeywordTok{$text}\NormalTok{->setPosition}\OtherTok{([}\DecValTok{150}\OtherTok{,} \DecValTok{50}\OtherTok{]);}
+\KeywordTok{$text}\NormalTok{->setCharacterSize}\OtherTok{(}\DecValTok{50}\OtherTok{);}
+
+\KeywordTok{$window}\NormalTok{->run}\OtherTok{(}
+    \KeywordTok{new}\NormalTok{ Event}\OtherTok{(),}
+    \KeywordTok{null}\OtherTok{,}
+    \KeywordTok{function} \OtherTok{()} \KeywordTok{use} \OtherTok{(}\KeywordTok{$text}\OtherTok{,} \KeywordTok{$window}\OtherTok{)}\NormalTok{ \{}
+        \KeywordTok{$window}\NormalTok{->draw}\OtherTok{(}\KeywordTok{$text}\OtherTok{);}
+\NormalTok{    \}}
+\OtherTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+Le mot clé use est là pour dire que nous voulons utiliser ces variables pré-définie à l'interieur de notre fonction anonyme, sinon PHP ne sait pas que ces variables ont bien été déclaré et initialisé. Notre fonction anonyme peut ne pas être si anonyme qu'on peut le croire car on peut lui donner un nom, l'enregistrer dans une variable et passer cette dernière dans à la méthode \texttt{run()} plus tard dans notre script.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{function}\NormalTok{ dessine}\OtherTok{()}\NormalTok{ \{}
+\StringTok{...}
+\NormalTok{\}}
+
+\KeywordTok{$maFonction}\NormalTok{ = }\StringTok{'dessine'}\OtherTok{;}
+\CommentTok{//ou}
+\KeywordTok{$maFonction}\NormalTok{ = }\KeywordTok{function} \OtherTok{()}\NormalTok{ \{}
+\StringTok{...}
+\NormalTok{\}}
+
+\KeywordTok{$window}\NormalTok{->run}\OtherTok{(}\KeywordTok{new}\NormalTok{ Event}\OtherTok{(),} \KeywordTok{null}\OtherTok{,} \KeywordTok{$maFonction}\OtherTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+Cependant il faut prendre en compte le fait que si l'on utiliser des variables mise à jour dynamiquement par la bibliothèque comme les événements cette méthode est à proscrire.
+
+\hypertarget{comment-garder-les-modifications-appliquuxe9es-uxe0-ses-objets}{%
+\subsubsection{Comment garder les modifications appliquées à ses objets}\label{comment-garder-les-modifications-appliquuxe9es-uxe0-ses-objets}}
+
+Par défaut la bibliothèque n'enregistre pas toutes les modifications que vous appliquer à vos formes et autres objets dessinables parce qu'ils ne sont pas attachés à la fenêtre. Pour ce faire il faut utiliser la méthode \texttt{addToDrawingList()} qui comme son nom l'indique ajoute un objet identifié par une clé à la liste des éléments à dessiner qui seront enregistrés avec les données de la fenêtre et mis à jour à toutes futures modifications. L'objet enregistré peut toujours être retrouvé grâce à son identifiant et modifié si besoin.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{$window}\NormalTok{->addToDrawingList}\OtherTok{(}
+    \StringTok{'rectangle'}\OtherTok{,} \CommentTok{// la clé de l'objet}
+    \KeywordTok{new}\NormalTok{ RectangleShape}\OtherTok{(}
+        \OtherTok{[}\DecValTok{400}\OtherTok{,} \DecValTok{200}\OtherTok{],}
+        \OtherTok{[}\DecValTok{100}\OtherTok{,} \DecValTok{200}\OtherTok{],}
+        \KeywordTok{new}\NormalTok{ Color}\OtherTok{(}\NormalTok{Color::}\KeywordTok{BLUE}\OtherTok{)} \CommentTok{// définition de la couleur de fond en bleue}
+    \OtherTok{)}
+\OtherTok{);}
+
+\KeywordTok{$window}\NormalTok{->run}\OtherTok{(}
+    \KeywordTok{new}\NormalTok{ Event}\OtherTok{(),}
+    \KeywordTok{null}\OtherTok{,}
+    \KeywordTok{function} \OtherTok{()} \KeywordTok{use} \OtherTok{(}\KeywordTok{$red}\OtherTok{,} \KeywordTok{$window}\OtherTok{)}\NormalTok{ \{}
+
+        \KeywordTok{$window}
+\NormalTok{            ->getDrawingList}\OtherTok{()}
+\NormalTok{            ->getObject}\OtherTok{(}\StringTok{'rectangle'}\OtherTok{)}
+\NormalTok{            ->setFillColor}\OtherTok{(}\KeywordTok{$red}\OtherTok{)} \CommentTok{// Le rectangle affiché sera rouge au lieu d'être bleue comme défini plus haut}
+    \OtherTok{;}
+\NormalTok{    \}}
+\OtherTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+Tout cela dans le but de faciliter l'utilisation de la bibliothèque par des débutants et surtout flexibilité de celle-ci.
+
+\hypertarget{extra}{%
+\subsubsection{Extra}\label{extra}}
+
+\hypertarget{cruxe9er-une-couleur}{%
+\paragraph{Créer une couleur}\label{cruxe9er-une-couleur}}
+
+Des couleurs sont prédéfinie dans l'énumération prévu pour. Mais pour s'en servir il faut créer une instance de couleur avec l'une de ces valeurs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{$color}\NormalTok{ = }\KeywordTok{new}\NormalTok{ Color}\OtherTok{(}\NormalTok{Color::}\KeywordTok{RED}\OtherTok{)} \CommentTok{// équivaut à Color::DYNAMIC()}
+\end{Highlighting}
+\end{Shaded}
+
+Il est évidemment possible de créer des couleurs dynamique avec des valeur de couleurs primaires.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{$color}\NormalTok{ = }\OtherTok{(}\KeywordTok{new}\NormalTok{ Color}\OtherTok{(}\NormalTok{Color::}\KeywordTok{DYNAMIC}\OtherTok{))} \CommentTok{// équivaut à Color::DYNAMIC()}
+\NormalTok{    ->fromRGB}\OtherTok{(}\DecValTok{12}\OtherTok{,} \DecValTok{12}\OtherTok{,} \DecValTok{13}\OtherTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{guxe9rer-des-uxe9vuxe9nements}{%
+\paragraph{Gérer des événements}\label{guxe9rer-des-uxe9vuxe9nements}}
+
+On ne pourrait pas parler proprement de bibliothèque graphique sans gestion des événements déclencher sur la fenêtre, voilà pourquoi l'implémentation de la gestion des événements et des entrées (clavier et souris) faisaient parties de mes priorités.
+
+On a précédemment vu sur les morceaux de codes qu'on pouvait créer une instance d'événement avec
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{new}\NormalTok{ Event}\OtherTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Le constructeur de cette classe ne prend rien en paramètre car tout est géré en interne pour l'utilisateur. Tout ce qu'il reste à faire pour l'utiliser c'est de vérifier qu'un certain type d'événement à bien été reçu et le traiter en tant que tel. Un exemple d'utilisation serait :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{$event}\NormalTok{ = }\KeywordTok{new}\NormalTok{ Event}\OtherTok{();}
+\KeywordTok{$window}\NormalTok{->run}\OtherTok{(}
+    \KeywordTok{$event}\OtherTok{,}
+    \KeywordTok{function} \OtherTok{()} \KeywordTok{use} \OtherTok{(}\KeywordTok{$event}\OtherTok{,} \KeywordTok{$window}\OtherTok{)}\NormalTok{ \{}
+        \KeywordTok{if} \OtherTok{(}\KeywordTok{$event}\NormalTok{->}\FunctionTok{getType}\OtherTok{()}\NormalTok{->getValue}\OtherTok{()}\NormalTok{ == EventType::}\KeywordTok{MOUSE_BUTTON_PRESSED}\OtherTok{)}\NormalTok{ \{}
+            \CommentTok{// réaliser une action si un bouton de la souris est cliqué}
+\NormalTok{        \}}
+\NormalTok{    \}}\OtherTok{,}
+    \KeywordTok{function} \OtherTok{()} \KeywordTok{use} \OtherTok{(}\KeywordTok{$event}\OtherTok{,} \KeywordTok{$window}\OtherTok{)}\NormalTok{ \{}
+       \CommentTok{// faire ses dessins}
+\OtherTok{);}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{documentation}{%
 \subsection{Documentation}\label{documentation}}
 
-Actuellement la documentation de la bibliothèque n'est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèques sur le dépôt github.
+Actuellement la documentation de la bibliothèque n'est pas hébergé mais elle peut être lu directement sur les sources de la bibliothèque sur le dépôt github.
 
 \hypertarget{res}{%
 \chapter{Résultat}\label{res}}
 
-\emph{J'ai hâte moi aussi \ldots{}}
+\hypertarget{finalituxe9-de-la-bibliothuxe8que}{%
+\section{Finalité de la bibliothèque}\label{finalituxe9-de-la-bibliothuxe8que}}
+
+A la fin de mes quatre semaines de travail j'ai pu implémenté la majorité sinon toutes les fonctionnalités demandées par ma tutrice de projets pour cette mise en situation professionnelle. On peut alors être fier et dire que l'objectif est atteint, malgré tout la bibliothèque n'est pas complète et il reste des choses à approfondir.
+
+Par exemple la possibilité de créer des formes personnalisé en redéfinissant ou en héritant de la classe \texttt{Shape} comme cela est expliqué dans un tutoriel de SFML sur \href{https://www.sfml-dev.org/tutorials/2.5/graphics-shape-fr.php\#formes-personnaliscees}{la création de forme}. C'est l'une des choses que j'aurai aimé implémenter sur la fin de ma période de travail avec la création de formes convexes --- la classe \href{https://www.sfml-dev.org/documentation/2.5.1-fr/classsf_1_1ConvexShape.php}{\texttt{ConvexShape}}. Ce qui ne pourra pas être fait par manque de temps mais surtout de capacités offertes par FFI.
+
+Le principal étant que la bibliothèque soit utilisable pour les TPs de POO, l'implémentation de ce genre de fonctionnalités complexes passe au second plan. Même si cela n'est pas impossible, il est peut probable qu'un débutant puisse avoir l'initiative de se lancer dans ce genre de défi.
 
 \hypertarget{bilan-de-la-mise-en-situation-professionnelle}{%
 \section{Bilan de la mise en situation professionnelle}\label{bilan-de-la-mise-en-situation-professionnelle}}
 
-\hypertarget{finalituxe9-de-la-bibliothuxe8que}{%
-\section{Finalité de la bibliothèque}\label{finalituxe9-de-la-bibliothuxe8que}}
+La mise en situation professionnelle fut une épreuve très enrichissante sur tellement de points que je ne pourrai tous les aborder.
+
+Elle m'a d'abord aidé à développer des compétences nouvelles tout comme à approfondir et étendre celles que je possédais déjà. Je pourrai citer la découverte et l'utilisation maximale des nouveautés qu'apporte le PHP 7.4 dans la création de PHPML mais aussi la connaissance du C --- que je n'ai jamais pratiqué --- et la bibliothèque SFML. Elle a également permis la culture de bonnes habitudes personnelle et professionnel grâce à la confrontation au télétravail, ce qui n'aurait pas forcément été possible lors d'un stage.
+
+Il est certains que créer un package PHP n'est pas un projet aisé qui se fait dès la première idée. J'ai donc du établir un plan de développement et l'adapter à chaque évolution du projet que ce soit sur la conception ou l'implémentation, cela à évidemment contribuer à élargir la vision que j'avais de la gestion de projet et dans le même temps améliorer mes compétences dans le domaine.
+
+Pourtant il est difficile de croire que la mise ne situation professionnelle n'a que des qualités. En effet, malgré tout ce que j'ai gagné à réaliser ce projet il ne sera pas officiellement compté comme une expérience professionnelle; la où mon stage aurait permis d'en avoir un minimum et me démarquer parmi tous les autres débouchés la mise en situation professionnelle n'est qu'un projet de plus dans mon cursus d'étudiants.
 
 \hypertarget{ressenti-personnel}{%
 \section{Ressenti personnel}\label{ressenti-personnel}}
+
+Globalement j'ai un ressenti positif envers l'expérience que j'ai vécu lors de ma mise en situation professionnelle. Il est plus pertinent de se faire un point de vue sur les bénéfices que sur les inconvénients.
+
+Il était éprouvant psychologiquement de travailler au même endroit ou je me divertis, se retenir d'arrêter le travail pour jouer par exemple, alors que presque tout était réuni pour, fut l'un des efforts que j'ai du fournir pour arriver au terme du projet ou du moins à un minimum viable.
+
+J'ai été confronté à divers problématiques que je n'ai pas tout le temps réussi à résoudre ou que j'ai failli abandonner, mais quoiqu'il en était contourner le problème pour y arriver ou demander conseil à ma tutrice de projet a toujours été le meilleur choix. Finalement j'en suis sorti avec plus d'acquis qu'avant et c'est je pense le plus important. \^{}
 
 \hypertarget{conclusion}{%
 \chapter*{Conclusion}\label{conclusion}}
@@ -771,13 +1022,31 @@ Ainsi j'ai pu apprendre à créer une bibliothèque en PHP et me servir de FFI, 
 \item[POO]
 Programmation Orientée Objets
 
+\begin{quote}
 La programmation orientée objet (POO), ou programmation par objet, est un paradigme de programmation informatique. Il consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre.
+\end{quote}
 
 --- \citep{wikipedia_programmation_2020}
 \item[FFI]
 Foreign Function Interface
 
 C'est un mécanisme par lequel un programme écrit dans un langage de programmation peut appeler des routines ou utiliser des services écrits dans un autre.
+\item[SFML]
+Simple and Fast Media Library
+
+\begin{quote}
+SFML offre une interface simple vers les différents composants de votre PC, afin de faciliter le développement de jeux ou d'applications multimedia. Elle se compose de cinq modules : système, fenêtrage, graphisme, audio et réseau.
+\end{quote}
+
+--- \citep{laurent_sfml_2020}
+\item[CSFML]
+C Simple and Fast Media Library
+
+\begin{quote}
+CSFML est le binding officiel de SFML pour le langage C. Son API est aussi proche que possible que l'API C++ (mais dans le style C, bien entendu), ce qui en fait un candidat parfait pour construire des bindings SFML pour d'autres langages qui ne supportent pas directement les bibliothèques C++.
+\end{quote}
+
+--- \citep{laurent_sfml_2020}
 \item[URCA]
 Université de Reims Champagne Ardenne
 \item[IUT-RCC]

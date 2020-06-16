@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 4 Résultat | Memoire de mise en situation professionnel — Créer une bibliothèque PHP</title>
+  <title>Chapitre 4 Résultat | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP</title>
   <meta name="description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 4 Résultat | Memoire de mise en situation professionnel — Créer une bibliothèque PHP" />
+  <meta property="og:title" content="Chapitre 4 Résultat | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://djuhnix.github.io/memo-msp/" />
   <meta property="og:image" content="https://djuhnix.github.io/memo-msp/assets/img/undraw_developer_activity.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="djuhnix/memo-msp" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 4 Résultat | Memoire de mise en situation professionnel — Créer une bibliothèque PHP" />
+  <meta name="twitter:title" content="Chapitre 4 Résultat | Memoire de mise en situation professionnel — Création d’une bibliothèque PHP" />
   
   <meta name="twitter:description" content="Mémoire du projet de mise en situation professionnelle sur la création d’une bibliothèque PHP" />
   <meta name="twitter:image" content="https://djuhnix.github.io/memo-msp/assets/img/undraw_developer_activity.png" />
@@ -132,6 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Avant-propos</a></li>
+<li class="chapter" data-level="" data-path="remerciements.html"><a href="remerciements.html"><i class="fa fa-check"></i>Remerciements</a></li>
 <li class="chapter" data-level="" data-path="résumé.html"><a href="résumé.html"><i class="fa fa-check"></i>Résumé</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="context.html"><a href="context.html"><i class="fa fa-check"></i><b>1</b> Contexte</a><ul>
@@ -142,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="context.html"><a href="context.html#pourquoi-faire-une-bibliothèque-en-php"><i class="fa fa-check"></i><b>1.2</b> Pourquoi faire une bibliothèque en PHP</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="context.html"><a href="context.html#larrière-plan"><i class="fa fa-check"></i><b>1.2.1</b> L’arrière-plan</a></li>
 <li class="chapter" data-level="1.2.2" data-path="context.html"><a href="context.html#le-problème-avec-php"><i class="fa fa-check"></i><b>1.2.2</b> Le problème avec PHP</a></li>
-<li class="chapter" data-level="1.2.3" data-path="context.html"><a href="context.html#lintervention-de-germain"><i class="fa fa-check"></i><b>1.2.3</b> L’intervention de Germain</a></li>
+<li class="chapter" data-level="1.2.3" data-path="context.html"><a href="context.html#définition-de-lobjectif"><i class="fa fa-check"></i><b>1.2.3</b> Définition de l’objectif</a></li>
 <li class="chapter" data-level="1.2.4" data-path="context.html"><a href="context.html#la-pertinence-du-projets"><i class="fa fa-check"></i><b>1.2.4</b> La pertinence du projets</a></li>
 </ul></li>
 </ul></li>
@@ -159,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="dev.html"><a href="dev.html#ma-première-classe-abstractffi"><i class="fa fa-check"></i><b>2.3.1</b> Ma première classe AbstractFFI</a></li>
 <li class="chapter" data-level="2.3.2" data-path="dev.html"><a href="dev.html#architecture-globale"><i class="fa fa-check"></i><b>2.3.2</b> Architecture globale</a></li>
 <li class="chapter" data-level="2.3.3" data-path="dev.html"><a href="dev.html#exemple-de-la-classe-window"><i class="fa fa-check"></i><b>2.3.3</b> Exemple de la classe Window</a></li>
-<li class="chapter" data-level="2.3.4" data-path="dev.html"><a href="dev.html#diagramme-de-classe"><i class="fa fa-check"></i><b>2.3.4</b> Diagramme de classe</a></li>
+<li class="chapter" data-level="2.3.4" data-path="dev.html"><a href="dev.html#diagramme-de-classes"><i class="fa fa-check"></i><b>2.3.4</b> Diagramme de classes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="dev.html"><a href="dev.html#implémentation-de-la-bibliothèque"><i class="fa fa-check"></i><b>2.4</b> Implémentation de la bibliothèque</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="dev.html"><a href="dev.html#lordre-dimplémentation"><i class="fa fa-check"></i><b>2.4.1</b> L’ordre d’implémentation</a></li>
@@ -171,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.3" data-path="dev.html"><a href="dev.html#publication-de-bibliothèque-avec-composer-et-packagist"><i class="fa fa-check"></i><b>2.5.3</b> Publication de bibliothèque avec composer et packagist</a></li>
 <li class="chapter" data-level="2.5.4" data-path="dev.html"><a href="dev.html#maintenabilité"><i class="fa fa-check"></i><b>2.5.4</b> Maintenabilité</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="dev.html"><a href="dev.html#tableau-récapitulatif"><i class="fa fa-check"></i><b>2.6</b> Tableau récapitulatif</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="utils.html"><a href="utils.html"><i class="fa fa-check"></i><b>3</b> Utilisation de la bibliothèque</a><ul>
 <li class="chapter" data-level="3.1" data-path="utils.html"><a href="utils.html#utils-pre-requis"><i class="fa fa-check"></i><b>3.1</b> Pré-requis à l’utilisation</a><ul>
@@ -183,8 +185,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="res.html"><a href="res.html"><i class="fa fa-check"></i><b>4</b> Résultat</a><ul>
-<li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#bilan-de-la-mise-en-situation-professionnelle"><i class="fa fa-check"></i><b>4.1</b> Bilan de la mise en situation professionnelle</a></li>
-<li class="chapter" data-level="4.2" data-path="res.html"><a href="res.html#finalité-de-la-bibliothèque"><i class="fa fa-check"></i><b>4.2</b> Finalité de la bibliothèque</a></li>
+<li class="chapter" data-level="4.1" data-path="res.html"><a href="res.html#finalité-de-la-bibliothèque"><i class="fa fa-check"></i><b>4.1</b> Finalité de la bibliothèque</a></li>
+<li class="chapter" data-level="4.2" data-path="res.html"><a href="res.html#bilan-de-la-mise-en-situation-professionnelle"><i class="fa fa-check"></i><b>4.2</b> Bilan de la mise en situation professionnelle</a></li>
 <li class="chapter" data-level="4.3" data-path="res.html"><a href="res.html#ressenti-personnel"><i class="fa fa-check"></i><b>4.3</b> Ressenti personnel</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
@@ -203,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Memoire de mise en situation professionnel — Créer une bibliothèque PHP</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Memoire de mise en situation professionnel — Création d’une bibliothèque PHP</a>
           </h1>
         </div>
 
@@ -213,15 +215,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="res" class="section level1">
 <h1><span class="header-section-number">Chapitre 4</span> Résultat</h1>
-<p><em>J’ai hâte moi aussi …</em></p>
-<div id="bilan-de-la-mise-en-situation-professionnelle" class="section level2">
-<h2><span class="header-section-number">4.1</span> Bilan de la mise en situation professionnelle</h2>
-</div>
 <div id="finalité-de-la-bibliothèque" class="section level2">
-<h2><span class="header-section-number">4.2</span> Finalité de la bibliothèque</h2>
+<h2><span class="header-section-number">4.1</span> Finalité de la bibliothèque</h2>
+<p>A la fin de mes quatre semaines de travail j’ai pu implémenté la majorité sinon toutes les fonctionnalités demandées par ma tutrice de projets pour cette mise en situation professionnelle. On peut alors être fier et dire que l’objectif est atteint, malgré tout la bibliothèque n’est pas complète et il reste des choses à approfondir.</p>
+<p>Par exemple la possibilité de créer des formes personnalisé en redéfinissant ou en héritant de la classe <code>Shape</code> comme cela est expliqué dans un tutoriel de SFML sur <a href="https://www.sfml-dev.org/tutorials/2.5/graphics-shape-fr.php#formes-personnaliscees">la création de forme</a>.
+C’est l’une des choses que j’aurai aimé implémenter sur la fin de ma période de travail avec la création de formes convexes — la classe <a href="https://www.sfml-dev.org/documentation/2.5.1-fr/classsf_1_1ConvexShape.php"><code>ConvexShape</code></a>. Ce qui ne pourra pas être fait par manque de temps mais surtout de capacités offertes par FFI.</p>
+<p>Le principal étant que la bibliothèque soit utilisable pour les TPs de POO, l’implémentation de ce genre de fonctionnalités complexes passe au second plan. Même si cela n’est pas impossible, il est peut probable qu’un débutant puisse avoir l’initiative de se lancer dans ce genre de défi.</p>
+</div>
+<div id="bilan-de-la-mise-en-situation-professionnelle" class="section level2">
+<h2><span class="header-section-number">4.2</span> Bilan de la mise en situation professionnelle</h2>
+<p>La mise en situation professionnelle fut une épreuve très enrichissante sur tellement de points que je ne pourrai tous les aborder.</p>
+<p>Elle m’a d’abord aidé à développer des compétences nouvelles tout comme à approfondir et étendre celles que je possédais déjà. Je pourrai citer la découverte et l’utilisation maximale des nouveautés qu’apporte le PHP 7.4 dans la création de PHPML mais aussi la connaissance du C — que je n’ai jamais pratiqué — et la bibliothèque SFML.
+Elle a également permis la culture de bonnes habitudes personnelle et professionnel grâce à la confrontation au télétravail, ce qui n’aurait pas forcément été possible lors d’un stage.</p>
+<p>Il est certains que créer un package PHP n’est pas un projet aisé qui se fait dès la première idée. J’ai donc du établir un plan de développement et l’adapter à chaque évolution du projet que ce soit sur la conception ou l’implémentation, cela à évidemment contribuer à élargir la vision que j’avais de la gestion de projet et dans le même temps améliorer mes compétences dans le domaine.</p>
+<p>Pourtant il est difficile de croire que la mise ne situation professionnelle n’a que des qualités. En effet, malgré tout ce que j’ai gagné à réaliser ce projet il ne sera pas officiellement compté comme une expérience professionnelle; la où mon stage aurait permis d’en avoir un minimum et me démarquer parmi tous les autres débouchés la mise en situation professionnelle n’est qu’un projet de plus dans mon cursus d’étudiants.</p>
 </div>
 <div id="ressenti-personnel" class="section level2">
 <h2><span class="header-section-number">4.3</span> Ressenti personnel</h2>
+<p>Globalement j’ai un ressenti positif envers l’expérience que j’ai vécu lors de ma mise en situation professionnelle. Il est plus pertinent de se faire un point de vue sur les bénéfices que sur les inconvénients.</p>
+<p>Il était éprouvant psychologiquement de travailler au même endroit ou je me divertis, se retenir d’arrêter le travail pour jouer par exemple, alors que presque tout était réuni pour, fut l’un des efforts que j’ai du fournir pour arriver au terme du projet ou du moins à un minimum viable.</p>
+<p>J’ai été confronté à divers problématiques que je n’ai pas tout le temps réussi à résoudre ou que j’ai failli abandonner, mais quoiqu’il en était contourner le problème pour y arriver ou demander conseil à ma tutrice de projet a toujours été le meilleur choix.
+Finalement j’en suis sorti avec plus d’acquis qu’avant et c’est je pense le plus important.
+^</p>
 
 </div>
 </div>
