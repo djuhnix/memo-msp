@@ -54,5 +54,5 @@ Les sources de ce projet sont disponibles sur Github à l'adresse https://github
 
 
 `r if (knitr::is_html_output()) 'Sur cette versions en ligne du mémoire vous pourrez si vous le souhaitez annotez certaines parties, pour souligner un point important ou me faire savoir 
-d\'une erreur quelles qu\'elles soient.'
+d\'une erreur quelles qu\'elles soient en vous aidant de [Hypothesis - Get Started](https://web.hypothes.is/start/)'
 `
